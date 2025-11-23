@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2f050608a3fe0d84e9fad061841901bc
+guid: 3500872d0a8492f4a9013920dbf1c9db
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6768411778599278185
-    second: bg_cave_near_fix_0
+      213: -8308140904311358358
+    second: Soil_background_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bg_cave_near_fix_0
+      name: Soil_background_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1024
-        height: 1024
+        width: 1920
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 966dafce6aa3eed50800000000000000
-      internalID: 6768411778599278185
+      spriteID: a6cf0aeaddd83bc80800000000000000
+      internalID: -8308140904311358358
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      bg_cave_near_fix_0: 6768411778599278185
+      Soil_background_0: -8308140904311358358
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
