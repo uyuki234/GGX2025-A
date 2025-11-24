@@ -6344,18 +6344,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eeb3af80ec50e84e82d1bc9570e93ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed_base: 0
-  moveSpeed_correction: 0
-  moveSpeed_effective: 0
-  attack_base: 0
-  attack_correction: 0
-  attack_effective: 0
-  chargeEnergy_base: 0
-  chargeEnergy_correction: 0
-  chargeEnergy_effective: 0
-  viewRange_base: 0
-  viewRange_correction: 0
-  viewRange_effective: 0
+  moveSpeed_base: 10
+  moveSpeed_correction: 1
+  moveSpeed_effective: 10
+  attack_base: 10
+  attack_correction: 1
+  attack_effective: 10
+  chargeEnergy_base: 10
+  chargeEnergy_correction: 1
+  chargeEnergy_effective: 10
+  viewRange_base: 10
+  viewRange_correction: 1
+  viewRange_effective: 10
   maxEnergy: 0
   currentEnergy: 0
   jumpPow: 0
@@ -6564,12 +6564,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49d243317e759594abb286c28741ece2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  statusManager: {fileID: 1447367232}
+  fixspeed: 0.2
   moveSpeed: 2
   rayDistance: 0.1
   roofRayDistance: 0.8
   lowerRayXOffset: 1
   lowerRayYOffset: -0.4
-  rayHeightOffset: 1
+  rayHeightOffset: 1.75
   wallRayOffset: {x: 0.4, y: -0.5}
   roofRayOffset: {x: 0, y: 0.8}
   jumpForce: 5
