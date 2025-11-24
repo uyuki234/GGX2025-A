@@ -2,26 +2,38 @@ using UnityEngine;
 
 public class AutoWalkerWithRayFlip : MonoBehaviour
 {
-    public float moveSpeed = 2f;
-    public float rayDistance = 0.5f;
-    public float roofRayDistance = 1f;
-    public float lowerRayXOffset = 0f; 
-    public float lowerRayYOffset = 0f;
-    public float rayHeightOffset = 0.5f; // ���Ray��Y�I�t�Z�b�g
-    public Vector2 wallRayOffset = new Vector2(0, 0);
-    public Vector2 roofRayOffset = new Vector2(0, 0);
-    public float jumpForce = 5f;
+    [SerializeField] private StatusManager statusManager;
 
-    public GameObject leftArrow;
-    public GameObject rightArrow;
+    [SerializeField] private float fixspeed = 0.2f;
+    [SerializeField] private float moveSpeed = 2f;
+    [SerializeField] private float rayDistance = 0.5f;
+    [SerializeField] private float roofRayDistance = 1f;
+
+    [SerializeField] private float lowerRayXOffset = 0f;
+    [SerializeField] private float lowerRayYOffset = 0f;
+    [SerializeField] private float rayHeightOffset = 0.5f;
+
+    [SerializeField] private Vector2 wallRayOffset = new Vector2(0, 0);
+    [SerializeField] private Vector2 roofRayOffset = new Vector2(0, 0);
+
+    [SerializeField] private float jumpForce = 5f;
+
+    [SerializeField] private GameObject leftArrow;
+    [SerializeField] private GameObject rightArrow;
 
     public bool isPaused = false;
 
-    public LayerMask wallLayer;
-    public Rigidbody2D rb;
-    public SpriteRenderer spriteRenderer;
+    [SerializeField] private LayerMask wallLayer;
+    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+
 
     private Vector2 moveDirection = Vector2.right;
+
+    private void Start()
+    {
+        moveSpeed = fixspeed * statusManager.moveSpeed_effective;
+    }
 
     void Update()
     {

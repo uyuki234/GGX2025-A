@@ -4,23 +4,23 @@ public class StatusManager : MonoBehaviour
 {
     [Header("ƒLƒƒƒ‰‚ÌˆÚ“®‘¬“x")]
     public float moveSpeed_base = 10;
-    public float moveSpeed_correction;
-    public float moveSpeed_effective;
+    public float moveSpeed_correction = 1;
+    public float moveSpeed_effective = 10f;
 
     [Header("ƒhƒ‰ƒbƒO‚ÌUŒ‚—Í")]
     public float attack_base = 10;
-    public float attack_correction;
-    public float attack_effective;
+    public float attack_correction = 1;
+    public float attack_effective = 10;
 
     [Header("Œ@íƒGƒlƒ‹ƒM[‰ñ•œ‘¬“x")]
     public float chargeEnergy_base = 10;
-    public float chargeEnergy_correction;
-    public float chargeEnergy_effective;
+    public float chargeEnergy_correction = 1;
+    public float chargeEnergy_effective = 10;
 
     [Header("‹ŠE‚ÌL‚³")]
     public float viewRange_base = 10;
-    public float viewRange_correction;
-    public float viewRange_effective;
+    public float viewRange_correction = 1;
+    public float viewRange_effective = 10;
 
     [Header("Œ@íƒGƒlƒ‹ƒM[‚Ìó‘Ô")]
     public float maxEnergy;
