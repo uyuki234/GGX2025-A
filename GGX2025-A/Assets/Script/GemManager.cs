@@ -34,6 +34,7 @@ public class GemManager : MonoBehaviour
     {
         _activeGems = new List<GemBase>();
         _registwaitingGems = new Queue<GemBase>();
+        CreateGem(new Vector2(0,5),GemType.None);
     }
 
 
