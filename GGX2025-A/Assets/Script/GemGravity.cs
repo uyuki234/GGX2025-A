@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class JemGravity : MonoBehaviour
+public class GemGravity : MonoBehaviour
 {
     public float rayDistance = 0.2f;
     public Vector2 rayOffset = new Vector2(0, -0.1f);
