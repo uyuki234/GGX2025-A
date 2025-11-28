@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class StatusManager : MonoBehaviour
+public class StatusManager : SingletonMonoBehavior<StatusManager>
 {
     [Header("ƒLƒƒƒ‰‚ÌˆÚ“®‘¬“x")]
     public float moveSpeed_base = 10;
