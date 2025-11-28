@@ -14,18 +14,6 @@ public enum GemType
     ViewRange
 }
 
-/// <summary>
-/// ジェムのタイプ
-/// </summary>
-public enum SliderType
-{
-    None,
-    MoveSpeed,
-    Attak,
-    ChargeEnergy,
-    ViewRange
-}
-
 public class GemManager : MonoBehaviour
 {
 
@@ -46,7 +34,10 @@ public class GemManager : MonoBehaviour
     {
         _activeGems = new List<GemBase>();
         _registwaitingGems = new Queue<GemBase>();
-        CreateGem(new Vector2(0,5),GemType.None);
+        CreateGem(new Vector2(-1,5),GemType.MoveSpeed);
+        CreateGem(new Vector2(0, 5), GemType.Attak);
+        CreateGem(new Vector2(1, 5), GemType.ChargeEnergy);
+        CreateGem(new Vector2(2, 5), GemType.ViewRange);
     }
 
 
