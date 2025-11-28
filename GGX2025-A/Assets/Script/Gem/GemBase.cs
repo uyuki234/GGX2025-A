@@ -8,6 +8,5 @@ public class GemBase : MonoBehaviour
     // ‰Šú‰»ˆ—
     public void Initialize()
     {
-
     }
 }
