@@ -14,6 +14,18 @@ public enum GemType
     ViewRange
 }
 
+/// <summary>
+/// ジェムのタイプ
+/// </summary>
+public enum SliderType
+{
+    None,
+    MoveSpeed,
+    Attak,
+    ChargeEnergy,
+    ViewRange
+}
+
 public class GemManager : MonoBehaviour
 {
 

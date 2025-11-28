@@ -5268,6 +5268,56 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
+--- !u!1 &1068644384
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1068644386}
+  - component: {fileID: 1068644385}
+  m_Layer: 0
+  m_Name: BarManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1068644385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068644384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcaf9f2166b4fc94ba87c828a883c14f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statuSlider:
+  - {fileID: 104745510}
+  - {fileID: 28974692}
+  - {fileID: 348848986}
+  - {fileID: 970502278}
+  - {fileID: 651514714}
+--- !u!4 &1068644386
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068644384}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.5366547, y: -1.5767442, z: 4.6894293}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1096808759
 GameObject:
   m_ObjectHideFlags: 0
@@ -7109,8 +7159,8 @@ MonoBehaviour:
   currentLevel: 0
   currentExp: 0
   levelupExp: 0
-  maxHP: 0
-  currentHP: 0
+  maxHP: 100
+  currentHP: 50
 --- !u!4 &1447367233
 Transform:
   m_ObjectHideFlags: 0
@@ -8054,3 +8104,4 @@ SceneRoots:
   - {fileID: 1447367233}
   - {fileID: 1850934085}
   - {fileID: 243970805}
+  - {fileID: 1068644386}
