@@ -4,6 +4,7 @@ public class SurfaceCrawlerEnemy : MonoBehaviour
 {
     [Header("移動設定")]
     [SerializeField] private float moveSpeed = 2f;
+    [SerializeField] private float fallSpeed = 5f;
     [SerializeField] private LayerMask wallLayer;
 
     [Header("Ray 設定")]
@@ -16,6 +17,7 @@ public class SurfaceCrawlerEnemy : MonoBehaviour
     [SerializeField] private Vector2 rayOffset_BottomRight;
 
     private Rigidbody2D rb;
+    private bool rotating = false;
 
     void Start()
     {
@@ -37,23 +39,31 @@ public class SurfaceCrawlerEnemy : MonoBehaviour
         bool hitBR = Physics2D.Raycast(br, -transform.up, rayDistance, wallLayer);
 
         // Debug 可視化
-        Debug.DrawRay(tl, transform.up * rayDistance, hitTL ? Color.red : Color.green);
-        Debug.DrawRay(tr, transform.up * rayDistance, hitTR ? Color.red : Color.green);
-        Debug.DrawRay(bl, -transform.up * rayDistance, hitBL ? Color.blue : Color.yellow);
-        Debug.DrawRay(br, -transform.up * rayDistance, hitBR ? Color.blue : Color.yellow);
+        Debug.DrawRay(tl, transform.up * rayDistance, hitTL ? Color.yellow : Color.green);
+        Debug.DrawRay(tr, transform.up * rayDistance, hitTR ? Color.yellow : Color.green);
+        Debug.DrawRay(bl, -transform.up * rayDistance, hitBL ? Color.red : Color.green);
+        Debug.DrawRay(br, -transform.up * rayDistance, hitBR ? Color.red : Color.green);
 
         // === 回転判定 ===
-        // 右上のRayが地形から外れた → 右側に曲がる
-        if (!hitTR)
-        {
-            transform.Rotate(0, 0, -90f);
-            return;
-        }
-
         // 左上が外れた → 左に曲がる
         if (!hitTL)
         {
             transform.Rotate(0, 0, 90f);
+            return;
+        }
+
+        else if (hitTR && hitBR &&hitBL&& !rotating){
+            rotating = true;
+            transform.Rotate(0, 0, -90f);
+            return;
+        }
+        
+        if (hitBL && hitBR)
+        {
+            rotating = true;
+            // 落下方向 = 進行方向を -90°した方向 = -transform.up
+            Vector2 fallDir = -transform.up;
+            rb.linearVelocity = fallDir * fallSpeed;
             return;
         }
 
@@ -63,6 +73,7 @@ public class SurfaceCrawlerEnemy : MonoBehaviour
         if (!hitBL || !hitBR)
         {
             rb.linearVelocity = transform.right * moveSpeed;
+            rotating = false;
         }
         else
         {

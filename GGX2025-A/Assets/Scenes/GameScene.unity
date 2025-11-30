@@ -4435,7 +4435,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 40
   m_Sprite: {fileID: -4859358086172074195, guid: 8949067091800ee43b59a2d330e702e1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4456,7 +4456,7 @@ Transform:
   m_GameObject: {fileID: 559271251}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.29, y: -1.6, z: 0}
+  m_LocalPosition: {x: 1.25, y: 0.42, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4474,15 +4474,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c52d4c238ff09e4b97648e773b4052f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
+  moveSpeed: 2
+  fallSpeed: 5
   wallLayer:
     serializedVersion: 2
     m_Bits: 64
   rayDistance: 0.01
-  rayOffset_TopLeft: {x: -0.5, y: 0.5}
-  rayOffset_TopRight: {x: 0.5, y: 0.5}
-  rayOffset_BottomLeft: {x: -0.5, y: -0.5}
-  rayOffset_BottomRight: {x: -0.5, y: 0.5}
+  rayOffset_TopLeft: {x: -0.5, y: 0.49}
+  rayOffset_TopRight: {x: 0.4, y: -1.4}
+  rayOffset_BottomLeft: {x: -0.5, y: -0.6}
+  rayOffset_BottomRight: {x: 0.4, y: -0.6}
 --- !u!50 &559271258
 Rigidbody2D:
   serializedVersion: 5
