@@ -1,3 +1,4 @@
+ï»¿
 using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
@@ -9,7 +10,135 @@ public class WorldRectangleSelector : MonoBehaviour
     public GameObject finalSquarePrefab;
     [SerializeField] private Transform parentObject;
 
-    [SerializeField] private List<RectTransform> uiBlockers; // © UIƒŠƒXƒg
+    [SerializeField] private List<RectTransform> uiBlockers;
+
+    [Header("æ˜å‰Šã‚¨ãƒãƒ«ã‚®ãƒ¼é–¢é€£")]
+    [SerializeField] private ExcavationEnergyUI excavationUI;
+    [SerializeField] private float baseCost = 10f;
+    [SerializeField] private float threshold = 2f;
+    [SerializeField] private float costPerUnit = 5f;
+
+    private Vector3 startWorldPos;
+    private GameObject currentSelectionSquare;
+    private bool isSelecting = false;
+    private float requiredEnergy = 0f;
+
+    void Update()
+    {
+        if (!isSelecting)
+        {
+            if (IsPointerOverUI()) return;
+        }
+
+        // å·¦ã‚¯ãƒªãƒƒã‚¯é–‹å§‹
+        if (Input.GetMouseButtonDown(0))
+        {
+            startWorldPos = GetMouseWorldPosition();
+            isSelecting = true;
+
+            currentSelectionSquare = Instantiate(selectionSquarePrefab);
+
+            requiredEnergy = baseCost;
+            excavationUI?.UpdatePreview(requiredEnergy);
+        }
+
+        // ãƒ‰ãƒ©ãƒƒã‚°ä¸­
+        if (Input.GetMouseButton(0) && isSelecting)
+        {
+            Vector3 currentWorldPos = GetMouseWorldPosition();
+            UpdateSquare(currentSelectionSquare, startWorldPos, currentWorldPos);
+
+            Vector3 size = new Vector3(Mathf.Abs(currentWorldPos.x - startWorldPos.x),
+                                       Mathf.Abs(currentWorldPos.y - startWorldPos.y), 1f);
+            float maxSide = Mathf.Max(size.x, size.y);
+            if (maxSide > threshold)
+            {
+                requiredEnergy = baseCost + (maxSide - threshold) * costPerUnit;
+            }
+
+            excavationUI?.UpdatePreview(requiredEnergy);
+
+            var sr = currentSelectionSquare.GetComponent<SpriteRenderer>();
+            if (sr != null)
+            {
+                sr.color = (excavationUI != null && excavationUI.CurrentEnergy >= requiredEnergy) ? Color.white : Color.red;
+            }
+        }
+
+        // å·¦ã‚¯ãƒªãƒƒã‚¯é›¢ã™ï¼ˆç¢ºå®šï¼‰
+        if (Input.GetMouseButtonUp(0) && isSelecting)
+        {
+            if (excavationUI != null && excavationUI.CurrentEnergy >= requiredEnergy)
+            {
+                excavationUI.ApplyEnergy(requiredEnergy);
+
+                Vector3 endWorldPos = GetMouseWorldPosition();
+                GameObject finalSquare = Instantiate(finalSquarePrefab, parentObject);
+                UpdateSquare(finalSquare, startWorldPos, endWorldPos);
+
+                BoxCollider2D col = finalSquare.AddComponent<BoxCollider2D>();
+                col.isTrigger = true;
+                col.size = Vector2.one;
+            }
+
+            Destroy(currentSelectionSquare);
+            currentSelectionSquare = null;
+            isSelecting = false;
+        }
+
+        // å³ã‚¯ãƒªãƒƒã‚¯ã‚­ãƒ£ãƒ³ã‚»ãƒ«
+        if (Input.GetMouseButtonDown(1) && isSelecting)
+        {
+            Destroy(currentSelectionSquare);
+            currentSelectionSquare = null;
+            isSelecting = false;
+        }
+    }
+
+    bool IsPointerOverUI()
+    {
+        Vector2 mousePos = Input.mousePosition;
+        foreach (var rect in uiBlockers)
+        {
+            if (RectTransformUtility.RectangleContainsScreenPoint(rect, mousePos, mainCamera))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    Vector3 GetMouseWorldPosition()
+    {
+        Vector3 mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        mousePos.z = 0f;
+        return mousePos;
+    }
+
+    void UpdateSquare(GameObject square, Vector3 start, Vector3 end)
+    {
+        Vector3 center = (start + end) / 2f;
+        Vector3 size = new Vector3(Mathf.Abs(end.x - start.x), Mathf.Abs(end.y - start.y), 1f);
+
+        square.transform.position = center;
+        square.transform.localScale = size;
+    }
+}
+
+
+
+/*using UnityEngine;
+using UnityEngine.EventSystems;
+using System.Collections.Generic;
+
+public class WorldRectangleSelector : MonoBehaviour
+{
+    public Camera mainCamera;
+    public GameObject selectionSquarePrefab;
+    public GameObject finalSquarePrefab;
+    [SerializeField] private Transform parentObject;
+
+    [SerializeField] private List<RectTransform> uiBlockers; // â† UIãƒªã‚¹ãƒˆ
 
     private Vector3 startWorldPos;
     private GameObject currentSelectionSquare;
@@ -21,9 +150,9 @@ public class WorldRectangleSelector : MonoBehaviour
             {
                 if (IsPointerOverUI()) return;
             }
-            // UIã‚ÅƒNƒŠƒbƒN‚µ‚Ä‚¢‚éê‡‚Í‘I‘ğ‹Ö~
+            // UIä¸Šã§ã‚¯ãƒªãƒƒã‚¯ã—ã¦ã„ã‚‹å ´åˆã¯é¸æŠç¦æ­¢
 
-            // ¶ƒNƒŠƒbƒNŠJn
+            // å·¦ã‚¯ãƒªãƒƒã‚¯é–‹å§‹
             if (Input.GetMouseButtonDown(0))
             {
                 startWorldPos = GetMouseWorldPosition();
@@ -32,14 +161,14 @@ public class WorldRectangleSelector : MonoBehaviour
                 currentSelectionSquare = Instantiate(selectionSquarePrefab);
             }
 
-            // ƒhƒ‰ƒbƒO’†
+            // ãƒ‰ãƒ©ãƒƒã‚°ä¸­
             if (Input.GetMouseButton(0) && isSelecting)
             {
                 Vector3 currentWorldPos = GetMouseWorldPosition();
                 UpdateSquare(currentSelectionSquare, startWorldPos, currentWorldPos);
             }
 
-            // ¶ƒNƒŠƒbƒN—£‚·
+            // å·¦ã‚¯ãƒªãƒƒã‚¯é›¢ã™
             if (Input.GetMouseButtonUp(0) && isSelecting)
             {
                 Vector3 endWorldPos = GetMouseWorldPosition();
@@ -56,7 +185,7 @@ public class WorldRectangleSelector : MonoBehaviour
                 isSelecting = false;
             }
 
-            // ‰EƒNƒŠƒbƒNƒLƒƒƒ“ƒZƒ‹
+            // å³ã‚¯ãƒªãƒƒã‚¯ã‚­ãƒ£ãƒ³ã‚»ãƒ«
             if (Input.GetMouseButtonDown(1) && isSelecting)
             {
                 Destroy(currentSelectionSquare);
@@ -97,3 +226,4 @@ public class WorldRectangleSelector : MonoBehaviour
         square.transform.localScale = size;
     }
 }
+*/
