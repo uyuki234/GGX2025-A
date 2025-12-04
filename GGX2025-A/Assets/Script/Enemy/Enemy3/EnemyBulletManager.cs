@@ -14,6 +14,7 @@ public class EnemyBulletManager : SingletonMonoBehavior<EnemyBulletManager>
     // ƒŠƒXƒg“o˜^‘Ò‚¿‚Ì’e‚ÌƒLƒ…[
     private Queue<EnemyBullet> _registwaitingEnemyBullet;
 
+    private Camera cam;
     /// <summary>
     /// ‰Šú‰»ˆ—
     /// </summary>
@@ -21,7 +22,7 @@ public class EnemyBulletManager : SingletonMonoBehavior<EnemyBulletManager>
     {
         _activeEnemyBullet = new List<EnemyBullet>();
         _registwaitingEnemyBullet = new Queue<EnemyBullet>();
-
+        cam = Camera.main;
     }
 
 
