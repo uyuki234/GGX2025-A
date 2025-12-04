@@ -5,9 +5,11 @@ public class EnemyBullet : MonoBehaviour
     public Vector2 moveDir;
     [SerializeField] private float moveSpeed;
     [SerializeField] private int _bulletDamage;
+    private int spwanCount;
     private Camera cam;
     public void Initialize(Vector2 moveDir)
     {
+        spwanCount = 0;
         this.moveDir = moveDir;
         cam = Camera.main;
     }
@@ -18,6 +20,7 @@ public class EnemyBullet : MonoBehaviour
         playerPos.x -= moveDir.x * moveSpeed;
         playerPos.y -= moveDir.y * moveSpeed;
         transform.position = playerPos;
+        spwanCount++;
     }
 
     void Update()
@@ -29,18 +32,19 @@ public class EnemyBullet : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (spwanCount > 5)
         {
-            StatusManager.Instance.currentHP -=_bulletDamage;
-            Destroy(gameObject);
+
+            if (other.gameObject.CompareTag("Player"))
+            {
+                StatusManager.Instance.currentHP -= _bulletDamage;
+                Destroy(gameObject);
+            }
+
         }
 
-        if (other.gameObject.CompareTag("Ground"))
-        {
-            Destroy(gameObject);
-        }
     }
 
 
