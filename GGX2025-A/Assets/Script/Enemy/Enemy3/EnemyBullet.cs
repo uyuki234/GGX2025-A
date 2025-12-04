@@ -2,14 +2,18 @@ using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
 {
-    public void Initialize()
+    public Vector2 moveDir;
+    [SerializeField]private float moveSpeed;
+    public void Initialize(Vector2 moveDir)
     {
-
+        this.moveDir = moveDir;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
-        
+        Vector3 playerPos = transform.position;
+        playerPos.x -= moveDir.x * moveSpeed;
+        playerPos.y -= moveDir.y * moveSpeed;
+        transform.position = playerPos;
     }
 }
