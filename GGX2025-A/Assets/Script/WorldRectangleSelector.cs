@@ -1,27 +1,36 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 using System.Collections.Generic;
 
 public class WorldRectangleSelector : MonoBehaviour
 {
+    [Header("Camera & Prefabs")]
     public Camera mainCamera;
     public GameObject selectionSquarePrefab;
     public GameObject finalSquarePrefab;
     [SerializeField] private Transform parentObject;
 
+    [Header("UI Blockers")]
     [SerializeField] private List<RectTransform> uiBlockers;
 
-    [Header("掘削エネルギー関連")]
-    [SerializeField] private ExcavationEnergyUI excavationUI;
-    [SerializeField] private float baseCost = 10f;
-    [SerializeField] private float threshold = 2f;
-    [SerializeField] private float costPerUnit = 5f;
+    [Header("Energy Settings")]
+    public float maxEnergy = 100f;
+    public float currentEnergy = 100f;
+    public float baseCost = 5f;        // ドラッグ開始時の固定消費
+    public float sizeThreshold = 10f;  // サイズ閾値
+    public float sizeCostRate = 0.5f;  // 閾値超過時の比例消費率
+
+    [Header("UI Gauge")]
+    [SerializeField] private Image baseGauge;   // 掘削前ゲージ（半透明）
+    [SerializeField] private Image frontGauge;  // 掘削後ゲージ
 
     private Vector3 startWorldPos;
     private GameObject currentSelectionSquare;
     private bool isSelecting = false;
-    private float requiredEnergy = 0f;
+
+    private float beforeDrillEnergy;
+    private float requiredEnergy;
 
     void Update()
     {
@@ -38,8 +47,12 @@ public class WorldRectangleSelector : MonoBehaviour
 
             currentSelectionSquare = Instantiate(selectionSquarePrefab);
 
-            requiredEnergy = baseCost;
-            excavationUI?.UpdatePreview(requiredEnergy);
+            // 掘削前のエネルギーを保持
+            beforeDrillEnergy = currentEnergy;
+
+            // 固定消費
+            currentEnergy = Mathf.Clamp(currentEnergy - baseCost, 0, maxEnergy);
+            UpdateGauge();
         }
 
         // ドラッグ中
@@ -48,31 +61,34 @@ public class WorldRectangleSelector : MonoBehaviour
             Vector3 currentWorldPos = GetMouseWorldPosition();
             UpdateSquare(currentSelectionSquare, startWorldPos, currentWorldPos);
 
-            Vector3 size = new Vector3(Mathf.Abs(currentWorldPos.x - startWorldPos.x),
-                                       Mathf.Abs(currentWorldPos.y - startWorldPos.y), 1f);
-            float maxSide = Mathf.Max(size.x, size.y);
-            if (maxSide > threshold)
+            // サイズに比例した追加消費を計算
+            Vector3 size = currentWorldPos - startWorldPos;
+            float areaSize = Mathf.Abs(size.x * size.y);
+
+            requiredEnergy = baseCost;
+            if (areaSize > sizeThreshold)
             {
-                requiredEnergy = baseCost + (maxSide - threshold) * costPerUnit;
+                requiredEnergy += (areaSize - sizeThreshold) * sizeCostRate;
             }
 
-            excavationUI?.UpdatePreview(requiredEnergy);
-
-            var sr = currentSelectionSquare.GetComponent<SpriteRenderer>();
+            // エネルギー不足なら赤色に
+            SpriteRenderer sr = currentSelectionSquare.GetComponent<SpriteRenderer>();
             if (sr != null)
             {
-                sr.color = (excavationUI != null && excavationUI.CurrentEnergy >= requiredEnergy) ? Color.white : Color.red;
+                sr.color = (requiredEnergy > beforeDrillEnergy) ? Color.red : Color.white;
             }
         }
 
-        // 左クリック離す（確定）
+        // 左クリック離す
         if (Input.GetMouseButtonUp(0) && isSelecting)
         {
-            if (excavationUI != null && excavationUI.CurrentEnergy >= requiredEnergy)
-            {
-                excavationUI.ApplyEnergy(requiredEnergy);
+            Vector3 endWorldPos = GetMouseWorldPosition();
 
-                Vector3 endWorldPos = GetMouseWorldPosition();
+            if (requiredEnergy <= beforeDrillEnergy)
+            {
+                // 掘削確定 → エネルギー消費
+                currentEnergy = Mathf.Clamp(beforeDrillEnergy - requiredEnergy, 0, maxEnergy);
+
                 GameObject finalSquare = Instantiate(finalSquarePrefab, parentObject);
                 UpdateSquare(finalSquare, startWorldPos, endWorldPos);
 
@@ -80,10 +96,16 @@ public class WorldRectangleSelector : MonoBehaviour
                 col.isTrigger = true;
                 col.size = Vector2.one;
             }
+            else
+            {
+                Debug.Log("エネルギー不足で生成不可");
+            }
 
             Destroy(currentSelectionSquare);
             currentSelectionSquare = null;
             isSelecting = false;
+
+            UpdateGauge();
         }
 
         // 右クリックキャンセル
@@ -98,6 +120,7 @@ public class WorldRectangleSelector : MonoBehaviour
     bool IsPointerOverUI()
     {
         Vector2 mousePos = Input.mousePosition;
+
         foreach (var rect in uiBlockers)
         {
             if (RectTransformUtility.RectangleContainsScreenPoint(rect, mousePos, mainCamera))
@@ -123,7 +146,14 @@ public class WorldRectangleSelector : MonoBehaviour
         square.transform.position = center;
         square.transform.localScale = size;
     }
+
+    void UpdateGauge()
+    {
+        baseGauge.fillAmount = beforeDrillEnergy / maxEnergy;
+        frontGauge.fillAmount = currentEnergy / maxEnergy;
+    }
 }
+
 
 
 
