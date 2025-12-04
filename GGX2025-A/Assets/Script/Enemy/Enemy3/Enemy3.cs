@@ -19,22 +19,27 @@ public class Enemy3 : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (isShootBullet())
+        float dx = transform.position.x - _playerTrans.position.x;
+        float dy = transform.position.y - _playerTrans.position.y;
+        float length = Mathf.Sqrt(dx * dx + dy * dy);//長さ計算sqrtは平方根(ルート)
+        if (length != 0)
         {
-            _fierCount = _fierMax;
+            dx /= length;
+            dy /= length;
         }
+        Vector2 moveDir = new Vector2(dx, dy);
+
+        if (length < 10)
+        {
+            if (isShootBullet())
+            {
+                _fierCount = _fierMax;
+            }
+        }
+
         _fierDistansCount++;
         if (_fierCount > 0 && _fierDistansCount > _fierDistans)
         {
-            float dx = transform.position.x - _playerTrans.position.x;
-            float dy = transform.position.y - _playerTrans.position.y;
-            float length = Mathf.Sqrt(dx * dx + dy * dy);//長さ計算sqrtは平方根(ルート)
-            if (length != 0)
-            {
-                dx /= length;
-                dy /= length;
-            }
-            Vector2 moveDir = new Vector2(dx, dy);
             EnemyBulletManager.Instance.CreateEnemyBullet(this.transform.position,moveDir);
             _fierDistansCount = 0;
             _fierCount--;

@@ -3,7 +3,8 @@ using UnityEngine;
 public class EnemyBullet : MonoBehaviour
 {
     public Vector2 moveDir;
-    [SerializeField]private float moveSpeed;
+    [SerializeField] private float moveSpeed;
+    [SerializeField] private int _bulletDamage;
     private Camera cam;
     public void Initialize(Vector2 moveDir)
     {
@@ -28,4 +29,19 @@ public class EnemyBullet : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            StatusManager.Instance.currentHP -=_bulletDamage;
+            Destroy(gameObject);
+        }
+
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            Destroy(gameObject);
+        }
+    }
+
+
 }
