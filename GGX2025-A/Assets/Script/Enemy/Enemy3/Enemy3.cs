@@ -1,0 +1,63 @@
+using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
+
+public class Enemy3 : MonoBehaviour
+{
+    [SerializeField]private int _bulletCoolDown;
+    private int _coolDownCounter;
+    private Transform _playerTrans;
+    [SerializeField] private int _fierDistans;
+    private int _fierDistansCount;
+    [SerializeField]private int _fierMax;
+    private int _fierCount;
+
+    public void Initialize()
+    {
+        _playerTrans = GameObject.Find("Robot").transform;
+        _coolDownCounter = 0;
+    }
+
+    private void FixedUpdate()
+    {
+        float dx = transform.position.x - _playerTrans.position.x;
+        float dy = transform.position.y - _playerTrans.position.y;
+        float length = Mathf.Sqrt(dx * dx + dy * dy);//í∑Ç≥åvéZsqrtÇÕïΩï˚ç™(ÉãÅ[Ég)
+        if (length != 0)
+        {
+            dx /= length;
+            dy /= length;
+        }
+        Vector2 moveDir = new Vector2(dx, dy);
+
+        if (length < 10)
+        {
+            if (isShootBullet())
+            {
+                _fierCount = _fierMax;
+            }
+        }
+
+        _fierDistansCount++;
+        if (_fierCount > 0 && _fierDistansCount > _fierDistans)
+        {
+            EnemyBulletManager.Instance.CreateEnemyBullet(this.transform.position,moveDir);
+            _fierDistansCount = 0;
+            _fierCount--;
+        }
+    }
+
+    /// <summary>
+    /// íeÇ™î≠éÀÇ≥ÇÍÇÈÇ©
+    /// </summary>
+    /// <returns>íeÇ™î≠éÀÇ≥ÇÍÇÈÇ©</returns>
+    private bool isShootBullet()
+    {
+        _coolDownCounter++;
+        if (_coolDownCounter >= _bulletCoolDown)
+        {
+            _coolDownCounter = 0;
+            return true;
+        }
+        return false;
+    }
+}
