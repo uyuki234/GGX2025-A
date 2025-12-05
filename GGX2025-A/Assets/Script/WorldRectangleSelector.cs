@@ -21,16 +21,12 @@ public class WorldRectangleSelector : MonoBehaviour
     public float sizeThreshold = 10f;  // サイズ閾値
     public float sizeCostRate = 0.5f;  // 閾値超過時の比例消費率
 
-    [Header("UI Gauge")]
-    [SerializeField] private Image baseGauge;   // 掘削前ゲージ（半透明）
-    [SerializeField] private Image frontGauge;  // 掘削後ゲージ
-
     private Vector3 startWorldPos;
     private GameObject currentSelectionSquare;
     private bool isSelecting = false;
 
     private float beforeDrillEnergy;
-    private float requiredEnergy;
+    public float requiredEnergy;
 
     void Update()
     {
@@ -52,7 +48,6 @@ public class WorldRectangleSelector : MonoBehaviour
 
             // 固定消費
             currentEnergy = Mathf.Clamp(currentEnergy - baseCost, 0, maxEnergy);
-            UpdateGauge();
         }
 
         // ドラッグ中
@@ -105,7 +100,6 @@ public class WorldRectangleSelector : MonoBehaviour
             currentSelectionSquare = null;
             isSelecting = false;
 
-            UpdateGauge();
         }
 
         // 右クリックキャンセル
@@ -147,11 +141,7 @@ public class WorldRectangleSelector : MonoBehaviour
         square.transform.localScale = size;
     }
 
-    void UpdateGauge()
-    {
-        baseGauge.fillAmount = beforeDrillEnergy / maxEnergy;
-        frontGauge.fillAmount = currentEnergy / maxEnergy;
-    }
+
 }
 
 
