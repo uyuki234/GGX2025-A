@@ -103,12 +103,12 @@ TextureImporter:
       name: tilemask_Right_0
       rect:
         serializedVersion: 2
-        x: 53
+        x: 0
         y: 0
-        width: 55
+        width: 108
         height: 108
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 575e9280eae321b47b0e838eb2e66447
     internalID: 0
     vertices: []
     indices: 
