@@ -4,10 +4,12 @@ using UnityEngine.Tilemaps;
 public class TilemapToObjects : MonoBehaviour
 {
     [SerializeField] private Tilemap tilemap;
-    [SerializeField] private GameObject tilePrefab;  // SpriteRenderer•t‚«Prefab‚ğw’è
+    [SerializeField] private GameObject tilePrefab;
+    [SerializeField] private Transform TileParent;
 
     private void Start()
     {
+        tilemap.gameObject.SetActive(false);
         ConvertTilemap();
     }
 
@@ -22,7 +24,7 @@ public class TilemapToObjects : MonoBehaviour
 
             Vector3 worldPos = tilemap.CellToWorld(pos) + tilemap.tileAnchor;
 
-            GameObject obj = Instantiate(tilePrefab, worldPos, Quaternion.identity);
+            GameObject obj = Instantiate(tilePrefab, worldPos, Quaternion.identity,TileParent);
             obj.name = "Tile_" + pos;
 
             // Œ©‚½–Ú‚ğ‡‚í‚¹‚é
