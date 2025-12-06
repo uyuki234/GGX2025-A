@@ -41,7 +41,7 @@ public class EnemyBulletManager : SingletonMonoBehavior<EnemyBulletManager>
         var enemyBullet = createObj.GetComponent<EnemyBullet>();
 
         // 初期化
-        enemyBullet.Initialize(moveDir);
+        //enemyBullet.Initialize(moveDir);
 
         // アクティブ登録待ちのキューにエンキュー
         _registwaitingEnemyBullet.Enqueue(enemyBullet);
