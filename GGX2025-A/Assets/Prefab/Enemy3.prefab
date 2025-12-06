@@ -107,6 +107,10 @@ MonoBehaviour:
   _bulletCoolDown: 60
   _fierDistans: 10
   _fierMax: 3
+  _bulletSpeed: 0.1
+  _bulletDamage: 5
+  _viewSize: 10
+  _bulletPrefab: {fileID: 774588647584788626, guid: a74436641d419804e8331a9f7c5c257a, type: 3}
 --- !u!50 &6724101963001371124
 Rigidbody2D:
   serializedVersion: 5

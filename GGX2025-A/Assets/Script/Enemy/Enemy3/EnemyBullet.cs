@@ -3,14 +3,16 @@ using UnityEngine;
 public class EnemyBullet : MonoBehaviour
 {
     public Vector2 moveDir;
-    [SerializeField] private float moveSpeed;
-    [SerializeField] private int _bulletDamage;
+    private float moveSpeed;
+    private int _bulletDamage;
     private int spwanCount;
     private Camera cam;
-    public void Initialize(Vector2 moveDir)
+    public void Initialize(Vector2 moveDir,float moveSpeed,int damage)
     {
         spwanCount = 0;
         this.moveDir = moveDir;
+        this.moveSpeed = moveSpeed;
+        this._bulletDamage = damage;
         cam = Camera.main;
     }
 

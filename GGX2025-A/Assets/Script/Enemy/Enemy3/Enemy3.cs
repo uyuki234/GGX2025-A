@@ -9,9 +9,13 @@ public class Enemy3 : MonoBehaviour
     [SerializeField] private int _fierDistans;
     private int _fierDistansCount;
     [SerializeField]private int _fierMax;
+    [SerializeField]private float _bulletSpeed;
+    [SerializeField] private int _bulletDamage;
+    [SerializeField] private int _viewSize;
+    [SerializeField] private GameObject _bulletPrefab;
     private int _fierCount;
 
-    public void Initialize()
+    public void Start()
     {
         _playerTrans = GameObject.Find("Robot").transform;
         _coolDownCounter = 0;
@@ -19,17 +23,23 @@ public class Enemy3 : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //‹——£‚ğ‘ª‚é
         float dx = transform.position.x - _playerTrans.position.x;
         float dy = transform.position.y - _playerTrans.position.y;
-        float length = Mathf.Sqrt(dx * dx + dy * dy);//’·‚³ŒvZsqrt‚Í•½•ûª(ƒ‹[ƒg)
+        float length = Mathf.Sqrt(dx * dx + dy * dy);
+
+        //ˆÚ“®•ûŒü‚É•ÏŠ·
         if (length != 0)
         {
             dx /= length;
             dy /= length;
         }
+
+        //Vec2‚É
         Vector2 moveDir = new Vector2(dx, dy);
 
-        if (length < 10)
+        //”ÍˆÍ‚É“ü‚Á‚Ä‚¢‚ê‚Î’e‚ğ”­Ë
+        if (length < _viewSize)
         {
             if (isShootBullet())
             {
@@ -38,9 +48,14 @@ public class Enemy3 : MonoBehaviour
         }
 
         _fierDistansCount++;
+
+        //’e‚Ì”­Ë
         if (_fierCount > 0 && _fierDistansCount > _fierDistans)
         {
-            EnemyBulletManager.Instance.CreateEnemyBullet(this.transform.position,moveDir);
+            GameObject bulletObj = Instantiate(_bulletPrefab, transform.position, Quaternion.identity);
+            EnemyBullet bullet = bulletObj.GetComponent<EnemyBullet>();
+            bullet.Initialize(moveDir, _bulletSpeed, _bulletDamage);
+
             _fierDistansCount = 0;
             _fierCount--;
         }
