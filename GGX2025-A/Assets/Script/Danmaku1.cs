@@ -1,32 +1,50 @@
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
-public class Enemy3 : MonoBehaviour
+public class Danmaku1 : MonoBehaviour
 {
-    [SerializeField]private int _bulletCoolDown;
+    //発射までのクールダウン
+    [SerializeField] private int _bulletCoolDown;
     private int _coolDownCounter;
-    private Transform _playerTrans;
+    //発射間隔
     [SerializeField] private int _fierDistans;
+    //発射間隔のカウンター
     private int _fierDistansCount;
-    [SerializeField]private int _fierMax;
-    [SerializeField]private float _bulletSpeed;
+    //弾の生成数
+    [SerializeField] private int _fierMax;
+    //弾の速度
+    [SerializeField] private float _bulletSpeed;
+    //弾のダメージ
     [SerializeField] private int _bulletDamage;
-    [SerializeField] private int _viewSize;
+    // 回転速度
+    [SerializeField] private int _rotateSpeed;
+    //最初の発射角度
+    [SerializeField] private int _startRotate;
+    //弾のプレファブ
     [SerializeField] private GameObject _bulletPrefab;
+
+    private int _nowRotate;
     private int _fierCount;
 
-    public void Start()
+    private void Start()
     {
         _coolDownCounter = _bulletCoolDown;
-        _playerTrans = GameObject.Find("Robot").transform;
-        _coolDownCounter = 0;
     }
 
     private void FixedUpdate()
     {
+
+
+        //クールダウンを進める
+        if (isShootBullet())
+        {
+            _nowRotate = _startRotate;
+            _fierCount = _fierMax;
+        }
+
         //距離を測る
-        float dx = transform.position.x - _playerTrans.position.x;
-        float dy = transform.position.y - _playerTrans.position.y;
+        float rad = _nowRotate * Mathf.Deg2Rad;
+        float dx = Mathf.Sin(rad);
+        float dy = Mathf.Cos(rad);
         float length = Mathf.Sqrt(dx * dx + dy * dy);
 
         //移動方向に変換
@@ -39,15 +57,6 @@ public class Enemy3 : MonoBehaviour
         //Vec2に
         Vector2 moveDir = new Vector2(dx, dy);
 
-        //範囲に入っていれば弾を発射
-        if (length < _viewSize)
-        {
-            if (isShootBullet())
-            {
-                _fierCount = _fierMax;
-            }
-        }
-
         _fierDistansCount++;
 
         //弾の発射
@@ -57,6 +66,8 @@ public class Enemy3 : MonoBehaviour
             EnemyBullet bullet = bulletObj.GetComponent<EnemyBullet>();
             bullet.Initialize(moveDir, _bulletSpeed, _bulletDamage);
 
+            //各変数をリセット、変更
+            _nowRotate += _rotateSpeed;
             _fierDistansCount = 0;
             _fierCount--;
         }
