@@ -10,7 +10,7 @@ public class DigsquareController : MonoBehaviour
     void Start()
     {
         StartCoroutine(DisableAttackable());
-        Destroy(GameObject,0.1f);
+        Destroy(gameObject,0.1f);
     }
 
     IEnumerator DisableAttackable()
@@ -24,7 +24,7 @@ public class DigsquareController : MonoBehaviour
             EnemyStatus hp = other.GetComponent<EnemyStatus>();
             if (hp != null)
             {
-                SetHP(hp.GetHP()-damage); // ダメージ処理
+                hp.SetHP(hp.GetHP()-damage); // ダメージ処理
             }
         }
     }
