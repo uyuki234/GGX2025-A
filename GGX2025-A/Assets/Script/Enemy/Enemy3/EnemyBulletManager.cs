@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBulletManager : MonoBehaviour
+public class EnemyBulletManager : SingletonMonoBehavior<EnemyBulletManager>
 {
 
 
@@ -14,6 +14,7 @@ public class EnemyBulletManager : MonoBehaviour
     // リスト登録待ちの弾のキュー
     private Queue<EnemyBullet> _registwaitingEnemyBullet;
 
+    private Camera cam;
     /// <summary>
     /// 初期化処理
     /// </summary>
@@ -31,7 +32,7 @@ public class EnemyBulletManager : MonoBehaviour
     /// <param name="createPos">制作ポジション</param>
     /// <param name="type">制作されるジェムのタイプ</param>
     /// <returns>制作されるジェム</returns>
-    public EnemyBullet CreateEnemyBullet(Vector3 createPos)
+    public EnemyBullet CreateEnemyBullet(Vector3 createPos,Vector2 moveDir)
     {
         // オブジェクト生成
         var createObj = Instantiate(_enemyBulletPrefab, createPos, Quaternion.identity);
@@ -40,7 +41,7 @@ public class EnemyBulletManager : MonoBehaviour
         var enemyBullet = createObj.GetComponent<EnemyBullet>();
 
         // 初期化
-        enemyBullet.Initialize();
+        //enemyBullet.Initialize(moveDir);
 
         // アクティブ登録待ちのキューにエンキュー
         _registwaitingEnemyBullet.Enqueue(enemyBullet);

@@ -21,7 +21,6 @@ public class Enemy3Manager : MonoBehaviour
     {
         _activeEnemy = new List<Enemy3>();
         _registwaitingEnemy = new Queue<Enemy3>();
-        CreateEnemy(new Vector2(2.5f, 2.5f));
 
     }
 
@@ -41,7 +40,7 @@ public class Enemy3Manager : MonoBehaviour
         var enemy = createObj.GetComponent<Enemy3>();
 
         // 初期化
-        enemy.Initialize();
+       // enemy.Initialize();
 
         // アクティブ登録待ちのキューにエンキュー
         _registwaitingEnemy.Enqueue(enemy);
