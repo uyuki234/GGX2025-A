@@ -15,7 +15,6 @@ public class DigsquareController : MonoBehaviour
     IEnumerator DisableAttackable()
     {
         yield return new WaitForSeconds(0.1f);
-        attackable = false;
     }
 
     void OnTriggerEnter2D(Collider2D other){
@@ -27,5 +26,6 @@ public class DigsquareController : MonoBehaviour
                 attackable=false;
             }
         }
+        attackable = false;
     }
 }
