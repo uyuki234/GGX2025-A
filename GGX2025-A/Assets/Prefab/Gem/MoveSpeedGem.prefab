@@ -10,10 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5180560793190774804}
   - component: {fileID: 2043560653339134195}
-  - component: {fileID: 3229280731583290145}
   - component: {fileID: 4311260860230849136}
-  - component: {fileID: 2724294361403651266}
   - component: {fileID: -2893761663460884008}
+  - component: {fileID: 5225715361103921079}
   m_Layer: 0
   m_Name: MoveSpeedGem
   m_TagString: Untagged
@@ -80,8 +79,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 30
-  m_Sprite: {fileID: -2413806693520163455, guid: 92f8a89b8e852f244bf2dbc3c07cf83c, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 4654838420489368577, guid: d0bb7df302b911d41a059fdb21678772, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -91,24 +90,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3229280731583290145
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 138843175551115639}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0de4c152f9024349a30866677ef9f79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rayDistance: 0.3
-  rayOffset: {x: 0, y: -0.4}
-  wallLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  rb: {fileID: 4311260860230849136}
 --- !u!50 &4311260860230849136
 Rigidbody2D:
   serializedVersion: 5
@@ -135,9 +116,22 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
---- !u!58 &2724294361403651266
-CircleCollider2D:
+  m_Constraints: 4
+--- !u!114 &-2893761663460884008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138843175551115639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b5da84281cadd74bafe7a0dc563a0e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+--- !u!61 &5225715361103921079
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -166,22 +160,19 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
---- !u!114 &-2893761663460884008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 138843175551115639}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b5da84281cadd74bafe7a0dc563a0e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 0
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.5648148, y: 0.6388889}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.5648148, y: 0.6388889}
+  m_EdgeRadius: 0
