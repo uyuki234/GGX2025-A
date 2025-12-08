@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7631505408182333366}
   - component: {fileID: 4858148648564818909}
   - component: {fileID: -5714280023724662435}
+  - component: {fileID: 2930822284177920249}
   m_Layer: 8
   m_Name: digSquare
   m_TagString: Wall
@@ -143,3 +144,17 @@ SpriteMask:
   m_IsCustomRangeActive: 1
   m_SpriteSortPoint: 0
   m_MaskSource: 0
+--- !u!114 &2930822284177920249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4433871112704622820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03f3592c7918c95428893f897d443b06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackable: 1
+  statusManager: {fileID: 0}

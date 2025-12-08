@@ -4,13 +4,12 @@ using System.Collections;
 public class DigsquareController : MonoBehaviour
 {
     public bool attackable;
-    [SerializeField] int damage = 10;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        attackable=true;
         StartCoroutine(DisableAttackable());
-        Destroy(gameObject,0.1f);
     }
 
     IEnumerator DisableAttackable()
@@ -24,7 +23,7 @@ public class DigsquareController : MonoBehaviour
             EnemyStatus hp = other.GetComponent<EnemyStatus>();
             if (hp != null)
             {
-                hp.SetHP(hp.GetHP()-damage); // ダメージ処理
+                hp.SetHP(hp.GetHP()-StatusManager.Instance.attack_effective); // ダメージ処理
             }
         }
     }

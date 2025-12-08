@@ -3,9 +3,8 @@ using UnityEngine.UI;
 
 public class EnemyStatus : MonoBehaviour
 {
-    [SerializeField]private int maxHp = 50;
-    [SerializeField]private int currentHp;
-    [SerializeField]private int attackPower = 1;
+    [SerializeField]private float maxHp = 50;
+    private float currentHp;
 
     [SerializeField]private GameObject HPUI;
     //　HP表示用スライダー
@@ -15,28 +14,27 @@ public class EnemyStatus : MonoBehaviour
     void Start()
     {
         currentHp = maxHp;
-        //HPbar頭上に表示
-        GameObject hpUIInstance = Instantiate(HPUI, transform);
-        hpUIInstance.transform.localPosition = new Vector3(0, 1f, 0);
+        
         hpSlider = HPUI.transform.Find("HPBar").GetComponent<Slider>();
         hpSlider.value = 1f;
     }
 
-    public void SetHP(int hp){
+    public void SetHP(float hp){
         this.currentHp=hp;
 
         UpdateHPValue();
 
         if(currentHp <= 0){
-            HideStatusUI();
+            //HideStatusUI();
+            Destroy(gameObject);
         }
     }
 
-    public int GetHP(){
+    public float GetHP(){
         return currentHp;
     }
 
-    public int GetMaxHP(){
+    public float GetMaxHP(){
         return maxHp;
     }
 
@@ -45,6 +43,6 @@ public class EnemyStatus : MonoBehaviour
     }
 
     public void UpdateHPValue() {
-        hpSlider.value = (float)GetHP() / (float)GetMaxHP();
+        hpSlider.value = GetHP() / GetMaxHP();
     }
 }
