@@ -23,6 +23,7 @@ public class DigsquareController : MonoBehaviour
             if (hp != null)
             {
                 hp.SetHP(hp.GetHP()-StatusManager.Instance.attack_effective); // ダメージ処理
+                attackable=false;
             }
         }
         attackable = false;

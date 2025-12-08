@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class EnemyStatus : MonoBehaviour
 {
     [SerializeField]private float maxHp = 50;
-    private float currentHp;
+    [SerializeField] float currentHp;
 
     [SerializeField]private GameObject HPUI;
     //　HP表示用スライダー
