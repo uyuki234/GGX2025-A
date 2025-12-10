@@ -11,9 +11,15 @@ public class DeleteBullet : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (count <= 1)
-        if (other.CompareTag("Bullet"))
         {
-            Destroy(other.gameObject);
+            if (other.CompareTag("Bullet"))
+            {
+                Destroy(other.gameObject);
+            }
+        }
+        if(count > 1)
+        {
+            Destroy(this);
         }
     }
 }
