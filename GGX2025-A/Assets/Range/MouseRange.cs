@@ -1,0 +1,34 @@
+﻿using UnityEngine;
+
+public class MouseRange : MonoBehaviour
+{
+    public Transform playerTrans;
+    public Transform centerObj;
+    public float radius = 3f;
+
+    void Update()
+    {
+        Vector3 mousePos = Input.mousePosition;
+
+        // カメラからの距離
+        float camDist = Mathf.Abs(Camera.main.transform.position.z);
+
+        Vector3 worldMouse = Camera.main.ScreenToWorldPoint(
+            new Vector3(mousePos.x, mousePos.y, camDist)
+        );
+
+        // 距離計算
+        float dx = worldMouse.x - centerObj.position.x;
+        float dy = worldMouse.y - centerObj.position.y;
+        float len = Mathf.Sqrt(dx * dx + dy * dy);
+
+        // 円の中に制限
+        if (len > radius)
+        {
+            float rate = radius / len;
+            worldMouse = centerObj.position + new Vector3(dx * rate, dy * rate, 0);
+        }
+
+        transform.position = worldMouse;
+    }
+}
