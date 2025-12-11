@@ -6208,6 +6208,7 @@ MonoBehaviour:
   selectionSquarePrefab: {fileID: 3522240653678387228, guid: cc498879e4b6b8e4ea6829ff63942381, type: 3}
   finalSquarePrefab: {fileID: 4433871112704622820, guid: 92cfe791903949345bd79b4d47fa0f73, type: 3}
   parentObject: {fileID: 1096808760}
+  gameCursorTransform: {fileID: 8049264643738904871}
   uiBlockers:
   - {fileID: 683146376}
   - {fileID: 1586017221}
@@ -7391,7 +7392,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -5995462932548192503, guid: 3c5fc4a7bac9aa645af096193a7cbc46, type: 3}
       propertyPath: radius
-      value: 2.5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -5995462932548192503, guid: 3c5fc4a7bac9aa645af096193a7cbc46, type: 3}
       propertyPath: centerObj
