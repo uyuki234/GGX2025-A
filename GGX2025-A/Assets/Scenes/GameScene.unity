@@ -6286,6 +6286,7 @@ GameObject:
   - component: {fileID: 1469596429}
   - component: {fileID: 1469596428}
   - component: {fileID: 1469596431}
+  - component: {fileID: 1469596432}
   m_Layer: 0
   m_Name: Robot
   m_TagString: Player
@@ -6308,7 +6309,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 2
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -6438,6 +6439,33 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.962963, y: 0.962963}
   m_EdgeRadius: 0
+--- !u!114 &1469596432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1469596425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d8bc841ff2fa4c45a1f25e1554681ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ray1Start: {x: 0.5, y: -0.2}
+  ray1Dir: {x: 1, y: 0}
+  maxDistance1: 0.8
+  ray2Start: {x: 0.35, y: -0.5}
+  ray2Dir: {x: 0, y: -1}
+  maxDistance2: 0.02
+  ray3Start: {x: 0.5, y: 0.25}
+  ray3Dir: {x: 1, y: 0}
+  maxDistance3: 0.9
+  powerList:
+  - 4.9
+  - 6.4
+  - 7.9
+  - 9.4
+  checkCount: 0
 --- !u!1 &1470502844
 GameObject:
   m_ObjectHideFlags: 0

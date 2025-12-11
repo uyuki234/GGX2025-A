@@ -13,7 +13,7 @@ public class AutoWalkerWithRayFlip : MonoBehaviour
     [SerializeField] private float lowerRayYOffset = 0f;
     [SerializeField] private float rayHeightOffset = 0.5f;
 
-    [SerializeField] private Vector2 wallRayOffset = new Vector2(0, 0);
+    [SerializeField] private Vector2 wallRayOffset = new Vector2(0 , 0);
     [SerializeField] private Vector2 roofRayOffset = new Vector2(0, 0);
 
     [SerializeField] private float jumpForce = 5f;
@@ -85,7 +85,7 @@ public class AutoWalkerWithRayFlip : MonoBehaviour
             rb.constraints &= ~RigidbodyConstraints2D.FreezePositionY;
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-        }
+        } 
     }
 
 
