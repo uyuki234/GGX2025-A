@@ -4,22 +4,21 @@
 ### Unity Project ###
 # Unity project is inside GGX2025-A folder
 
-/GGX2025-A/[Ll]ibrary/
-/GGX2025-A/[Tt]emp/
-/GGX2025-A/[Oo]bj/
-/GGX2025-A/[Bb]uild/
-/GGX2025-A/[Bb]uilds/
-/GGX2025-A/[Ll]ogs/
-/GGX2025-A/[Uu]ser[Ss]ettings/
-/GGX2025-A/[Mm]emoryCaptures/
-/GGX2025-A/[Rr]ecordings/
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+/[Mm]emoryCaptures/
+/[Rr]ecordings/
 
 # Asset Store Tools
-/GGX2025-A/[Aa]ssets/AssetStoreTools*
+/[Aa]ssets/AssetStoreTools*
 
 # JetBrains Rider plugin
-/GGX2025-A/[Aa]ssets/Plugins/Editor/JetBrains*
-
+/[Aa]ssets/Plugins/Editor/JetBrains*
 # Visual Studio cache
 .vs/
 
@@ -60,8 +59,8 @@ sysinfo.txt
 crashlytics-build.properties
 
 # Addressables
-/GGX2025-A/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
+/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
 
 # StreamingAssets temporary files
-/GGX2025-A/[Aa]ssets/[Ss]treamingAssets/aa.meta
-/GGX2025-A/[Aa]ssets/[Ss]treamingAssets/aa/*
+/[Aa]ssets/[Ss]treamingAssets/aa.meta
+/[Aa]ssets/[Ss]treamingAssets/aa/*

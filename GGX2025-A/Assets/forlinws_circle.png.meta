@@ -1,0 +1,741 @@
+fileFormatVersion: 2
+guid: 4f02cf9e7b0a6e34388b936a7a45e6c8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 383937773592595419
+    second: forlinws_circle_0
+  - first:
+      213: -2010433235812596592
+    second: forlinws_circle_1
+  - first:
+      213: 3216701016431537487
+    second: forlinws_circle_2
+  - first:
+      213: -1317178929132197949
+    second: forlinws_circle_3
+  - first:
+      213: 6939956746895974159
+    second: forlinws_circle_4
+  - first:
+      213: -1868215204289336688
+    second: forlinws_circle_5
+  - first:
+      213: 6592142828634031901
+    second: forlinws_circle_6
+  - first:
+      213: 5835715798577452839
+    second: forlinws_circle_7
+  - first:
+      213: -3822030719904129932
+    second: forlinws_circle_8
+  - first:
+      213: -3391768832526604521
+    second: forlinws_circle_9
+  - first:
+      213: -1344395593731060726
+    second: forlinws_circle_10
+  - first:
+      213: -45293714678285950
+    second: forlinws_circle_11
+  - first:
+      213: -444282186622902519
+    second: forlinws_circle_12
+  - first:
+      213: -2135269368321131930
+    second: forlinws_circle_13
+  - first:
+      213: -5340671461663080135
+    second: forlinws_circle_14
+  - first:
+      213: -3067619551914565935
+    second: forlinws_circle_15
+  - first:
+      213: 618757770253579539
+    second: forlinws_circle_16
+  - first:
+      213: -2463444100174408827
+    second: forlinws_circle_17
+  - first:
+      213: -6635524076026234998
+    second: forlinws_circle_18
+  - first:
+      213: 3660060301538260815
+    second: forlinws_circle_19
+  - first:
+      213: -2465266807372208489
+    second: forlinws_circle_20
+  - first:
+      213: 5962359812801138370
+    second: forlinws_circle_21
+  - first:
+      213: 648754592700410377
+    second: forlinws_circle_22
+  - first:
+      213: -7372757871168907954
+    second: forlinws_circle_23
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: forlinws_circle_0
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 479
+        width: 35
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdb47d2fe55045500800000000000000
+      internalID: 383937773592595419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forlinws_circle_1
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 491
+        width: 36
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09440ceaf918914e0800000000000000
+      internalID: -2010433235812596592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forlinws_circle_2
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 479
+        width: 35
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4d2a09188404ac20800000000000000
+      internalID: 3216701016431537487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forlinws_circle_3
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 451
+        width: 33
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c7227f1eb078bde0800000000000000
+      internalID: -1317178929132197949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forlinws_circle_4
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 451
+        width: 33
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0f5f4f44edaf4060800000000000000
+      internalID: 6939956746895974159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forlinws_circle_5
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 409
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09aa9508b24c216e0800000000000000
+      internalID: -1868215204289336688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forlinws_circle_6
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 409
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d17ce59d9fefb7b50800000000000000
+      internalID: 6592142828634031901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forlinws_circle_7
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 356
+        width: 23
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72718509990acf050800000000000000
+      internalID: 5835715798577452839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forlinws_circle_8
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 356
+        width: 23
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47cdb7b6f4b65fac0800000000000000
+      internalID: -3822030719904129932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forlinws_circle_9
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 295
+        width: 16
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 717a20997340ee0d0800000000000000
+      internalID: -3391768832526604521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forlinws_circle_10
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 295
+        width: 16
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0c4f06945fb75de0800000000000000
+      internalID: -1344395593731060726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forlinws_circle_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 231
+        width: 7
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 289fa024b951f5ff0800000000000000
+      internalID: -45293714678285950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forlinws_circle_12
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 231
+        width: 7
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90fde4684b795d9f0800000000000000
+      internalID: -444282186622902519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forlinws_circle_13
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 168
+        width: 16
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66a327992dffd52e0800000000000000
+      internalID: -2135269368321131930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forlinws_circle_14
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 168
+        width: 16
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93181890a9f12e5b0800000000000000
+      internalID: -5340671461663080135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forlinws_circle_15
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 109
+        width: 23
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ded61e3540ad65d0800000000000000
+      internalID: -3067619551914565935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forlinws_circle_16
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 109
+        width: 23
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3153af9e9e4469800800000000000000
+      internalID: 618757770253579539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forlinws_circle_17
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 60
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 583921d84a610ddd0800000000000000
+      internalID: -2463444100174408827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forlinws_circle_18
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 60
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8777e56202e9e3a0800000000000000
+      internalID: -6635524076026234998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forlinws_circle_19
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 24
+        width: 33
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4772b1d3752bc230800000000000000
+      internalID: 3660060301538260815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forlinws_circle_20
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 24
+        width: 33
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 796a40676ec99cdd0800000000000000
+      internalID: -2465266807372208489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forlinws_circle_21
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 3
+        width: 35
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ce8319e8ae8eb250800000000000000
+      internalID: 5962359812801138370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forlinws_circle_22
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 0
+        width: 36
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90aaf446dd6d00900800000000000000
+      internalID: 648754592700410377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forlinws_circle_23
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 3
+        width: 35
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e45130a57c3bea990800000000000000
+      internalID: -7372757871168907954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      forlinws_circle_0: 383937773592595419
+      forlinws_circle_1: -2010433235812596592
+      forlinws_circle_10: -1344395593731060726
+      forlinws_circle_11: -45293714678285950
+      forlinws_circle_12: -444282186622902519
+      forlinws_circle_13: -2135269368321131930
+      forlinws_circle_14: -5340671461663080135
+      forlinws_circle_15: -3067619551914565935
+      forlinws_circle_16: 618757770253579539
+      forlinws_circle_17: -2463444100174408827
+      forlinws_circle_18: -6635524076026234998
+      forlinws_circle_19: 3660060301538260815
+      forlinws_circle_2: 3216701016431537487
+      forlinws_circle_20: -2465266807372208489
+      forlinws_circle_21: 5962359812801138370
+      forlinws_circle_22: 648754592700410377
+      forlinws_circle_23: -7372757871168907954
+      forlinws_circle_3: -1317178929132197949
+      forlinws_circle_4: 6939956746895974159
+      forlinws_circle_5: -1868215204289336688
+      forlinws_circle_6: 6592142828634031901
+      forlinws_circle_7: 5835715798577452839
+      forlinws_circle_8: -3822030719904129932
+      forlinws_circle_9: -3391768832526604521
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
