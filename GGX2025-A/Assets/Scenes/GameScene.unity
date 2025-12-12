@@ -4775,7 +4775,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 1
-  player: {fileID: 0}
+  player: {fileID: 1469596432}
 --- !u!114 &683146373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5894,7 +5894,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
-  player: {fileID: 0}
+  player: {fileID: 1469596432}
 --- !u!114 &1233863919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6466,6 +6466,9 @@ MonoBehaviour:
   - 7.9
   - 9.4
   checkCount: 5
+  pauseButton: 0
+  leftSprite: {fileID: -5043395243539227074, guid: d86f312b4de9bc248b371561129cd19e, type: 3}
+  rightSprite: {fileID: -1504216712451437022, guid: 9bb179910cbc1ed4ea1f531494906d3b, type: 3}
 --- !u!1 &1470502844
 GameObject:
   m_ObjectHideFlags: 0
@@ -6766,7 +6769,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 2
-  player: {fileID: 0}
+  player: {fileID: 1469596432}
 --- !u!114 &1586017223
 MonoBehaviour:
   m_ObjectHideFlags: 0
