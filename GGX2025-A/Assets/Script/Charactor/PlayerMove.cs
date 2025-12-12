@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -10,9 +11,6 @@ public class PlayerMove : MonoBehaviour
 
     //リジットボディ
     private Rigidbody2D rb;
-
-    //1f前のポジション
-    private Vector2 prevPos;
 
     //バグ防止用
     private int cantResetCount;
@@ -42,37 +40,48 @@ public class PlayerMove : MonoBehaviour
     //止まっているかの判定
     private bool isStop;
 
+    //ポーズボタン
+    public bool pauseButton;
+
+    [Header("Graphics")]
+    private SpriteRenderer sr;
+    [SerializeField] private Sprite leftSprite;
+    [SerializeField] private Sprite rightSprite;
+
     private void Start()
     {
+        sr = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
-        prevPos = new Vector2(-100, -100);
         isFall = false;
         cantResetCount = 0;
         checkCount = 5;
         isStop = false;
         isCanJump = new bool[checkCount];
+        pauseButton = false;
     }
 
     void FixedUpdate()
     {
-        /*
-        if ((int)(transform.position.x * 100) == (int)(prevPos.x * 100))
+        //画像の切り替え
+        if (moveDir == 1)
         {
-            moveDir *= 1;
-        }*/
+            sr.sprite = rightSprite;
+        }
+        else
+        {
+            sr.sprite = leftSprite;
+        }
 
         //ストップフラグが立っていなければ移動
-        if (!isStop)
+        if (!isStop && !pauseButton)
         {
-            prevPos = transform.position;
             Vector3 pos = transform.position;
             pos.x += moveDir * 0.05f;
             transform.position = pos;
         }
 
-
-        //Ray1の処理
-        Ray1();
+            //Ray1の処理
+            Ray1();
 
         //Ray2の処理
         Ray2();
@@ -197,7 +206,7 @@ public class PlayerMove : MonoBehaviour
     /// <param name="maxDistance">Rayの長さ</param>
     /// <param name="checkTag">チェックするオブジェクトのタグ</param>
     /// <returns></returns>
-    RaycastHit2D RayHitCheck(Vector2 rayStart, Vector2 rayDir, float maxDistance, string checkTag)
+    private RaycastHit2D RayHitCheck(Vector2 rayStart, Vector2 rayDir, float maxDistance, string checkTag)
     {
 
         //移動方向に合わせて初期位置を調整
@@ -215,5 +224,10 @@ public class PlayerMove : MonoBehaviour
         //当たったオブジェクトを返す
         int groundMask2 = LayerMask.GetMask(checkTag);
         return Physics2D.Raycast(origin2, direction2, maxDistance, groundMask2);
+    }
+
+    public void SetMoveDir(int value)
+    {
+        moveDir = value;
     }
 }
