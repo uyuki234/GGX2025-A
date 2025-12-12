@@ -125,7 +125,6 @@ public class PlayerMove : MonoBehaviour
             if (count != -1)
             {
                 //出来るならジャンプの強さをしていし、ジャンプ
-                moveDir = 1;
                 Jump(powerList[count]);
                 isFall = true;
                 cantResetCount = 0;
