@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -4676069703338439593}
   - component: {fileID: 6709751342245169930}
   m_Layer: 0
-  m_Name: EnemyBullet
+  m_Name: EnemyBullet_light
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 30
-  m_Sprite: {fileID: 5293031974318352618, guid: 66591348ad2ebf74ea6d70e2ee343694, type: 3}
+  m_Sprite: {fileID: 3423208493237605056, guid: 37ab204c6a3a7964daa12cab07f15540, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -138,7 +138,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Radius: 0.36
 --- !u!50 &6709751342245169930
 Rigidbody2D:
   serializedVersion: 5
