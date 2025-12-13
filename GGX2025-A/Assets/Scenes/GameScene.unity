@@ -7282,6 +7282,8 @@ MonoBehaviour:
   sizeThreshold: 10
   sizeCostRate: 0.5
   requiredEnergy: 0
+  minAreaToGenerate: 0
+  areaSize: 0
   able: {r: 0, g: 0.6, b: 1, a: 0.6}
   notable: {r: 1, g: 0, b: 0, a: 0.6}
   Slider_front: {fileID: 909870011}
@@ -7317,7 +7319,7 @@ MonoBehaviour:
   currentExp: 0
   levelupExp: 0
   maxHP: 100
-  currentHP: 50
+  currentHP: 100
 --- !u!4 &1447367233
 Transform:
   m_ObjectHideFlags: 0
@@ -9759,11 +9761,11 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.08203769}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -9773,7 +9775,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 1
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 0.8359246}
   m_EdgeRadius: 0
 --- !u!50 &6724101964068468759
 Rigidbody2D:
@@ -10092,7 +10094,7 @@ Transform:
   m_GameObject: {fileID: 7983573139045469075}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -1, w: 0}
-  m_LocalPosition: {x: 1.1673243, y: 2.69, z: 0}
+  m_LocalPosition: {x: 1.1673243, y: 2.569, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
