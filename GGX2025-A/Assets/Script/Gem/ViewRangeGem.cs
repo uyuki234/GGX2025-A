@@ -10,5 +10,6 @@ public class ViewRangeGem : GemBase
     public override void HitPlayer()
     {
         StatusManager.Instance.viewRange_base++;
+        StatusManager.Instance.Cal();
     }
 }

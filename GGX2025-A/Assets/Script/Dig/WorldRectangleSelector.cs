@@ -47,8 +47,17 @@ public class WorldRectangleSelector : MonoBehaviour
             if (IsPointerOverUI()) return;
         }
 
-        // 左クリック開始
-        if (Input.GetMouseButtonDown(0))
+        if (!isSelecting && currentEnergy < maxEnergy)
+        {
+            currentEnergy = Mathf.Clamp(
+                currentEnergy + StatusManager.Instance.chargeEnergy_effective * Time.deltaTime, 0f, maxEnergy);
+
+            Slider_back.value = currentEnergy / maxEnergy;
+            Slider_front.value = currentEnergy / maxEnergy;
+        }
+
+            // 左クリック開始
+            if (Input.GetMouseButtonDown(0))
         {
             startWorldPos = GetCursorPosition();
             isSelecting = true;
