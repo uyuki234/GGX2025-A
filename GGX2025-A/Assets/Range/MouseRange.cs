@@ -4,10 +4,16 @@ public class MouseRange : MonoBehaviour
 {
     public Transform playerTrans;
     public Transform centerObj;
+    [SerializeField] GameObject circle;
     public float radius = 3f;
 
     void Update()
     {
+        
+        radius = StatusManager.Instance.viewRange_effective;
+
+        float scale = radius / 10f;
+        circle.transform.localScale=new Vector3(scale,scale,1f);
         Vector3 mousePos = Input.mousePosition;
 
         // カメラからの距離
