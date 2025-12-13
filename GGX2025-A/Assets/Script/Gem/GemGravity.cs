@@ -9,6 +9,11 @@ public class GemGravity : MonoBehaviour
 
     private bool isYFrozen = false;
 
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+
     void Update()
     {
         Vector2 origin = (Vector2)transform.position + rayOffset;
