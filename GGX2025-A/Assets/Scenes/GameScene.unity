@@ -4819,7 +4819,7 @@ BoxCollider2D:
     drawMode: 1
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 2.5, y: 3}
   m_EdgeRadius: 0
 --- !u!212 &374621029
 SpriteRenderer:
@@ -6802,13 +6802,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1314759323}
-  - component: {fileID: 1314759322}
   - component: {fileID: 1314759321}
+  - component: {fileID: 1314759322}
+  - component: {fileID: 1314759325}
+  - component: {fileID: 1314759326}
   - component: {fileID: 1314759320}
-  - component: {fileID: 1314759324}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6825,7 +6826,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c52d4c238ff09e4b97648e773b4052f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
+  moveSpeed: 1
   fallSpeed: 5
   wallLayer:
     serializedVersion: 2
@@ -6925,15 +6926,61 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1314759319}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.57, y: -1.5, z: 11.109412}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.5699997, y: -1.5000002, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1331772741}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1314759324
+--- !u!61 &1314759325
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314759319}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 0.97, y: 0.62}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &1314759326
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6945,7 +6992,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63d75e45ddbc3b049909947a868c1602, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 50
+  maxHp: 30
   currentHp: 0
   HPUI: {fileID: 1331772736}
 --- !u!1 &1331772736
@@ -7051,7 +7098,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1331772736}
   m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -11.109412}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7327,7 +7374,7 @@ GameObject:
   - component: {fileID: 1469596428}
   - component: {fileID: 1469596431}
   - component: {fileID: 1469596432}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Robot
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -8127,7 +8174,7 @@ BoxCollider2D:
     drawMode: 1
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 3, y: 3}
   m_EdgeRadius: 0
 --- !u!212 &1674605535
 SpriteRenderer:
@@ -8351,7 +8398,7 @@ GameObject:
   - component: {fileID: 1773006202}
   - component: {fileID: 1773006201}
   - component: {fileID: 1773006200}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -8370,7 +8417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63d75e45ddbc3b049909947a868c1602, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 50
+  maxHp: 30
   currentHp: 0
   HPUI: {fileID: 103335851}
 --- !u!114 &1773006201
@@ -8385,12 +8432,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83682af9b2c998446bc228c5333a0932, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletCoolDown: 0
-  _fierDistans: 0
-  _fierMax: 0
-  _bulletSpeed: 0
-  _bulletDamage: 0
-  _rotateSpeed: 0
+  _bulletCoolDown: 60
+  _fierDistans: 10
+  _fierMax: 5
+  _bulletSpeed: 0.03
+  _bulletDamage: 5
+  _rotateSpeed: 72
   _startRotate: 0
   _bulletPrefab: {fileID: 774588647584788626, guid: 036b597348d8b6c4c9f6707eec0c4e3e, type: 3}
 --- !u!61 &1773006202
@@ -8423,7 +8470,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -8991,7 +9038,7 @@ BoxCollider2D:
     drawMode: 1
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 2.5, y: 3}
   m_EdgeRadius: 0
 --- !u!114 &2018902428
 MonoBehaviour:
@@ -9238,7 +9285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63d75e45ddbc3b049909947a868c1602, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 50
+  maxHp: 30
   currentHp: 0
   HPUI: {fileID: 3081722797256837632}
 --- !u!222 &2656390300543214525
@@ -9676,7 +9723,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bulletCoolDown: 60
-  _fierDistans: 10
+  _fierDistans: 5
   _fierMax: 3
   _bulletSpeed: 0.1
   _bulletDamage: 5
@@ -9930,7 +9977,7 @@ GameObject:
   - component: {fileID: 6582812281245273277}
   - component: {fileID: 4968973290362858247}
   - component: {fileID: 1355468115474178576}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy3
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -10068,6 +10115,6 @@ SceneRoots:
   - {fileID: 943276012}
   - {fileID: 1206410853}
   - {fileID: 2026577070}
+  - {fileID: 1314759323}
   - {fileID: 9184145523957052887}
   - {fileID: 1773006205}
-  - {fileID: 1314759323}

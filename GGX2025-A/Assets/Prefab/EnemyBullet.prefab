@@ -103,6 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveDir: {x: 0, y: 0}
+  notAffectedGround: 0
 --- !u!58 &-4676069703338439593
 CircleCollider2D:
   m_ObjectHideFlags: 0
