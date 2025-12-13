@@ -46,19 +46,19 @@ public class SurfaceCrawlerEnemy : MonoBehaviour
 
         // === 回転判定 ===
         // 左上が外れた → 左に曲がる
-        if (!hitTL)
+        if (hitTL)
         {
             transform.Rotate(0, 0, 90f);
             return;
         }
 
-        else if (hitTR && hitBR &&hitBL&& !rotating){
+        else if (!hitTR && !hitBR &&!hitBL&& !rotating){
             rotating = true;
             transform.Rotate(0, 0, -90f);
             return;
         }
         
-        if (hitBL && hitBR)
+        if (!hitBL && !hitBR)
         {
             rotating = true;
             // 落下方向 = 進行方向を -90°した方向 = -transform.up
@@ -70,7 +70,7 @@ public class SurfaceCrawlerEnemy : MonoBehaviour
         // === 前進判定 ===
         // 下2つの Ray が両方 hit → 壁に乗っている
         // どちらかが外れたら「進行方向へ進む」
-        if (!hitBL || !hitBR)
+        if (hitBL || hitBR)
         {
             rb.linearVelocity = transform.right * moveSpeed;
             rotating = false;
