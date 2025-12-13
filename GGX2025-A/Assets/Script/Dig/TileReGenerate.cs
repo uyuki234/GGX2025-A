@@ -43,6 +43,7 @@ public class TileReGenerate : MonoBehaviour
 
         if (pattern == 0)
         {
+            ParticleController.Instance.PlayDestroyEffect(transform.position);
             Destroy(gameObject);
         }
 
