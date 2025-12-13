@@ -19,7 +19,7 @@ public class EnemyGravityController : MonoBehaviour
         Vector2 origin = (Vector2)transform.position + rayOffset;
         RaycastHit2D hit = Physics2D.Raycast(origin, Vector2.down, rayDistance, wallLayer);
 
-        if (!hit)
+        if (hit)
         {
             if (!isYFrozen)
             {
