@@ -3,9 +3,16 @@ using UnityEngine.UI;
 
 public class EnergyUIManager : MonoBehaviour
 {
+    [SerializeField] WorldRectangleSelector wrs;
     [SerializeField] private Slider targetSlider; // ← インスペクターで指定
     [SerializeField] private float maxEnergy = 100f;
     [SerializeField] private float currentEnergy = 100f;
+
+
+    private void Update()
+    {
+        targetSlider.value = wrs.currentEnergy/ wrs.maxEnergy;//100/100で1
+    }
 
     private void Start()
     {
