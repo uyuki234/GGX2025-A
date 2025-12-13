@@ -10,5 +10,6 @@ public class ChargeEnergyGem : GemBase
     public override void HitPlayer()
     {
         StatusManager.Instance.chargeEnergy_base++;
+        StatusManager.Instance.Cal();
     }
 }

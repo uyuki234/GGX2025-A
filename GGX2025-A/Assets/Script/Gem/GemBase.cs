@@ -12,9 +12,9 @@ public abstract class GemBase : MonoBehaviour
     public abstract void HitPlayer();
 
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             //ƒvƒŒƒCƒ„[‚ÌEXP‚ğ‘‚â‚·
             StatusManager.Instance.currentExp++;

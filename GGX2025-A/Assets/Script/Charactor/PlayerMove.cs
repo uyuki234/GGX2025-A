@@ -76,7 +76,7 @@ public class PlayerMove : MonoBehaviour
         if (!isStop && !pauseButton)
         {
             Vector3 pos = transform.position;
-            pos.x += moveDir * 0.05f;
+            pos.x += moveDir * 0.005f * StatusManager.Instance.moveSpeed_effective;
             transform.position = pos;
         }
 

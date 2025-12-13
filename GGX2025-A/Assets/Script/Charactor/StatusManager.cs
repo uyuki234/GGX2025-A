@@ -38,5 +38,13 @@ public class StatusManager : SingletonMonoBehavior<StatusManager>
     public float maxHP;
     public float currentHP;
 
+    public void Cal()
+    {
+        moveSpeed_effective= moveSpeed_base*moveSpeed_correction;
+        attack_effective = attack_base * attack_correction;
+        chargeEnergy_effective = chargeEnergy_base * chargeEnergy_correction;
+        viewRange_effective = viewRange_base * viewRange_correction;
 
+    }
+   
 }

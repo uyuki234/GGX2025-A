@@ -10,5 +10,6 @@ public class MoveSpeedGem : GemBase
     public override void HitPlayer()
     {
         StatusManager.Instance.moveSpeed_base++;
+        StatusManager.Instance.Cal();
     }
 }
