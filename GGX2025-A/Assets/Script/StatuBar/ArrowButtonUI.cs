@@ -10,7 +10,7 @@ public class ArrowButtonUI : MonoBehaviour
         pause
     }
     [SerializeField] moveBottonState state;
-    public AutoWalkerWithRayFlip player;
+    public PlayerMove player;
 
     void Start()
     {
@@ -30,15 +30,17 @@ public class ArrowButtonUI : MonoBehaviour
         switch (state)
         {
             case moveBottonState.left:
-                player.ResumeMovement(Vector2.left);
+                player.SetMoveDir(-1);
+                player.pauseButton = false;
                 break;
 
                 case moveBottonState.right:
-                player.ResumeMovement(Vector2.right);
+                player.SetMoveDir(1);
+                player.pauseButton = false;
                 break;
 
                 case moveBottonState.pause:
-                player.isPaused = true;
+                player.pauseButton = true;
                 break;
 
         }
