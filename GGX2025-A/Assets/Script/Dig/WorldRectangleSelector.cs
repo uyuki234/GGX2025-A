@@ -28,6 +28,8 @@ public class WorldRectangleSelector : MonoBehaviour
 
     private float beforeDrillEnergy;
     public float requiredEnergy;
+    public float minAreaToGenerate;//クリックでの生成防止用、これ未満は生成しない
+    public float areaSize;
 
     [Header("掘削範囲の色")]
     [SerializeField] Color able;
@@ -67,49 +69,57 @@ public class WorldRectangleSelector : MonoBehaviour
 
             // サイズに比例した追加消費を計算
             Vector3 size = currentWorldPos - startWorldPos;
-            float areaSize = Mathf.Abs(size.x * size.y);
+            areaSize = Mathf.Abs(size.x * size.y);
 
             requiredEnergy = baseCost;
-            if (areaSize > sizeThreshold)
-            {
-                requiredEnergy += (areaSize - sizeThreshold) * sizeCostRate;
-            }
 
-            // エネルギー不足なら赤色に
-            SpriteRenderer sr = currentSelectionSquare.GetComponent<SpriteRenderer>();
-            if (sr != null)
+            if (areaSize> minAreaToGenerate)
             {
-                sr.color = (requiredEnergy > beforeDrillEnergy) ? notable : able;
+                if (areaSize > sizeThreshold)
+                {
+                    requiredEnergy += (areaSize - sizeThreshold) * sizeCostRate;
+                }
+
+                // エネルギー不足なら赤色に
+                SpriteRenderer sr = currentSelectionSquare.GetComponent<SpriteRenderer>();
+                if (sr != null)
+                {
+                    sr.color = (requiredEnergy > beforeDrillEnergy) ? notable : able;
+                }
+                Slider_front.value = (currentEnergy - requiredEnergy) / maxEnergy;
             }
-            Slider_front.value = (currentEnergy - requiredEnergy)/maxEnergy;
         }
 
         // 左クリック離す
         if (Input.GetMouseButtonUp(0) && isSelecting)
         {
-            Vector3 endWorldPos = GetCursorPosition();
-
-            if (requiredEnergy <= beforeDrillEnergy)
+            if (areaSize > minAreaToGenerate)
             {
-                // 掘削確定 → エネルギー消費
-                currentEnergy = Mathf.Clamp(beforeDrillEnergy - requiredEnergy, 0, maxEnergy);
-                Slider_back.value = currentEnergy/maxEnergy;
+                Vector3 endWorldPos = GetCursorPosition();
 
-                GameObject finalSquare = Instantiate(finalSquarePrefab, parentObject);
-                UpdateSquare(finalSquare, startWorldPos, endWorldPos);
+                if (requiredEnergy <= beforeDrillEnergy)
+                {
+                    // 掘削確定 → エネルギー消費
+                    currentEnergy = Mathf.Clamp(beforeDrillEnergy - requiredEnergy, 0, maxEnergy);
+                    Slider_back.value = currentEnergy / maxEnergy;
 
-                BoxCollider2D col = finalSquare.AddComponent<BoxCollider2D>();
-                col.isTrigger = true;
-                col.size = Vector2.one;
+                    GameObject finalSquare = Instantiate(finalSquarePrefab, parentObject);
+                    UpdateSquare(finalSquare, startWorldPos, endWorldPos);
+
+                    BoxCollider2D col = finalSquare.AddComponent<BoxCollider2D>();
+                    col.isTrigger = true;
+                    col.size = Vector2.one;
+                }
+                else
+                {
+                    Slider_front.value = currentEnergy / maxEnergy;
+                }
+
+                Destroy(currentSelectionSquare);
+                currentSelectionSquare = null;
+                isSelecting = false;
+
             }
-            else
-            {
-                Slider_front.value = currentEnergy/maxEnergy;
-            }
-
-            Destroy(currentSelectionSquare);
-            currentSelectionSquare = null;
-            isSelecting = false;
 
         }
 
