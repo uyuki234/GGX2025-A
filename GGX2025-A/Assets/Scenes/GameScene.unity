@@ -6753,6 +6753,7 @@ MonoBehaviour:
   selectionSquarePrefab: {fileID: 3522240653678387228, guid: cc498879e4b6b8e4ea6829ff63942381, type: 3}
   finalSquarePrefab: {fileID: 4433871112704622820, guid: 92cfe791903949345bd79b4d47fa0f73, type: 3}
   parentObject: {fileID: 1096808760}
+  gameCursorTransform: {fileID: 182073777064185654}
   uiBlockers:
   - {fileID: 2018902423}
   - {fileID: 1674605531}
@@ -6764,7 +6765,7 @@ MonoBehaviour:
   sizeCostRate: 0.5
   requiredEnergy: 0
   able: {r: 0, g: 0.6, b: 1, a: 0.6}
-  notable: {r: 1, g: 0, b: 0, a: 0.5019608}
+  notable: {r: 1, g: 0, b: 0, a: 0.6}
   Slider_front: {fileID: 909870011}
   Slider_back: {fileID: 1374442318}
 --- !u!114 &1447367232

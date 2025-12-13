@@ -10,6 +10,7 @@ public class WorldRectangleSelector : MonoBehaviour
     public GameObject selectionSquarePrefab;
     public GameObject finalSquarePrefab;
     [SerializeField] private Transform parentObject;
+    [SerializeField] private Transform gameCursorTransform;
 
     [Header("UI Blockers")]
     [SerializeField] private List<RectTransform> uiBlockers;
@@ -47,7 +48,7 @@ public class WorldRectangleSelector : MonoBehaviour
         // 左クリック開始
         if (Input.GetMouseButtonDown(0))
         {
-            startWorldPos = GetMouseWorldPosition();
+            startWorldPos = GetCursorPosition();
             isSelecting = true;
 
             currentSelectionSquare = Instantiate(selectionSquarePrefab);
@@ -61,7 +62,7 @@ public class WorldRectangleSelector : MonoBehaviour
         // ドラッグ中
         if (Input.GetMouseButton(0) && isSelecting)
         {
-            Vector3 currentWorldPos = GetMouseWorldPosition();
+            Vector3 currentWorldPos = GetCursorPosition();
             UpdateSquare(currentSelectionSquare, startWorldPos, currentWorldPos);
 
             // サイズに比例した追加消費を計算
@@ -86,7 +87,7 @@ public class WorldRectangleSelector : MonoBehaviour
         // 左クリック離す
         if (Input.GetMouseButtonUp(0) && isSelecting)
         {
-            Vector3 endWorldPos = GetMouseWorldPosition();
+            Vector3 endWorldPos = GetCursorPosition();
 
             if (requiredEnergy <= beforeDrillEnergy)
             {
@@ -136,11 +137,11 @@ public class WorldRectangleSelector : MonoBehaviour
         return false;
     }
 
-    Vector3 GetMouseWorldPosition()
+    Vector3 GetCursorPosition()
     {
-        Vector3 mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-        mousePos.z = 0f;
-        return mousePos;
+        Vector3 pos = gameCursorTransform.position;
+        pos.z = 0f;
+        return pos;
     }
 
     void UpdateSquare(GameObject square, Vector3 start, Vector3 end)
