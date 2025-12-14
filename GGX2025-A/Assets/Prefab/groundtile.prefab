@@ -207,12 +207,13 @@ MonoBehaviour:
   tilemask_square: {fileID: 6425437072879252754, guid: 1c26fb1755ff25548924961e3afc4e67, type: 3}
   tilemask_check: {fileID: 6425437072879252754, guid: 98c329b3f784ab74387762ed5cd6544b, type: 3}
   currentmask: {fileID: 6426133686105697090}
-  particleController: {fileID: 0}
   tilecol_UL: 1
   tilecol_UR: 1
   tilecol_LL: 1
   tilecol_LR: 1
   pattern: 0
+  audioSource: {fileID: 0}
+  digSE: {fileID: 8300000, guid: d452109f37cc782479451d30665908c9, type: 3}
 --- !u!1 &3597790696402619232
 GameObject:
   m_ObjectHideFlags: 0

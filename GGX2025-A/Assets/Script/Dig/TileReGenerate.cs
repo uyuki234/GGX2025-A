@@ -16,6 +16,8 @@ public class TileReGenerate : MonoBehaviour
 
     [SerializeField] int pattern;
 
+    public AudioClip digSE;
+
 
     public void regenerate()
     {
@@ -43,6 +45,7 @@ public class TileReGenerate : MonoBehaviour
 
         if (pattern == 0)
         {
+            AudioSource.PlayClipAtPoint(digSE, transform.position);
             ParticleController.Instance.PlayDestroyEffect(transform.position);
             Destroy(gameObject);
         }
