@@ -5,6 +5,7 @@ public class EnemyStatus : MonoBehaviour
 {
     [SerializeField]private float maxHp = 50;
     [SerializeField] float currentHp;
+    private GemCreatEnemy gemCreatEnemy;
 
     [SerializeField]private GameObject HPUI;
     //　HP表示用スライダー
@@ -26,6 +27,8 @@ public class EnemyStatus : MonoBehaviour
 
         if(currentHp <= 0){
             //HideStatusUI();
+            gemCreatEnemy = GetComponent<GemCreatEnemy>();
+            gemCreatEnemy.ScatterObjects();
             Destroy(gameObject);
         }
     }

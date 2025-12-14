@@ -87,7 +87,6 @@ GameObject:
   - component: {fileID: 7449280406256030771}
   - component: {fileID: 8510086933814996211}
   - component: {fileID: 3997823841850494922}
-  - component: {fileID: 4933406944597596755}
   m_Layer: 5
   m_Name: HPUI
   m_TagString: Untagged
@@ -178,18 +177,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &4933406944597596755
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3081722796159347683}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb910be9217530a4cb35545989e0548a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3574062597835615030
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,6 +318,8 @@ GameObject:
   - component: {fileID: -4254398747582018844}
   - component: {fileID: -76503294919647930}
   - component: {fileID: 1355468114360157171}
+  - component: {fileID: 7055412654253132692}
+  - component: {fileID: 896803207911910304}
   m_Layer: 0
   m_Name: Enemy3
   m_TagString: Enemy
@@ -549,8 +538,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63d75e45ddbc3b049909947a868c1602, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 50
+  maxHp: 10
+  currentHp: 0
   HPUI: {fileID: 3081722796159347683}
+--- !u!114 &7055412654253132692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7983573140080781936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 322e03d7ed135f44c9d0d167cd314179, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  force: 5
+  gemcount: 1
+--- !u!114 &896803207911910304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7983573140080781936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 520505cc63908df4a865e94801238020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gemPrefabs:
+  - {fileID: 138843175551115639, guid: 29194773f90ebaa41aa4c608f5d55fa1, type: 3}
+  - {fileID: 138843175551115639, guid: ef44368522b378845bccd18322bdc79d, type: 3}
+  - {fileID: 138843175551115639, guid: 3a330c6b26bde6341b386dd4d071d608, type: 3}
 --- !u!1 &8689893865129191827
 GameObject:
   m_ObjectHideFlags: 0
