@@ -67,7 +67,7 @@ public class PlayerMove : MonoBehaviour
         {
             sr.sprite = rightSprite;
         }
-        else
+        if(moveDir == -1)
         {
             sr.sprite = leftSprite;
         }
@@ -118,7 +118,7 @@ public class PlayerMove : MonoBehaviour
     private void Ray1()
     {
         RaycastHit2D hit1 = RayHitCheck(ray1Start, ray1Dir, maxDistance1, "Ground");
-        if (hit1.collider != null && !isFall)
+        if (hit1.collider != null && !isFall && !isStop && !pauseButton)
         {
             //どこにジャンプ出来るかチェック
             int count = CheckJump();
