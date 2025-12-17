@@ -47774,6 +47774,7 @@ GameObject:
   - component: {fileID: 1469596428}
   - component: {fileID: 1469596431}
   - component: {fileID: 1469596432}
+  - component: {fileID: 1469596433}
   m_Layer: 10
   m_Name: Robot
   m_TagString: Player
@@ -47960,6 +47961,19 @@ MonoBehaviour:
   pauseButton: 0
   leftSprite: {fileID: -5043395243539227074, guid: d86f312b4de9bc248b371561129cd19e, type: 3}
   rightSprite: {fileID: -1504216712451437022, guid: 9bb179910cbc1ed4ea1f531494906d3b, type: 3}
+--- !u!114 &1469596433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1469596425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ffacaba57e170149ba61f2349ce2d82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerMove: {fileID: 1469596432}
 --- !u!1 &1470502844
 GameObject:
   m_ObjectHideFlags: 0

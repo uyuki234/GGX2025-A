@@ -19,20 +19,20 @@ public class CameraController2D : MonoBehaviour
         }
 
         // 右クリック or 中ボタンドラッグでカメラ移動
-        if (Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))
+        if (Input.GetMouseButtonDown(1))
         {
             dragOrigin = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             isDragging = true;
         }
 
-        if ((Input.GetMouseButton(1) || Input.GetMouseButton(2)) && isDragging)
+        if (Input.GetMouseButton(1) && isDragging)
         {
             Vector3 currentPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3 difference = dragOrigin - currentPosition;
             transform.position += difference;
         }
 
-        if (Input.GetMouseButtonUp(1) || Input.GetMouseButtonUp(2))
+        if (Input.GetMouseButtonUp(1))
         {
             isDragging = false;
         }
