@@ -82,7 +82,7 @@ public class GemManager : MonoBehaviour
 
     private void Awake()
     {
-        Initialize();
+        //Initialize();
     }
     
     private void Update()
