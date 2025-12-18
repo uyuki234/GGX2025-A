@@ -20,8 +20,8 @@ public class EnemyBullet : MonoBehaviour
     private void FixedUpdate()
     {
         Vector3 playerPos = transform.position;
-        playerPos.x -= moveDir.x * moveSpeed;
-        playerPos.y -= moveDir.y * moveSpeed;
+        playerPos.x -= moveDir.x * moveSpeed * Time.deltaTime * 60;
+        playerPos.y -= moveDir.y * moveSpeed * Time.deltaTime * 60;
         transform.position = playerPos;
         spwanCount++;
     }
