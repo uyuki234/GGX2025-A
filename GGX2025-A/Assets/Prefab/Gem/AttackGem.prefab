@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4311260860230849136}
   - component: {fileID: -3594008345283436437}
   - component: {fileID: 7342567164307414566}
+  - component: {fileID: -3442665921149239919}
   m_Layer: 0
   m_Name: AttackGem
   m_TagString: Untagged
@@ -176,3 +177,16 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.5925926, y: 0.7314815}
   m_EdgeRadius: 0
+--- !u!114 &-3442665921149239919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 138843175551115639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c2479ef2a61faf4baa740fe9c12960c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 70

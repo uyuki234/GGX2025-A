@@ -17,6 +17,8 @@ public class GemCreatEnemy : MonoBehaviour
             // 生成
             gemCreatRandom = GetComponent<GemCreatRandom>();
             GameObject gem = Instantiate(gemCreatRandom.SampleGem(), pos, rot);
+            GemControllerEnemy controller = gem.GetComponent<GemControllerEnemy>();
+            controller.SetEnemygem(true);
 
             // Rigidbodyがあればランダムな力を加える
             Rigidbody2D gemrb = gem.GetComponent<Rigidbody2D>();
