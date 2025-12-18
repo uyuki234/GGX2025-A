@@ -40,6 +40,11 @@ public class WorldRectangleSelector : MonoBehaviour
     [SerializeField] Slider Slider_front;
     [SerializeField] Slider Slider_back;
 
+    [Header("Time Slow")]
+    [SerializeField] float slowTimeScale = 0.2f;
+    [SerializeField] float normalTimeScale = 1f;
+
+
     void Update()
     {
         if (!isSelecting)
@@ -60,6 +65,7 @@ public class WorldRectangleSelector : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
         {
             startWorldPos = GetCursorPosition();
+
             isSelecting = true;
 
             currentSelectionSquare = Instantiate(selectionSquarePrefab);
@@ -73,6 +79,9 @@ public class WorldRectangleSelector : MonoBehaviour
         // ドラッグ中
         if (Input.GetMouseButton(0) && isSelecting)
         {
+            Time.timeScale = slowTimeScale;
+            Time.fixedDeltaTime = 0.02f * Time.timeScale;
+
             Vector3 currentWorldPos = GetCursorPosition();
             UpdateSquare(currentSelectionSquare, startWorldPos, currentWorldPos);
 
@@ -102,6 +111,7 @@ public class WorldRectangleSelector : MonoBehaviour
         // 左クリック離す
         if (Input.GetMouseButtonUp(0) && isSelecting)
         {
+
             if (areaSize > minAreaToGenerate)
             {
                 Vector3 endWorldPos = GetCursorPosition();
@@ -124,17 +134,24 @@ public class WorldRectangleSelector : MonoBehaviour
                     Slider_front.value = currentEnergy / maxEnergy;
                 }
 
+
                 Destroy(currentSelectionSquare);
                 currentSelectionSquare = null;
-                isSelecting = false;
 
             }
+
+            Time.timeScale = normalTimeScale;
+            Time.fixedDeltaTime = 0.02f * Time.timeScale;
+            isSelecting = false;
 
         }
 
         // 右クリックキャンセル
         if (Input.GetMouseButtonDown(1) && isSelecting)
         {
+            Time.timeScale = normalTimeScale;
+            Time.fixedDeltaTime = 0.02f * Time.timeScale;
+
             Slider_front.value = currentEnergy / maxEnergy;
             Destroy(currentSelectionSquare);
             currentSelectionSquare = null;
