@@ -44571,12 +44571,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 675789926}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -41.6, y: -9.2, z: -10}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.25, y: 1.1300001, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1469596430}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &675789930
 MonoBehaviour:
@@ -47674,6 +47674,8 @@ MonoBehaviour:
   notable: {r: 1, g: 0, b: 0, a: 0.6}
   Slider_front: {fileID: 909870011}
   Slider_back: {fileID: 1374442318}
+  slowTimeScale: 0.2
+  normalTimeScale: 1
 --- !u!114 &1447367232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47873,10 +47875,11 @@ Transform:
   m_GameObject: {fileID: 1469596425}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -45.85, y: -10.33, z: 0}
+  m_LocalPosition: {x: -28.7, y: -6.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
+  - {fileID: 675789929}
   - {fileID: 1096904054}
   - {fileID: 7319546623841236114}
   - {fileID: 182073777064185654}
@@ -50429,8 +50432,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 322e03d7ed135f44c9d0d167cd314179, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 3
-  gemcount: 1
+  force: 5
+  gemcount: 5
 --- !u!4 &2076742895 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6502427458160932697, guid: 56771d8e5c637c44c9180d0433bb5d7a, type: 3}
@@ -51082,7 +51085,6 @@ Animator:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 675789929}
   - {fileID: 1550798537}
   - {fileID: 1469596430}
   - {fileID: 1266327672}
