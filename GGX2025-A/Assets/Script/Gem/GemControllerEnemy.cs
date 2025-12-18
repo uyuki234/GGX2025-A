@@ -18,7 +18,7 @@ public class GemControllerEnemy : MonoBehaviour
 
         // 2秒後に StartMove を呼ぶ
         if(enemygem){
-            Invoke(nameof(StartMove), 1f);
+            Invoke(nameof(StartMove), 0.5f);
         }
     }
 
