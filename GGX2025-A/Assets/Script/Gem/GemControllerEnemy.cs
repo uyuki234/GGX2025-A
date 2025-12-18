@@ -3,7 +3,7 @@ using UnityEngine;
 public class GemControllerEnemy : MonoBehaviour
 {
     Transform player;   // ロボット(プレイヤー)のTransform
-    public float speed = 10000f;   // 移動速度
+    public float speed = 800f;   // 移動速度
     private bool startMove = false; // 移動開始フラグ
     //private bool contactGround = false;
     private bool enemygem = false;
@@ -17,7 +17,9 @@ public class GemControllerEnemy : MonoBehaviour
         }
 
         // 2秒後に StartMove を呼ぶ
-        //Invoke(nameof(StartMove), 0.5f);
+        if(enemygem){
+            Invoke(nameof(StartMove), 1f);
+        }
     }
 
     void StartMove()
@@ -37,8 +39,6 @@ public class GemControllerEnemy : MonoBehaviour
 
     void Update()
     {
-        if(!enemygem)    return;
-
         if (startMove && player != null)
         {
             // 毎フレームプレイヤーの方向へ移動
@@ -50,14 +50,14 @@ public class GemControllerEnemy : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D other)
+    /*void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Ground"))
         {
             // 地面に着いたら 0.5 秒後にすり抜けモードへ
             Invoke(nameof(StartMove), 0.5f);
         }
-    }
+    }*/
 
 
     public void SetEnemygem(bool a){
