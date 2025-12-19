@@ -5,7 +5,7 @@ public class EnemyStatus : MonoBehaviour
 {
     [SerializeField]private float maxHp = 50;
     [SerializeField] float currentHp;
-
+    //private bool attacknum;
     [SerializeField]private GameObject HPUI;
     //　HP表示用スライダー
     private Slider hpSlider;
@@ -37,6 +37,14 @@ public class EnemyStatus : MonoBehaviour
     public float GetMaxHP(){
         return maxHp;
     }
+
+    /*public bool GetAttacknum(){
+        return attacknum;
+    }
+
+    public void SetAttacknum(bool a){
+        attacknum=a;
+    }*/
 
     public void HideStatusUI(){
         HPUI.SetActive(false);
