@@ -3,16 +3,16 @@ using UnityEngine;
 public class Enemy3 : MonoBehaviour
 {
     [SerializeField]private int _bulletCoolDown;
-    private int _coolDownCounter;
+    [SerializeField] private float _coolDownCounter;
     private Transform _playerTrans;
     [SerializeField] private int _fierDistans;
-    private int _fierDistansCount;
+    [SerializeField] private float _fierDistansCount;
     [SerializeField]private int _fierMax;
     [SerializeField]private float _bulletSpeed;
     [SerializeField] private int _bulletDamage;
     [SerializeField] private int _viewSize;
     [SerializeField] private GameObject _bulletPrefab;
-    private int _fierCount;
+    [SerializeField] private float _fierCount;
 
     public void Start()
     {
@@ -47,7 +47,7 @@ public class Enemy3 : MonoBehaviour
             }
         }
 
-        _fierDistansCount++;
+        _fierDistansCount += 1 * Time.timeScale;
 
         //’e‚Ì”­ŽË
         if (_fierCount > 0 && _fierDistansCount > _fierDistans)
@@ -58,6 +58,8 @@ public class Enemy3 : MonoBehaviour
 
             _fierDistansCount = 0;
             _fierCount--;
+
+
         }
     }
 
@@ -69,7 +71,7 @@ public class Enemy3 : MonoBehaviour
     {
         if (_fierCount > 0) return false;
 
-        _coolDownCounter++;
+        _coolDownCounter += 1 * Time.timeScale;
         if (_coolDownCounter >= _bulletCoolDown)
         {
             _coolDownCounter = 0;

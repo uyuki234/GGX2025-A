@@ -4,11 +4,11 @@ public class Danmaku1 : MonoBehaviour
 {
     //”­ŽË‚Ü‚Å‚ÌƒN[ƒ‹ƒ_ƒEƒ“
     [SerializeField] private int _bulletCoolDown;
-    private int _coolDownCounter;
+    private float _coolDownCounter;
     //”­ŽËŠÔŠu
     [SerializeField] private int _fierDistans;
     //”­ŽËŠÔŠu‚ÌƒJƒEƒ“ƒ^[
-    private int _fierDistansCount;
+    private float _fierDistansCount;
     //’e‚Ì¶¬”
     [SerializeField] private int _fierMax;
     //’e‚Ì‘¬“x
@@ -57,7 +57,7 @@ public class Danmaku1 : MonoBehaviour
         //Vec2‚É
         Vector2 moveDir = new Vector2(dx, dy);
 
-        _fierDistansCount++;
+        _fierDistansCount += 1 * Time.timeScale;
 
         //’e‚Ì”­ŽË
         if (_fierCount > 0 && _fierDistansCount > _fierDistans)
@@ -81,7 +81,7 @@ public class Danmaku1 : MonoBehaviour
     {
         if (_fierCount > 0) return false;
 
-        _coolDownCounter++;
+        _coolDownCounter+= 1 * Time.timeScale;
         if (_coolDownCounter >= _bulletCoolDown)
         {
             _coolDownCounter = 0;
