@@ -1,35 +1,50 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
-public class ShovelRotateByMouse : MonoBehaviour
+public class ShovelController : MonoBehaviour
 {
-    // ‘OƒtƒŒ[ƒ€‚Ìƒ}ƒEƒXÀ•W
+    [Header("ã‚·ãƒ£ãƒ™ãƒ«ã®Transform")]
+    public Transform shovel;
+
+    [Header("å›è»¢ã®ã‚¹ãƒ ãƒ¼ã‚ºã•ï¼ˆ0.0ã€œ1.0ï¼‰")]
+    [Range(0f, 1f)]
+    public float smooth = 0.25f;
+
+    [Header("ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã®å‘ãè£œæ­£ï¼ˆä¾‹ï¼šä¸Šå‘ããªã‚‰-90ï¼‰")]
+    public float angleOffset = -90f;
+
     private Vector3 prevMousePos;
 
     void Start()
     {
-        // Å‰‚ÌƒtƒŒ[ƒ€‚Ìƒ}ƒEƒXÀ•W‚ğ‹L˜^
-        prevMousePos = Input.mousePosition;
+        prevMousePos = GetMouseWorldPosition();
     }
 
     void Update()
     {
-        // Œ»İ‚Ìƒ}ƒEƒXÀ•W
-        Vector3 currentMousePos = Input.mousePosition;
+        if (shovel == null) return;
 
-        // ƒ}ƒEƒXˆÚ“®•ûŒüƒxƒNƒgƒ‹
-        Vector3 dir = currentMousePos - prevMousePos;
+        Vector3 mousePos = GetMouseWorldPosition();
+        Vector3 dir = mousePos - prevMousePos;
 
-        // ƒ}ƒEƒX‚ª“®‚¢‚Ä‚¢‚é‚¾‚¯ˆ—
-        if (dir.sqrMagnitude > 0.01f)
+        // ãƒã‚¦ã‚¹ãŒå‹•ã„ã¦ã„ã‚‹æ™‚ã ã‘å›è»¢
+        if (dir.sqrMagnitude > 0.001f)
         {
-            // ƒxƒNƒgƒ‹‚ÌŠp“x‚ğ‹‚ß‚éi2D—pj
-            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            Vector3 normalizedDir = dir.normalized;
+            float angle = Mathf.Atan2(normalizedDir.y, normalizedDir.x) * Mathf.Rad2Deg + angleOffset;
 
-            // ƒVƒƒƒxƒ‹‚ğ‰ñ“]‚³‚¹‚éiZ²‰ñ“]j
-            transform.rotation = Quaternion.Euler(0, 0, angle);
+            Quaternion targetRot = Quaternion.Euler(0, 0, angle);
+            shovel.rotation = Quaternion.Lerp(shovel.rotation, targetRot, smooth);
+
+            // ãƒã‚¦ã‚¹ãŒå‹•ã„ãŸæ™‚ã ã‘æ›´æ–°
+            prevMousePos = mousePos;
         }
+    }
 
-        // Œ»İ‚ÌÀ•W‚ğŸƒtƒŒ[ƒ€—p‚É•Û‘¶
-        prevMousePos = currentMousePos;
+    // ã‚«ãƒ¡ãƒ©ã®Zè£œæ­£ä»˜ããƒã‚¦ã‚¹åº§æ¨™å–å¾—
+    private Vector3 GetMouseWorldPosition()
+    {
+        Vector3 mousePos = Input.mousePosition;
+        mousePos.z = Mathf.Abs(Camera.main.transform.position.z); // Zè£œæ­£
+        return Camera.main.ScreenToWorldPoint(mousePos);
     }
 }
