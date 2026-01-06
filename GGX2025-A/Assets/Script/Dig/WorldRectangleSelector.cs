@@ -11,6 +11,7 @@ public class WorldRectangleSelector : MonoBehaviour
     public GameObject finalSquarePrefab;
     [SerializeField] private Transform parentObject;
     [SerializeField] private Transform gameCursorTransform;
+    [SerializeField] private Collider2D cursorCol;
 
     [Header("UI Blockers")]
     [SerializeField] private List<RectTransform> uiBlockers;
@@ -67,6 +68,7 @@ public class WorldRectangleSelector : MonoBehaviour
             startWorldPos = GetCursorPosition();
 
             isSelecting = true;
+            cursorCol.enabled = false;
 
             currentSelectionSquare = Instantiate(selectionSquarePrefab);
 
@@ -143,6 +145,7 @@ public class WorldRectangleSelector : MonoBehaviour
             Time.timeScale = normalTimeScale;
             Time.fixedDeltaTime = 0.02f * Time.timeScale;
             isSelecting = false;
+            cursorCol.enabled = true;
 
         }
 
@@ -156,6 +159,7 @@ public class WorldRectangleSelector : MonoBehaviour
             Destroy(currentSelectionSquare);
             currentSelectionSquare = null;
             isSelecting = false;
+            cursorCol.enabled = true;
         }
     }
 
