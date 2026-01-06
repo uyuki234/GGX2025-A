@@ -44361,6 +44361,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8555959401063209564, guid: 3c1de518306daa94e84e8d5e697aafa2, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8555959401063209564, guid: 3c1de518306daa94e84e8d5e697aafa2, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -45522,7 +45530,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &915581243
 Transform:
   m_ObjectHideFlags: 0
@@ -45835,11 +45843,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2157903075629674043, guid: 56771d8e5c637c44c9180d0433bb5d7a, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2157903075629674043, guid: 56771d8e5c637c44c9180d0433bb5d7a, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4851151092354736251, guid: 56771d8e5c637c44c9180d0433bb5d7a, type: 3}
       propertyPath: _bulletSpeed
@@ -47265,11 +47273,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5138242095250419562, guid: 183eccc3ff6c58e4bbae412eeecf14b6, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5138242095250419562, guid: 183eccc3ff6c58e4bbae412eeecf14b6, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8749526704852870207, guid: 183eccc3ff6c58e4bbae412eeecf14b6, type: 3}
       propertyPath: m_Name
@@ -47550,8 +47558,6 @@ MonoBehaviour:
   - {fileID: 2018902423}
   - {fileID: 1674605531}
   - {fileID: 374621025}
-  maxEnergy: 100
-  currentEnergy: 100
   baseCost: 5
   sizeThreshold: 5
   sizeCostRate: 2
@@ -47588,8 +47594,8 @@ MonoBehaviour:
   viewRange_base: 8
   viewRange_correction: 1
   viewRange_effective: 8
-  maxEnergy: 0
-  currentEnergy: 0
+  maxEnergy: 100
+  currentEnergy: 100
   jumpPow: 0
   currentLevel: 0
   currentExp: 0
@@ -48941,11 +48947,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2157903075629674043, guid: 56771d8e5c637c44c9180d0433bb5d7a, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2157903075629674043, guid: 56771d8e5c637c44c9180d0433bb5d7a, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4851151092354736251, guid: 56771d8e5c637c44c9180d0433bb5d7a, type: 3}
       propertyPath: _bulletSpeed
@@ -49732,11 +49738,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2157903075629674043, guid: 56771d8e5c637c44c9180d0433bb5d7a, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2157903075629674043, guid: 56771d8e5c637c44c9180d0433bb5d7a, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4851151092354736251, guid: 56771d8e5c637c44c9180d0433bb5d7a, type: 3}
       propertyPath: _bulletSpeed
@@ -50640,11 +50646,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2157903075629674043, guid: 56771d8e5c637c44c9180d0433bb5d7a, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2157903075629674043, guid: 56771d8e5c637c44c9180d0433bb5d7a, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4851151092354736251, guid: 56771d8e5c637c44c9180d0433bb5d7a, type: 3}
       propertyPath: _bulletSpeed
@@ -50788,11 +50794,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5138242095250419562, guid: 183eccc3ff6c58e4bbae412eeecf14b6, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5138242095250419562, guid: 183eccc3ff6c58e4bbae412eeecf14b6, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8749526704852870207, guid: 183eccc3ff6c58e4bbae412eeecf14b6, type: 3}
       propertyPath: m_Name
@@ -50881,6 +50887,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy1
       objectReference: {fileID: 0}
+    - target: {fileID: 8555959401063209564, guid: 3c1de518306daa94e84e8d5e697aafa2, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8555959401063209564, guid: 3c1de518306daa94e84e8d5e697aafa2, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -50922,7 +50936,7 @@ GameObject:
   - component: {fileID: 8049264643738904871}
   m_Layer: 10
   m_Name: Cursor
-  m_TagString: Untagged
+  m_TagString: Cursor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51082,9 +51096,9 @@ SceneRoots:
   - {fileID: 1068644386}
   - {fileID: 943276012}
   - {fileID: 1206410853}
-  - {fileID: 2026577070}
   - {fileID: 2968928277661457628}
   - {fileID: 1020557464}
   - {fileID: 915581243}
   - {fileID: 1520415684}
   - {fileID: 928018072}
+  - {fileID: 2026577070}
