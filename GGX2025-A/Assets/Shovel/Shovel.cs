@@ -13,9 +13,13 @@ public class ShovelController : MonoBehaviour
     public float angleOffset = -90f;
 
     private Vector3 prevMousePos;
+    private Animator anim;
 
     void Start()
     {
+        // 親（Player）から Animator を取得
+        anim = GetComponentInParent<Animator>();
+
         prevMousePos = GetMouseWorldPosition();
     }
 
@@ -26,25 +30,27 @@ public class ShovelController : MonoBehaviour
         Vector3 mousePos = GetMouseWorldPosition();
         Vector3 dir = mousePos - prevMousePos;
 
-        // マウスが動いている時だけ回転
+        // マウスが動いた方向に向ける
         if (dir.sqrMagnitude > 0.001f)
         {
-            Vector3 normalizedDir = dir.normalized;
-            float angle = Mathf.Atan2(normalizedDir.y, normalizedDir.x) * Mathf.Rad2Deg + angleOffset;
+            // アニメーションを発動（必要なら）
+            anim.SetTrigger("shovelTrigger");
 
+            // 方向ベクトルを角度に変換
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + angleOffset;
+
+            // シャベルを回転
             Quaternion targetRot = Quaternion.Euler(0, 0, angle);
             shovel.rotation = Quaternion.Lerp(shovel.rotation, targetRot, smooth);
 
-            // マウスが動いた時だけ更新
             prevMousePos = mousePos;
         }
     }
 
-    // カメラのZ補正付きマウス座標取得
     private Vector3 GetMouseWorldPosition()
     {
         Vector3 mousePos = Input.mousePosition;
-        mousePos.z = Mathf.Abs(Camera.main.transform.position.z); // Z補正
+        mousePos.z = Mathf.Abs(Camera.main.transform.position.z);
         return Camera.main.ScreenToWorldPoint(mousePos);
     }
 }
