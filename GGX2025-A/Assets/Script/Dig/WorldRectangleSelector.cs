@@ -17,8 +17,17 @@ public class WorldRectangleSelector : MonoBehaviour
     [SerializeField] private List<RectTransform> uiBlockers;
 
     [Header("Energy Settings")]
-    public float maxEnergy = 100f;
-    public float currentEnergy = 100f;
+    private float maxEnergy
+    {
+        get { return StatusManager.Instance.maxEnergy; }
+        set { StatusManager.Instance.maxEnergy = value; }
+    }
+    private float currentEnergy
+    {
+        get { return StatusManager.Instance.currentEnergy; }
+        set { StatusManager.Instance.currentEnergy = value; }
+    }
+
     public float baseCost = 5f;        // ドラッグ開始時の固定消費
     public float sizeThreshold = 10f;  // サイズ閾値
     public float sizeCostRate = 0.5f;  // 閾値超過時の比例消費率
@@ -48,6 +57,7 @@ public class WorldRectangleSelector : MonoBehaviour
 
     void Update()
     {
+
         if (!isSelecting)
         {
             if (IsPointerOverUI()) return;
