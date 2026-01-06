@@ -6,78 +6,101 @@ public class SurfaceCrawlerEnemy : MonoBehaviour
     [SerializeField] private float moveSpeed = 2f;
     [SerializeField] private float fallSpeed = 5f;
     [SerializeField] private LayerMask wallLayer;
+    [SerializeField] private Collider2D BoxcolForFall;
 
     [Header("Ray 設定")]
     [SerializeField] private float rayDistance = 0.1f;
 
     // 四隅のローカル座標
-    [SerializeField] private Vector2 rayOffset_TopLeft;
-    [SerializeField] private Vector2 rayOffset_TopRight;
-    [SerializeField] private Vector2 rayOffset_BottomLeft;
-    [SerializeField] private Vector2 rayOffset_BottomRight;
+    [SerializeField] private Vector2 rayOffset_top;
+    [SerializeField] private Vector2 rayOffset_bottom;
+    [SerializeField] private Vector2 rayOffset_center;
 
     private Rigidbody2D rb;
+    private Collider2D Collider2D;
     private bool rotating = false;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        Collider2D = GetComponent<Collider2D>();
+        BoxcolForFall.enabled = false;
+        SnapToGrid();
     }
 
     void Update()
     {
         // === 四隅のグローバル座標を計算 ===
-        Vector2 tl = transform.TransformPoint(rayOffset_TopLeft);
-        Vector2 tr = transform.TransformPoint(rayOffset_TopRight);
-        Vector2 bl = transform.TransformPoint(rayOffset_BottomLeft);
-        Vector2 br = transform.TransformPoint(rayOffset_BottomRight);
+        Vector2 top = transform.TransformPoint(rayOffset_top);
+        Vector2 bottom = transform.TransformPoint(rayOffset_bottom);
+        Vector2 center = transform.TransformPoint(rayOffset_center);
 
         // === Raycast ===
-        bool hitTL = Physics2D.Raycast(tl, transform.up, rayDistance, wallLayer);
-        bool hitTR = Physics2D.Raycast(tr, transform.up, rayDistance, wallLayer);
-        bool hitBL = Physics2D.Raycast(bl, -transform.up, rayDistance, wallLayer);
-        bool hitBR = Physics2D.Raycast(br, -transform.up, rayDistance, wallLayer);
+        bool hitT = Physics2D.Raycast(top, transform.up, rayDistance, wallLayer);
+        bool hitB = Physics2D.Raycast(bottom, transform.up, rayDistance, wallLayer);
+        bool hitC = Physics2D.Raycast(center, -transform.up, rayDistance, wallLayer);
 
         // Debug 可視化
-        Debug.DrawRay(tl, transform.up * rayDistance, hitTL ? Color.yellow : Color.green);
-        Debug.DrawRay(tr, transform.up * rayDistance, hitTR ? Color.yellow : Color.green);
-        Debug.DrawRay(bl, -transform.up * rayDistance, hitBL ? Color.red : Color.green);
-        Debug.DrawRay(br, -transform.up * rayDistance, hitBR ? Color.red : Color.green);
+        Debug.DrawRay(top, transform.up * rayDistance, hitT ? Color.yellow : Color.green);
+        Debug.DrawRay(bottom, transform.up * rayDistance, hitB ? Color.yellow : Color.green);
+        Debug.DrawRay(center, -transform.up * rayDistance, hitC ? Color.red : Color.green);
+
+        
 
         // === 回転判定 ===
-        // 左上が外れた → 左に曲がる
-        if (hitTL)
+        // 上が壁を検知→回転して壁を登る
+        if (hitT && !rotating) 
         {
+            rotating = true;
             transform.Rotate(0, 0, 90f);
+            SnapToGrid();
             return;
         }
 
-        else if (!hitTR && !hitBR &&!hitBL&& !rotating){
+        else if (!hitB && !rotating){
+            rb.linearVelocity = Vector2.zero;
             rotating = true;
             transform.Rotate(0, 0, -90f);
-            return;
-        }
-        
-        if (!hitBL && !hitBR)
-        {
-            rotating = true;
-            // 落下方向 = 進行方向を -90°した方向 = -transform.up
-            Vector2 fallDir = -transform.up;
-            rb.linearVelocity = fallDir * fallSpeed;
+            SnapToGrid();
             return;
         }
 
+
         // === 前進判定 ===
-        // 下2つの Ray が両方 hit → 壁に乗っている
-        // どちらかが外れたら「進行方向へ進む」
-        if (hitBL || hitBR)
+        if (hitC) 
         {
+            rb.gravityScale = 0f;
             rb.linearVelocity = transform.right * moveSpeed;
             rotating = false;
         }
         else
         {
-            rb.linearVelocity = Vector2.zero;
+            rotating = true;
+            rb.gravityScale = fallSpeed;
+            Collider2D.isTrigger = false;
+
+            return;
         }
+    }
+
+    private void SnapToGrid()//0.5ずつの値に丸める
+    {
+        Vector3 pos = transform.position;
+
+        float snappedX = Mathf.Round(pos.x / 0.5f) * 0.5f;
+        float snappedY = Mathf.Round(pos.y / 0.5f) * 0.5f;
+
+        transform.position = new Vector3(snappedX, snappedY, pos.z);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        {
+            rb.gravityScale = 0;
+            Collider2D.isTrigger = true;
+            transform.rotation = Quaternion.identity;
+        }
+
     }
 }
