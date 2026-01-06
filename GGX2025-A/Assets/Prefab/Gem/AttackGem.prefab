@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -3594008345283436437}
   - component: {fileID: 7342567164307414566}
   - component: {fileID: -3442665921149239919}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: AttackGem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
