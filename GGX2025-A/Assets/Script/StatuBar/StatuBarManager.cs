@@ -16,6 +16,7 @@ namespace UI
         ViewRange,
         EnergyBarFront,
         EnergyBarBack,
+        EXP,
         Max
     }
 }
@@ -36,5 +37,6 @@ public class SliderExample : MonoBehaviour
         statuSlider[(int)UI.SliderType.ViewRange].value = StatusManager.Instance.viewRange_base;
         statuSlider[(int)UI.SliderType.EnergyBarFront].value = _wordSelector.Slider_front;
         statuSlider[(int)UI.SliderType.EnergyBarBack].value = _wordSelector.Slider_back;
+        statuSlider[(int)UI.SliderType.EXP].value = (float)StatusManager.Instance.currentExp / (float)StatusManager.Instance.levelupExp;
     }
 }
