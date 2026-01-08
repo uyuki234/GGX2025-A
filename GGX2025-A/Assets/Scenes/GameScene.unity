@@ -46298,6 +46298,9 @@ MonoBehaviour:
   - {fileID: 348848986}
   - {fileID: 970502278}
   - {fileID: 651514714}
+  - {fileID: 909870011}
+  - {fileID: 1374442318}
+  _wordSelector: {fileID: 1447367231}
 --- !u!4 &1068644386
 Transform:
   m_ObjectHideFlags: 0
@@ -47566,8 +47569,8 @@ MonoBehaviour:
   areaSize: 0
   able: {r: 0, g: 0.6, b: 1, a: 0.6}
   notable: {r: 1, g: 0, b: 0, a: 0.6}
-  Slider_front: {fileID: 909870011}
-  Slider_back: {fileID: 1374442318}
+  Slider_front: 0
+  Slider_back: 0
   slowTimeScale: 0.2
   normalTimeScale: 1
 --- !u!114 &1447367232
