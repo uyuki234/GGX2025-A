@@ -5,16 +5,41 @@ public abstract class GemBase : MonoBehaviour
 {
     public GemType type;
 
+    [SerializeField]protected GameObject gemParticle;
+
+    public int createCount = 0;
+
+    private Vector3 prevPos;
     // 初期化処理
     public abstract void Initialize();
+
+    public abstract void CreateParticle();
 
     //プレイヤーに触れた場合の処理
     public abstract void HitPlayer();
 
-
-    private void OnTriggerEnter2D(Collider2D other)
+    private void FixedUpdate()
     {
-        if (other.gameObject.CompareTag("Player"))
+        createCount++;
+
+        if(createCount > 100 && prevPos != transform.position)
+        {
+            createCount = -999999999;
+            CreateParticle();
+        }
+        prevPos = transform.position;
+    }
+
+    private void Start()
+    {
+        Initialize();
+        createCount = 0;
+    }
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
         {
             //プレイヤーのEXPを増やす
             StatusManager.Instance.currentExp++;

@@ -7,6 +7,8 @@ TagManager:
   - Ground
   - Wall
   - Bullet
+  - Enemy
+  - Cursor
   layers:
   - Default
   - TransparentFX
@@ -17,10 +19,10 @@ TagManager:
   - Wall
   - Ground
   - DigSquare
-  - 
-  - 
-  - 
-  - 
+  - Enemy
+  - Player
+  - Bullet
+  - Item
   - 
   - 
   - 
