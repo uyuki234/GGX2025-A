@@ -11,23 +11,13 @@ public class WorldRectangleSelector : MonoBehaviour
     public GameObject finalSquarePrefab;
     [SerializeField] private Transform parentObject;
     [SerializeField] private Transform gameCursorTransform;
-    [SerializeField] private Collider2D cursorCol;
 
     [Header("UI Blockers")]
     [SerializeField] private List<RectTransform> uiBlockers;
 
     [Header("Energy Settings")]
-    private float maxEnergy
-    {
-        get { return StatusManager.Instance.maxEnergy; }
-        set { StatusManager.Instance.maxEnergy = value; }
-    }
-    private float currentEnergy
-    {
-        get { return StatusManager.Instance.currentEnergy; }
-        set { StatusManager.Instance.currentEnergy = value; }
-    }
-
+    public float maxEnergy = 100f;
+    public float currentEnergy = 100f;
     public float baseCost = 5f;        // ドラッグ開始時の固定消費
     public float sizeThreshold = 10f;  // サイズ閾値
     public float sizeCostRate = 0.5f;  // 閾値超過時の比例消費率
@@ -47,22 +37,16 @@ public class WorldRectangleSelector : MonoBehaviour
 
 
     [Header("EnergyUI")]
-    [SerializeField] public float Slider_front;
-    [SerializeField] public float Slider_back;
+    [SerializeField] Slider Slider_front;
+    [SerializeField] Slider Slider_back;
 
     [Header("Time Slow")]
     [SerializeField] float slowTimeScale = 0.2f;
     [SerializeField] float normalTimeScale = 1f;
 
-    private void Start()
-    {
-        Slider_back = currentEnergy / maxEnergy;
-        Slider_front = currentEnergy / maxEnergy;
-    }
 
     void Update()
     {
-
         if (!isSelecting)
         {
             if (IsPointerOverUI()) return;
@@ -73,8 +57,8 @@ public class WorldRectangleSelector : MonoBehaviour
             currentEnergy = Mathf.Clamp(
                 currentEnergy + StatusManager.Instance.chargeEnergy_effective * Time.deltaTime, 0f, maxEnergy);
 
-            Slider_back = currentEnergy / maxEnergy;
-            Slider_front = currentEnergy / maxEnergy;
+            Slider_back.value = currentEnergy / maxEnergy;
+            Slider_front.value = currentEnergy / maxEnergy;
         }
 
             // 左クリック開始
@@ -83,7 +67,6 @@ public class WorldRectangleSelector : MonoBehaviour
             startWorldPos = GetCursorPosition();
 
             isSelecting = true;
-            cursorCol.enabled = false;
 
             currentSelectionSquare = Instantiate(selectionSquarePrefab);
 
@@ -121,7 +104,7 @@ public class WorldRectangleSelector : MonoBehaviour
                 {
                     sr.color = (requiredEnergy > beforeDrillEnergy) ? notable : able;
                 }
-                Slider_front = (currentEnergy - requiredEnergy) / maxEnergy;
+                Slider_front.value = (currentEnergy - requiredEnergy) / maxEnergy;
             }
         }
 
@@ -137,7 +120,7 @@ public class WorldRectangleSelector : MonoBehaviour
                 {
                     // 掘削確定 → エネルギー消費
                     currentEnergy = Mathf.Clamp(beforeDrillEnergy - requiredEnergy, 0, maxEnergy);
-                    Slider_back = currentEnergy / maxEnergy;
+                    Slider_back.value = currentEnergy / maxEnergy;
 
                     GameObject finalSquare = Instantiate(finalSquarePrefab, parentObject);
                     UpdateSquare(finalSquare, startWorldPos, endWorldPos);
@@ -148,7 +131,7 @@ public class WorldRectangleSelector : MonoBehaviour
                 }
                 else
                 {
-                    Slider_front = currentEnergy / maxEnergy;
+                    Slider_front.value = currentEnergy / maxEnergy;
                 }
 
 
@@ -160,7 +143,6 @@ public class WorldRectangleSelector : MonoBehaviour
             Time.timeScale = normalTimeScale;
             Time.fixedDeltaTime = 0.02f * Time.timeScale;
             isSelecting = false;
-            cursorCol.enabled = true;
 
         }
 
@@ -170,11 +152,10 @@ public class WorldRectangleSelector : MonoBehaviour
             Time.timeScale = normalTimeScale;
             Time.fixedDeltaTime = 0.02f * Time.timeScale;
 
-            Slider_front = currentEnergy / maxEnergy;
+            Slider_front.value = currentEnergy / maxEnergy;
             Destroy(currentSelectionSquare);
             currentSelectionSquare = null;
             isSelecting = false;
-            cursorCol.enabled = true;
         }
     }
 

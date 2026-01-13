@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1351631576250953199}
   - component: {fileID: 5478646394631383477}
   - component: {fileID: 6613448501252833853}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: ViewRangeGem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
