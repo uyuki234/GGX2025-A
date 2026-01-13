@@ -7,13 +7,6 @@ public class MouseRange : MonoBehaviour
     [SerializeField] GameObject circle;
     public float radius = 3f;
 
-    private Rigidbody2D rb;
-    private Vector3 targetPos;
-
-    private void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-    }
     void Update()
     {
         
@@ -42,11 +35,6 @@ public class MouseRange : MonoBehaviour
             worldMouse = centerObj.position + new Vector3(dx * rate, dy * rate, 0);
         }
 
-        targetPos = worldMouse;
-        
-    }
-    private void FixedUpdate()
-    {
-        rb.MovePosition(targetPos);
+        transform.position = worldMouse;
     }
 }
