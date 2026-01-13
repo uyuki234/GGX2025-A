@@ -22,7 +22,7 @@ public class StatusManager : SingletonMonoBehavior<StatusManager>
     public float viewRange_correction = 1;
     public float viewRange_effective = 10;
 
-    [Header("Œ@íƒGƒlƒ‹ƒM[‚Ìó‘Ô")]
+    [Header("Œ@íƒGƒlƒ‹ƒM[")]
     public float maxEnergy;
     public float currentEnergy;
 

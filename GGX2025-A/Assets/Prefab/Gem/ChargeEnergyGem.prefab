@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -6294479107331592468}
   - component: {fileID: 5252975631454825418}
   - component: {fileID: 708404352848717073}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ChargeEnergyGem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
