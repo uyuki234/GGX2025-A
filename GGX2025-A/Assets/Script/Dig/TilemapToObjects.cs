@@ -1,16 +1,62 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using System.Collections.Generic;
 
 public class TilemapToObjects : MonoBehaviour
 {
+    [SerializeField] private List<Tilemap> tilemapList;
+    [SerializeField] private List<GameObject> objectList;
+    [SerializeField] private List<Tilemap> existmapList;
+    [SerializeField] private List<GameObject> existobjectList;
     [SerializeField] private Tilemap tilemap;
     [SerializeField] private GameObject tilePrefab;
     [SerializeField] private Transform TileParent;
 
+    [SerializeField] private Vector2 rightpos = new Vector2(0,0);
+    [SerializeField] private Vector2 leftpos = new Vector2(0,0);
+    [SerializeField] private int quantity;
+    [SerializeField] private int width;
+
     private void Start()
     {
-        tilemap.gameObject.SetActive(false);
-        ConvertTilemap();
+        for (int i = 0; i < quantity; i++)
+        {
+            GenerateAndConvert();
+        }
+    }
+    private void GenerateAndConvert()
+    {
+        // 1. tilemapListからランダムに選ぶ
+        int randomIndex = Random.Range(0, tilemapList.Count);
+        Tilemap selectedPrefab = tilemapList[randomIndex];
+
+        // 2. rightposにinstance生成
+        // TilemapコンポーネントがついているGameObjectを生成します
+        Vector3 spawnPos = new Vector3(rightpos.x, rightpos.y, 0);
+        GameObject mapInstanceObj = Instantiate(selectedPrefab.gameObject, spawnPos, Quaternion.identity, transform);
+        GameObject InstanceObj = Instantiate(objectList[randomIndex], spawnPos, Quaternion.identity, transform);
+
+        Tilemap mapInstance = mapInstanceObj.GetComponent<Tilemap>();
+
+        if (mapInstance != null)
+        {
+            // 3. existmapListの最後尾に挿入
+            existmapList.Add(mapInstance);
+            existobjectList.Add(InstanceObj);
+
+            // 4. rightpos += width (横にずらすと仮定してX座標に加算)
+            rightpos.x += width;
+
+            // 5. 定義してあるtilemapに入れ替える
+            tilemap = mapInstance;
+
+            // 6. tilemap.gameObject.SetActive(false)
+            // 元のマップを非表示にし、これから生成する個別オブジェクトだけが見えるようにする
+            tilemap.gameObject.SetActive(false);
+
+            // 7. ConvertTilemap()を実行
+            ConvertTilemap();
+        }
     }
 
     public void ConvertTilemap()

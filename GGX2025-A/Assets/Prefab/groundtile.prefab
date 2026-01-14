@@ -107,6 +107,7 @@ GameObject:
   - component: {fileID: 7534739672805170876}
   - component: {fileID: 350016896058975054}
   - component: {fileID: 6641373914835271396}
+  - component: {fileID: 3403784294478804252}
   m_Layer: 0
   m_Name: groundtile
   m_TagString: Ground
@@ -213,6 +214,40 @@ MonoBehaviour:
   tilecol_LR: 1
   pattern: 0
   digSE: {fileID: 8300000, guid: d452109f37cc782479451d30665908c9, type: 3}
+--- !u!114 &3403784294478804252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3412737196240041504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ca1f369b5992c24dac3ecc583f1fd3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkDistance: 1
+  checkSize: {x: 0.4, y: 0.4}
+  terrainMask:
+    serializedVersion: 2
+    m_Bits: 128
+  sprites:
+  - {fileID: 5900108384532887547, guid: 7454ddbfd67272d44b5259ee510c9e72, type: 3}
+  - {fileID: 669340558222353130, guid: a819f4d092e30ef4f859525fb858b261, type: 3}
+  - {fileID: 5311295470247504822, guid: 65ce4966d2619e64382a1f0df2bee905, type: 3}
+  - {fileID: 7130104273200415611, guid: bd91ff288903063438bfd5d3a24a90c0, type: 3}
+  - {fileID: -9163588366498345758, guid: 2dd03abedb5e1e14c838527fcd31b278, type: 3}
+  - {fileID: -7538160730287959955, guid: 2049bfc017d98d14fb99cef6055252d7, type: 3}
+  - {fileID: -3814070149747683614, guid: d4e353d2d270af042b497231ae91b635, type: 3}
+  - {fileID: 6496444934553228377, guid: 56cee25bf2edb354e914c9d8ff40ef22, type: 3}
+  - {fileID: -7185996366109269079, guid: 24da9323e41c50e4083a4f51425f8ff1, type: 3}
+  - {fileID: 8259119205852784584, guid: 26b4cbb6bfad0cc47948c665b0b4ff28, type: 3}
+  - {fileID: -7538160730287959955, guid: 2049bfc017d98d14fb99cef6055252d7, type: 3}
+  - {fileID: -7886894925827328679, guid: 28fbeaf525de85448aae1818e2143bee, type: 3}
+  - {fileID: 9161517182422249417, guid: 76328e3150c60534e9a47bddd57dbc3e, type: 3}
+  - {fileID: -8758077914364374919, guid: ae15414f073e01f4588e6d98ca66ea73, type: 3}
+  - {fileID: -5599679480722510959, guid: 5221b40a3d17ed14ea6c446748173528, type: 3}
+  - {fileID: -7538160730287959955, guid: 2049bfc017d98d14fb99cef6055252d7, type: 3}
 --- !u!1 &3597790696402619232
 GameObject:
   m_ObjectHideFlags: 0

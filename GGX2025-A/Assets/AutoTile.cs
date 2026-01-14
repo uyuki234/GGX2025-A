@@ -18,13 +18,9 @@ public class AutoTileCollider : MonoBehaviour
         new Vector2(-1, 0),  // 左 → ビット 8
     };
 
-    private void Awake()
-    {
-        sr = GetComponent<SpriteRenderer>();
-    }
-
     private void Start()
     {
+        sr = GetComponent<SpriteRenderer>();
         UpdateSprite();
     }
 
