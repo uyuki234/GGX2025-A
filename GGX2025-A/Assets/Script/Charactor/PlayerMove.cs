@@ -15,6 +15,9 @@ public class PlayerMove : MonoBehaviour
     //バグ防止用
     private int cantResetCount;
 
+    //速度補正
+    [SerializeField] float SpeedCorrection=0.3f;
+
     [Header("Ray1 Settings")]
     [SerializeField] private Vector2 ray1Start;     //スタート位置
     [SerializeField] private Vector2 ray1Dir;       //移動方向
@@ -76,7 +79,7 @@ public class PlayerMove : MonoBehaviour
         if (!isStop && !pauseButton)
         {
             Vector3 pos = transform.position;
-            pos.x += moveDir * 0.3f * StatusManager.Instance.moveSpeed_effective*Time.deltaTime;
+            pos.x += moveDir * SpeedCorrection * StatusManager.Instance.moveSpeed_effective*Time.deltaTime;
             transform.position = pos;
         }
 

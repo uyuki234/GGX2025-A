@@ -60877,6 +60877,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d8bc841ff2fa4c45a1f25e1554681ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpeedCorrection: 0.2
   ray1Start: {x: 0.5, y: -0.2}
   ray1Dir: {x: 1, y: 0}
   maxDistance1: 0.6
