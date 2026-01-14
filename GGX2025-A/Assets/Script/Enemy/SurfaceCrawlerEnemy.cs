@@ -2,16 +2,16 @@ using UnityEngine;
 
 public class SurfaceCrawlerEnemy : MonoBehaviour
 {
-    [Header("ˆÚ“®İ’è")]
+    [Header("ï¿½Ú“ï¿½ï¿½İ’ï¿½")]
     [SerializeField] private float moveSpeed = 2f;
     [SerializeField] private float fallSpeed = 5f;
     [SerializeField] private LayerMask wallLayer;
     [SerializeField] private Collider2D BoxcolForFall;
 
-    [Header("Ray İ’è")]
+    [Header("Ray ï¿½İ’ï¿½")]
     [SerializeField] private float rayDistance = 0.1f;
 
-    // l‹÷‚Ìƒ[ƒJƒ‹À•W
+    // ï¿½lï¿½ï¿½ï¿½Ìƒï¿½ï¿½[ï¿½Jï¿½ï¿½ï¿½ï¿½ï¿½W
     [SerializeField] private Vector2 rayOffset_top;
     [SerializeField] private Vector2 rayOffset_bottom;
     [SerializeField] private Vector2 rayOffset_center;
@@ -19,6 +19,7 @@ public class SurfaceCrawlerEnemy : MonoBehaviour
     private Rigidbody2D rb;
     private Collider2D Collider2D;
     private bool rotating = false;
+    private EnemyStatus enemyStatus;
 
     void Start()
     {
@@ -26,11 +27,13 @@ public class SurfaceCrawlerEnemy : MonoBehaviour
         Collider2D = GetComponent<Collider2D>();
         BoxcolForFall.enabled = false;
         SnapToGrid();
+
+        enemyStatus = GetComponent<EnemyStatus>();
     }
 
     void Update()
     {
-        // === l‹÷‚ÌƒOƒ[ƒoƒ‹À•W‚ğŒvZ ===
+        // === ï¿½lï¿½ï¿½ï¿½ÌƒOï¿½ï¿½ï¿½[ï¿½oï¿½ï¿½ï¿½ï¿½ï¿½Wï¿½ï¿½ï¿½vï¿½Z ===
         Vector2 top = transform.TransformPoint(rayOffset_top);
         Vector2 bottom = transform.TransformPoint(rayOffset_bottom);
         Vector2 center = transform.TransformPoint(rayOffset_center);
@@ -40,15 +43,15 @@ public class SurfaceCrawlerEnemy : MonoBehaviour
         bool hitB = Physics2D.Raycast(bottom, transform.up, rayDistance, wallLayer);
         bool hitC = Physics2D.Raycast(center, -transform.up, rayDistance, wallLayer);
 
-        // Debug ‰Â‹‰»
+        // Debug ï¿½Âï¿½ï¿½ï¿½
         Debug.DrawRay(top, transform.up * rayDistance, hitT ? Color.yellow : Color.green);
         Debug.DrawRay(bottom, transform.up * rayDistance, hitB ? Color.yellow : Color.green);
         Debug.DrawRay(center, -transform.up * rayDistance, hitC ? Color.red : Color.green);
 
         
 
-        // === ‰ñ“]”»’è ===
-        // ã‚ª•Ç‚ğŒŸ’m¨‰ñ“]‚µ‚Ä•Ç‚ğ“o‚é
+        // === ï¿½ï¿½]ï¿½ï¿½ï¿½ï¿½ ===
+        // ï¿½ã‚ªï¿½Ç‚ï¿½ï¿½ï¿½ï¿½mï¿½ï¿½ï¿½ï¿½]ï¿½ï¿½ï¿½Ä•Ç‚ï¿½oï¿½ï¿½
         if (hitT && !rotating) 
         {
             rotating = true;
@@ -66,7 +69,7 @@ public class SurfaceCrawlerEnemy : MonoBehaviour
         }
 
 
-        // === ‘Oi”»’è ===
+        // === ï¿½Oï¿½iï¿½ï¿½ï¿½ï¿½ ===
         if (hitC) 
         {
             rb.gravityScale = 0f;
@@ -83,7 +86,7 @@ public class SurfaceCrawlerEnemy : MonoBehaviour
         }
     }
 
-    private void SnapToGrid()//0.5‚¸‚Â‚Ì’l‚ÉŠÛ‚ß‚é
+    private void SnapToGrid()//0.5ï¿½ï¿½ï¿½Â‚Ì’lï¿½ÉŠÛ‚ß‚ï¿½
     {
         Vector3 pos = transform.position;
 
@@ -97,6 +100,13 @@ public class SurfaceCrawlerEnemy : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
+            //è½ä¸‹ãƒ€ãƒ¡ãƒ¼ã‚¸ã®é€Ÿåº¦è¨ˆã‚Š
+            //Debug.Log("ç€åœ°æ™‚ã®é€Ÿåº¦: " + enemyStatus.GetSpeed());
+            float fixedSpeed = enemyStatus.GetSpeed();
+            enemyStatus.SetSpeed(0);
+            enemyStatus.fallDamage(fixedSpeed);
+            //StartCoroutine(enemyStatus.FallDamageDelay(fixedSpeed));
+
             rb.gravityScale = 0;
             Collider2D.isTrigger = true;
             transform.rotation = Quaternion.identity;
