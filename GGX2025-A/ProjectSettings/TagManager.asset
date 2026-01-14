@@ -8,7 +8,6 @@ TagManager:
   - Wall
   - Bullet
   - Enemy
-  - Cursor
   layers:
   - Default
   - TransparentFX
