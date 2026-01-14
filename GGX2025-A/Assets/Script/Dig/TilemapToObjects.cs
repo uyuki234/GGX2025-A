@@ -15,7 +15,6 @@ public class TilemapToObjects : MonoBehaviour
     [SerializeField] private Vector2 rightpos = new Vector2(0,0);
     [SerializeField] private Vector2 leftpos = new Vector2(0,0);
     [SerializeField] private int quantity;
-    [SerializeField] private int width;
 
     private void Start()
     {
@@ -36,6 +35,8 @@ public class TilemapToObjects : MonoBehaviour
         GameObject mapInstanceObj = Instantiate(selectedPrefab.gameObject, spawnPos, Quaternion.identity, transform);
         GameObject InstanceObj = Instantiate(objectList[randomIndex], spawnPos, Quaternion.identity, transform);
 
+        TilePatternWidth tilePatternWidth = mapInstanceObj.GetComponent<TilePatternWidth>();
+
         Tilemap mapInstance = mapInstanceObj.GetComponent<Tilemap>();
 
         if (mapInstance != null)
@@ -45,7 +46,7 @@ public class TilemapToObjects : MonoBehaviour
             existobjectList.Add(InstanceObj);
 
             // 4. rightpos += width (横にずらすと仮定してX座標に加算)
-            rightpos.x += width;
+            rightpos.x += tilePatternWidth.patternwidth;
 
             // 5. 定義してあるtilemapに入れ替える
             tilemap = mapInstance;
@@ -54,7 +55,6 @@ public class TilemapToObjects : MonoBehaviour
             // 元のマップを非表示にし、これから生成する個別オブジェクトだけが見えるようにする
             tilemap.gameObject.SetActive(false);
 
-            // 7. ConvertTilemap()を実行
             ConvertTilemap();
         }
     }
