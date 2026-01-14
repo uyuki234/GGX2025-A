@@ -46,11 +46,6 @@ public class EnemyBullet : MonoBehaviour
                 StatusManager.Instance.currentHP -= _bulletDamage;
                 Destroy(gameObject);
             }
-            else if (other.gameObject.CompareTag("Cursor"))
-            {
-                StatusManager.Instance.currentEnergy -= _bulletDamage;
-                Destroy(gameObject);
-            }
 
             else if (!notAffectedGround&& other.gameObject.CompareTag("Ground"))
             {
