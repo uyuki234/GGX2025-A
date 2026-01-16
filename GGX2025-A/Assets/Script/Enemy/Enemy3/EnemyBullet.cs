@@ -8,6 +8,7 @@ public class EnemyBullet : MonoBehaviour
     private int spwanCount;
     private Camera cam;
     [SerializeField] bool notAffectedGround=true;
+    [SerializeField] WorldRectangleSelector wrs;
     public void Initialize(Vector2 moveDir,float moveSpeed,int damage)
     {
         spwanCount = 0;
@@ -45,6 +46,7 @@ public class EnemyBullet : MonoBehaviour
                 StatusManager.Instance.currentHP -= _bulletDamage;
                 Destroy(gameObject);
             }
+
             else if (!notAffectedGround&& other.gameObject.CompareTag("Ground"))
             {
                 Destroy(gameObject);

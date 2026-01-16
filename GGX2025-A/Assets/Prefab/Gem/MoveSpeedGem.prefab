@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -2893761663460884008}
   - component: {fileID: 5225715361103921079}
   - component: {fileID: 7964831107558164405}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: MoveSpeedGem
   m_TagString: Untagged
   m_Icon: {fileID: 0}

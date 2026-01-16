@@ -5,11 +5,36 @@ public abstract class GemBase : MonoBehaviour
 {
     public GemType type;
 
+    [SerializeField]protected GameObject gemParticle;
+
+    public int createCount = 0;
+
+    private Vector3 prevPos;
     // ‰Šú‰»ˆ—
     public abstract void Initialize();
 
+    public abstract void CreateParticle();
+
     //ƒvƒŒƒCƒ„[‚ÉG‚ê‚½ê‡‚Ìˆ—
     public abstract void HitPlayer();
+
+    private void FixedUpdate()
+    {
+        createCount++;
+
+        if(createCount > 100 && prevPos != transform.position)
+        {
+            createCount = -999999999;
+            CreateParticle();
+        }
+        prevPos = transform.position;
+    }
+
+    private void Start()
+    {
+        Initialize();
+        createCount = 0;
+    }
 
 
     private void OnCollisionEnter2D(Collision2D collision)
