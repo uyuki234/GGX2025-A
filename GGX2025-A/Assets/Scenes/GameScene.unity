@@ -62085,8 +62085,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shovel: {fileID: 1765218965}
-  smooth: 0.25
-  angleOffset: -90
+  smooth: 0.1
+  angleOffset: 45
 --- !u!212 &1765218967
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -63889,7 +63889,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: -855298285791758126, guid: a8f4bb982960d224fbffeeabe6a18886, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
