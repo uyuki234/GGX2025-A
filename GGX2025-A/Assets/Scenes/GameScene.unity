@@ -2515,7 +2515,6 @@ MonoBehaviour:
   - {fileID: 1854609577}
   - {fileID: 1046195292}
   - {fileID: 1221759224}
-  - {fileID: 1221759224}
   - {fileID: 1558316794}
   - {fileID: 497121686}
   - {fileID: 1146287758}
@@ -2525,13 +2524,12 @@ MonoBehaviour:
   - {fileID: 7463141306917414140, guid: 217ccf1f503bbbf4da1cdacfb6fd8bbe, type: 3}
   - {fileID: 512468542509706435, guid: 40f192d137f10c9439533ca4038b98ec, type: 3}
   - {fileID: 888600817446874194, guid: 3ed9c6a7eb37bfb439b97836df2ddf59, type: 3}
-  - {fileID: 888600817446874194, guid: 3ed9c6a7eb37bfb439b97836df2ddf59, type: 3}
-  - {fileID: 888600817446874194, guid: 3ed9c6a7eb37bfb439b97836df2ddf59, type: 3}
-  - {fileID: 888600817446874194, guid: 3ed9c6a7eb37bfb439b97836df2ddf59, type: 3}
-  - {fileID: 888600817446874194, guid: 3ed9c6a7eb37bfb439b97836df2ddf59, type: 3}
-  - {fileID: 888600817446874194, guid: 3ed9c6a7eb37bfb439b97836df2ddf59, type: 3}
-  - {fileID: 888600817446874194, guid: 3ed9c6a7eb37bfb439b97836df2ddf59, type: 3}
-  - {fileID: 888600817446874194, guid: 3ed9c6a7eb37bfb439b97836df2ddf59, type: 3}
+  - {fileID: 2169501679115659510, guid: c6f11f7ed8985ae4da5b37cbbdc5e7d7, type: 3}
+  - {fileID: 6406413508415033440, guid: 0af1f5cf5e94c4d41b399a06d309c44f, type: 3}
+  - {fileID: 1242530905351779327, guid: 724d3aebe09090046abacc7c9363d1b4, type: 3}
+  - {fileID: 141807257352693369, guid: 5e41eb312af7e3d4ab64bfc5302c949e, type: 3}
+  - {fileID: 5943308578646047549, guid: 54d9bd2a7cffdb347aff20f1858f7f76, type: 3}
+  - {fileID: 1478291513995371694, guid: 97f2f4122f4800647ab77fcf9b39e236, type: 3}
   existmapList: []
   existobjectList: []
   tilemap: {fileID: 0}
@@ -2539,7 +2537,7 @@ MonoBehaviour:
   TileParent: {fileID: 662973826}
   rightpos: {x: -30, y: 0}
   leftpos: {x: 0, y: 0}
-  quantity: 5
+  quantity: 10
 --- !u!1 &675789926
 GameObject:
   m_ObjectHideFlags: 0
