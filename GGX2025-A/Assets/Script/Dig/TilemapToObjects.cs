@@ -19,7 +19,6 @@ public class TilemapToObjects : MonoBehaviour
 
     private void Start()
     {
-        tilemap.gameObject.SetActive(false);
 
         if (useList)
         {
