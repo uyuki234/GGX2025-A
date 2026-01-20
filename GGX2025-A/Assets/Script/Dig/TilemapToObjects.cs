@@ -18,10 +18,14 @@ public class TilemapToObjects : MonoBehaviour
 
     private void Start()
     {
-        for (int i = 0; i < quantity; i++)
+        if (tilemapList != null)
         {
-            GenerateAndConvert();
+            for (int i = 0; i < quantity; i++)
+            {
+                GenerateAndConvert();
+            }
         }
+        else if (tilemap != null) ConvertTilemap();
     }
     private void GenerateAndConvert()
     {
