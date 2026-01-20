@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class TilemapToObjects : MonoBehaviour
 {
+    [SerializeField] private bool useList;
     [SerializeField] private List<Tilemap> tilemapList;
     [SerializeField] private List<GameObject> objectList;
     [SerializeField] private List<Tilemap> existmapList;
@@ -18,7 +19,9 @@ public class TilemapToObjects : MonoBehaviour
 
     private void Start()
     {
-        if (tilemapList != null)
+        tilemap.gameObject.SetActive(false);
+
+        if (useList)
         {
             for (int i = 0; i < quantity; i++)
             {
@@ -26,6 +29,7 @@ public class TilemapToObjects : MonoBehaviour
             }
         }
         else if (tilemap != null) ConvertTilemap();
+        else Debug.Log("タイルが登録されていない");
     }
     private void GenerateAndConvert()
     {
@@ -55,16 +59,15 @@ public class TilemapToObjects : MonoBehaviour
             // 5. 定義してあるtilemapに入れ替える
             tilemap = mapInstance;
 
-            // 6. tilemap.gameObject.SetActive(false)
-            // 元のマップを非表示にし、これから生成する個別オブジェクトだけが見えるようにする
-            tilemap.gameObject.SetActive(false);
-
             ConvertTilemap();
         }
     }
 
     public void ConvertTilemap()
     {
+        // 元のマップを非表示にし、これから生成する個別オブジェクトだけが見えるようにする
+        tilemap.gameObject.SetActive(false);
+
         foreach (Vector3Int pos in tilemap.cellBounds.allPositionsWithin)
         {
             if (!tilemap.HasTile(pos)) continue;
