@@ -6,6 +6,8 @@ public class EnemyGravityController : MonoBehaviour
     public Vector2 rayOffset = new Vector2(0, -0.1f);
     public LayerMask wallLayer;
     public Rigidbody2D rb;
+    [SerializeField] private float fallSpeed = 5f;
+    public bool logkakunin;
 
     private bool isYFrozen = false;
 
@@ -24,6 +26,7 @@ public class EnemyGravityController : MonoBehaviour
             if (!isYFrozen)
             {
                 rb.constraints |= RigidbodyConstraints2D.FreezePositionY;
+                rb.gravityScale = 0f;
                 isYFrozen = true;
             }
         }
@@ -32,10 +35,12 @@ public class EnemyGravityController : MonoBehaviour
             if (isYFrozen)
             {
                 rb.constraints &= ~RigidbodyConstraints2D.FreezePositionY;
+                rb.gravityScale = fallSpeed;
                 isYFrozen = false;
             }
         }
 
         Debug.DrawRay(origin, Vector2.down * rayDistance, hit ? Color.green : Color.red);
+
     }
 }

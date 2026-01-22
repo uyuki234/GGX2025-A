@@ -5,12 +5,16 @@ using UnityEngine.UI;
 public class EnemyStatus : MonoBehaviour
 {
     [SerializeField]private float maxHp = 50;
-    [SerializeField] float currentHp;
+    private float currentHp;
     private GemCreatEnemy gemCreatEnemy;
     [SerializeField]private GameObject HPUI;
     //　HP表示用スライダー
     private Slider hpSlider;
     private float minSpeed=0;
+    [Header("スピード制限値")]
+    public float speedLimit=20;
+    [Header("ダメージ換算の倍率")]
+    public int times=2;
     [Header("enemy1であればチェック入れる")]
     public bool ignoreFallDamage;
 
@@ -77,9 +81,11 @@ public class EnemyStatus : MonoBehaviour
         hpSlider.value = GetHP() / GetMaxHP();
     }
 
-    public void fallDamage(float sp){
-        if(sp<-20){
-            float damage = (sp+20)*-2;
+    public void fallDamage(float ve){
+        float sp=ve * -1;
+        //速さ測定記録：1.5ブロックで約10、2ブロックで約12、3ブロックで約16、4ブロックで約19、5ブロックで約22
+        if(sp>speedLimit){
+            float damage = (sp-speedLimit)*times;
             SetHP(GetHP()-damage);
         }
     }
