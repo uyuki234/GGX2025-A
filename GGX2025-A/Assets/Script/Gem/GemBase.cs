@@ -37,7 +37,7 @@ public abstract class GemBase : MonoBehaviour
     }
 
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
@@ -55,6 +55,28 @@ public abstract class GemBase : MonoBehaviour
             HitPlayer();
 
             //オブジェクトを破壊
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            //プレイヤーのEXPを増やす
+            StatusManager.Instance.currentExp++;
+
+            //プレイヤーのEXPがレベルアップに必要なEXP以上ならレベルを上げる
+            if (StatusManager.Instance.currentExp >= StatusManager.Instance.levelupExp)
+            {
+                StatusManager.Instance.currentExp = 0;
+                StatusManager.Instance.currentLevel++;
+            }
+
+            // 宝石ごとの個別なヒット処理
+            HitPlayer();
+
+            // オブジェクトを破壊
             Destroy(gameObject);
         }
     }
