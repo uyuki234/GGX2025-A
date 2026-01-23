@@ -432,6 +432,7 @@ MonoBehaviour:
   maxHp: 30
   currentHp: 0
   HPUI: {fileID: 3079789668710352157}
+  ignoreFallDamage: 1
 --- !u!114 &4264069938470422430
 MonoBehaviour:
   m_ObjectHideFlags: 0

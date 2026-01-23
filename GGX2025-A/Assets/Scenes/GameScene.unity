@@ -64363,6 +64363,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy1
       objectReference: {fileID: 0}
+    - target: {fileID: 6942588119448485254, guid: 3c1de518306daa94e84e8d5e697aafa2, type: 3}
+      propertyPath: times
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6942588119448485254, guid: 3c1de518306daa94e84e8d5e697aafa2, type: 3}
+      propertyPath: speedLimit
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6942588119448485254, guid: 3c1de518306daa94e84e8d5e697aafa2, type: 3}
+      propertyPath: ignoreFallDamage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7176579212487449878, guid: 3c1de518306daa94e84e8d5e697aafa2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -13.5
