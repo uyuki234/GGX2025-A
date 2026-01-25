@@ -45,11 +45,7 @@ public abstract class GemBase : MonoBehaviour
             StatusManager.Instance.currentExp++;
 
             //プレイヤーのEXPがレベルアップに必要なEXP以上ならレベルを上げる
-            if (StatusManager.Instance.currentExp >= StatusManager.Instance.levelupExp)
-            {
-                StatusManager.Instance.currentExp = 0;
-                StatusManager.Instance.currentLevel++;
-            }
+            StatusManager.Instance.AddExp(1);
 
             //宝石ごとの個別なヒット処理
             HitPlayer();
@@ -64,14 +60,7 @@ public abstract class GemBase : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             //プレイヤーのEXPを増やす
-            StatusManager.Instance.currentExp++;
-
-            //プレイヤーのEXPがレベルアップに必要なEXP以上ならレベルを上げる
-            if (StatusManager.Instance.currentExp >= StatusManager.Instance.levelupExp)
-            {
-                StatusManager.Instance.currentExp = 0;
-                StatusManager.Instance.currentLevel++;
-            }
+            StatusManager.Instance.AddExp(1);
 
             // 宝石ごとの個別なヒット処理
             HitPlayer();
