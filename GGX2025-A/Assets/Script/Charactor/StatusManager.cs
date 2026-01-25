@@ -55,9 +55,10 @@ public class StatusManager : SingletonMonoBehavior<StatusManager>
 
     public void AddExp(int value)
     {
-        if (isFEVER) return;
-
-        currentExp += value;
+        if (!isFEVER)
+        {
+            currentExp += value;
+        }
     }
 
     public void FixedUpdate()
@@ -65,6 +66,7 @@ public class StatusManager : SingletonMonoBehavior<StatusManager>
         if (isFEVER)
         {
             FeverCount();
+            FeverPlay();
         }
         else
         {
@@ -101,6 +103,12 @@ public class StatusManager : SingletonMonoBehavior<StatusManager>
     {
         isFEVER = false;
         feverTime = 0;
+    }
+
+    private void FeverPlay()
+    {
+        currentEnergy = maxEnergy;
+
     }
 
 

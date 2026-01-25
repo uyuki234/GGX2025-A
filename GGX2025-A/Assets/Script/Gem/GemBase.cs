@@ -10,6 +10,9 @@ public abstract class GemBase : MonoBehaviour
     public int createCount = 0;
 
     private Vector3 prevPos;
+
+    bool isBroken = false;
+
     // 初期化処理
     public abstract void Initialize();
 
@@ -25,9 +28,29 @@ public abstract class GemBase : MonoBehaviour
         if(createCount > 100 && prevPos != transform.position)
         {
             createCount = -999999999;
+            isBroken = true;
             CreateParticle();
         }
         prevPos = transform.position;
+
+        // フィーバー中で地面が壊れていれば、プレイヤーに向かって飛ぶ
+        if (isBroken && StatusManager.Instance.isFEVER)
+        {
+            Rigidbody2D rb = GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                // プレイヤーの位置を取得
+                Transform player = GameObject.FindGameObjectWithTag("Player").transform;
+
+                // プレイヤー方向のベクトルを計算
+                Vector2 dir = (player.position - transform.position).normalized;
+
+                // 力を加える
+                float forcePower = 0.5f;
+                rb.AddForce(dir * forcePower, ForceMode2D.Impulse);
+            }
+        }
+
     }
 
     private void Start()
@@ -41,9 +64,6 @@ public abstract class GemBase : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            //プレイヤーのEXPを増やす
-            StatusManager.Instance.currentExp++;
-
             //プレイヤーのEXPがレベルアップに必要なEXP以上ならレベルを上げる
             StatusManager.Instance.AddExp(1);
 
