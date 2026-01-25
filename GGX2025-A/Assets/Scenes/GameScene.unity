@@ -57217,6 +57217,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zoomSpeed: 2
   moveSpeed: 0.1
+  maxsize: 10
+  minsize: 4
 --- !u!114 &675789932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60096,13 +60098,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 915581243}
     m_Modifications:
+    - target: {fileID: 1964600795549262768, guid: d895c184f266d7c48ae8541bbf827215, type: 3}
+      propertyPath: m_Name
+      value: Enemy2 (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 4692102305761731271, guid: d895c184f266d7c48ae8541bbf827215, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4692102305761731271, guid: d895c184f266d7c48ae8541bbf827215, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8422226273471610093, guid: d895c184f266d7c48ae8541bbf827215, type: 3}
       propertyPath: m_LocalPosition.x
@@ -60143,18 +60149,6 @@ PrefabInstance:
     - target: {fileID: 8422226273471610093, guid: d895c184f266d7c48ae8541bbf827215, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4692102305761731271, guid: d895c184f266d7c48ae8541bbf827215, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4692102305761731271, guid: d895c184f266d7c48ae8541bbf827215, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1964600795549262768, guid: d895c184f266d7c48ae8541bbf827215, type: 3}
-      propertyPath: m_Name
-      value: Enemy2 (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -60546,9 +60540,12 @@ MonoBehaviour:
   jumpPow: 0
   currentLevel: 0
   currentExp: 0
-  levelupExp: 10
+  levelupExp: 3
   maxHP: 100
   currentHP: 100
+  isFEVER: 0
+  maxFeverTime: 1000
+  feverTime: 0
 --- !u!4 &1447367233
 Transform:
   m_ObjectHideFlags: 0
@@ -60626,7 +60623,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 2
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 77e7e07111b1a7c46838bfc6e6456f73, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

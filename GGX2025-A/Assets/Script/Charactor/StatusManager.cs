@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
 public class StatusManager : SingletonMonoBehavior<StatusManager>
 {
@@ -38,6 +39,11 @@ public class StatusManager : SingletonMonoBehavior<StatusManager>
     public float maxHP;
     public float currentHP;
 
+    [Header("フィーバー")]
+    public bool isFEVER = false;
+    public int maxFeverTime = 100;
+    public int feverTime = 0;
+
     public void Cal()
     {
         moveSpeed_effective= moveSpeed_base*moveSpeed_correction;
@@ -46,5 +52,56 @@ public class StatusManager : SingletonMonoBehavior<StatusManager>
         viewRange_effective = viewRange_base * viewRange_correction;
 
     }
-   
+
+    public void AddExp(int value)
+    {
+        if (isFEVER) return;
+
+        currentExp += value;
+    }
+
+    public void FixedUpdate()
+    {
+        if (isFEVER)
+        {
+            FeverCount();
+        }
+        else
+        {
+            LevelCheck();
+        }
+    }
+
+    public void FeverCount()
+    {
+        feverTime--;
+
+        if (feverTime <= 0)
+        {
+            EndFever();
+        }
+    }
+
+    public void LevelCheck()
+    {
+        if (currentExp < levelupExp) return;
+
+        currentLevel++;
+        currentExp = 0;
+        StartFever();
+    }
+
+    private void StartFever()
+    {
+        isFEVER = true;
+        feverTime = maxFeverTime;
+    }
+
+    private void EndFever()
+    {
+        isFEVER = false;
+        feverTime = 0;
+    }
+
+
 }
