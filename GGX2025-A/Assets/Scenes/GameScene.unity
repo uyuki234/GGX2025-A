@@ -60544,7 +60544,7 @@ MonoBehaviour:
   maxHP: 100
   currentHP: 100
   isFEVER: 0
-  maxFeverTime: 1000
+  maxFeverTime: 800
   feverTime: 0
 --- !u!4 &1447367233
 Transform:
