@@ -22,13 +22,9 @@ public class AutoTileCollider : MonoBehaviour
         new Vector2(-1, 1),
     };
 
-    private void Awake()
-    {
-        sr = GetComponent<SpriteRenderer>();
-    }
-
     private void Start()
     {
+        sr = GetComponent<SpriteRenderer>();
         UpdateSprite();
     }
 
