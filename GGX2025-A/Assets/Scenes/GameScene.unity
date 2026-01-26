@@ -58767,13 +58767,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1085600786718553643, guid: 56771d8e5c637c44c9180d0433bb5d7a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1091706008}
-    - targetCorrespondingSourceObject: {fileID: 1085600786718553643, guid: 56771d8e5c637c44c9180d0433bb5d7a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1091706007}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56771d8e5c637c44c9180d0433bb5d7a, type: 3}
 --- !u!1 &970502276
 GameObject:
@@ -59233,42 +59227,6 @@ Transform:
   - {fileID: 1880186910}
   m_Father: {fileID: 1520415684}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1091706006 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1085600786718553643, guid: 56771d8e5c637c44c9180d0433bb5d7a, type: 3}
-  m_PrefabInstance: {fileID: 969860325}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1091706007
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1091706006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 520505cc63908df4a865e94801238020, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gemPrefabs:
-  - {fileID: 138843175551115639, guid: 29194773f90ebaa41aa4c608f5d55fa1, type: 3}
-  - {fileID: 138843175551115639, guid: ef44368522b378845bccd18322bdc79d, type: 3}
-  - {fileID: 138843175551115639, guid: 3a330c6b26bde6341b386dd4d071d608, type: 3}
-  - {fileID: 138843175551115639, guid: 291bc8b7521dc244d95a216c955b3d9c, type: 3}
---- !u!114 &1091706008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1091706006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 322e03d7ed135f44c9d0d167cd314179, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 3
-  gemcount: 1
 --- !u!4 &1091706015 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6502427458160932697, guid: 56771d8e5c637c44c9180d0433bb5d7a, type: 3}
@@ -60249,50 +60207,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8749526704852870207, guid: 183eccc3ff6c58e4bbae412eeecf14b6, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1381540787}
-    - targetCorrespondingSourceObject: {fileID: 8749526704852870207, guid: 183eccc3ff6c58e4bbae412eeecf14b6, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1381540786}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 183eccc3ff6c58e4bbae412eeecf14b6, type: 3}
---- !u!1 &1381540785 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8749526704852870207, guid: 183eccc3ff6c58e4bbae412eeecf14b6, type: 3}
-  m_PrefabInstance: {fileID: 1381540784}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1381540786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1381540785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 520505cc63908df4a865e94801238020, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gemPrefabs:
-  - {fileID: 138843175551115639, guid: 29194773f90ebaa41aa4c608f5d55fa1, type: 3}
-  - {fileID: 138843175551115639, guid: ef44368522b378845bccd18322bdc79d, type: 3}
-  - {fileID: 138843175551115639, guid: 3a330c6b26bde6341b386dd4d071d608, type: 3}
-  - {fileID: 138843175551115639, guid: 291bc8b7521dc244d95a216c955b3d9c, type: 3}
---- !u!114 &1381540787
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1381540785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 322e03d7ed135f44c9d0d167cd314179, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 3
-  gemcount: 3
 --- !u!4 &1381540793 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 275810507049136580, guid: 183eccc3ff6c58e4bbae412eeecf14b6, type: 3}
@@ -62196,13 +62112,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1085600786718553643, guid: 56771d8e5c637c44c9180d0433bb5d7a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1856091336}
-    - targetCorrespondingSourceObject: {fileID: 1085600786718553643, guid: 56771d8e5c637c44c9180d0433bb5d7a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1856091335}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56771d8e5c637c44c9180d0433bb5d7a, type: 3}
 --- !u!1001 &1828726456
 PrefabInstance:
@@ -62427,42 +62337,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1856091334 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1085600786718553643, guid: 56771d8e5c637c44c9180d0433bb5d7a, type: 3}
-  m_PrefabInstance: {fileID: 1791575040}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1856091335
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1856091334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 520505cc63908df4a865e94801238020, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gemPrefabs:
-  - {fileID: 138843175551115639, guid: 29194773f90ebaa41aa4c608f5d55fa1, type: 3}
-  - {fileID: 138843175551115639, guid: ef44368522b378845bccd18322bdc79d, type: 3}
-  - {fileID: 138843175551115639, guid: 3a330c6b26bde6341b386dd4d071d608, type: 3}
-  - {fileID: 138843175551115639, guid: 291bc8b7521dc244d95a216c955b3d9c, type: 3}
---- !u!114 &1856091336
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1856091334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 322e03d7ed135f44c9d0d167cd314179, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 3
-  gemcount: 1
 --- !u!4 &1856091343 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6502427458160932697, guid: 56771d8e5c637c44c9180d0433bb5d7a, type: 3}
@@ -62871,42 +62745,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1912866809 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8749526704852870207, guid: 183eccc3ff6c58e4bbae412eeecf14b6, type: 3}
-  m_PrefabInstance: {fileID: 5405006437318683588}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1912866810
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1912866809}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 520505cc63908df4a865e94801238020, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gemPrefabs:
-  - {fileID: 138843175551115639, guid: 29194773f90ebaa41aa4c608f5d55fa1, type: 3}
-  - {fileID: 138843175551115639, guid: ef44368522b378845bccd18322bdc79d, type: 3}
-  - {fileID: 138843175551115639, guid: 3a330c6b26bde6341b386dd4d071d608, type: 3}
-  - {fileID: 138843175551115639, guid: 291bc8b7521dc244d95a216c955b3d9c, type: 3}
---- !u!114 &1912866811
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1912866809}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 322e03d7ed135f44c9d0d167cd314179, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 3
-  gemcount: 3
 --- !u!4 &1912866817 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 275810507049136580, guid: 183eccc3ff6c58e4bbae412eeecf14b6, type: 3}
@@ -62987,13 +62825,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1085600786718553643, guid: 56771d8e5c637c44c9180d0433bb5d7a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2076742888}
-    - targetCorrespondingSourceObject: {fileID: 1085600786718553643, guid: 56771d8e5c637c44c9180d0433bb5d7a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2076742887}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56771d8e5c637c44c9180d0433bb5d7a, type: 3}
 --- !u!1 &1959107779
 GameObject:
@@ -63446,42 +63278,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &2076742886 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1085600786718553643, guid: 56771d8e5c637c44c9180d0433bb5d7a, type: 3}
-  m_PrefabInstance: {fileID: 1930209874}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2076742887
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2076742886}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 520505cc63908df4a865e94801238020, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gemPrefabs:
-  - {fileID: 138843175551115639, guid: 29194773f90ebaa41aa4c608f5d55fa1, type: 3}
-  - {fileID: 138843175551115639, guid: ef44368522b378845bccd18322bdc79d, type: 3}
-  - {fileID: 138843175551115639, guid: 3a330c6b26bde6341b386dd4d071d608, type: 3}
-  - {fileID: 138843175551115639, guid: 291bc8b7521dc244d95a216c955b3d9c, type: 3}
---- !u!114 &2076742888
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2076742886}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 322e03d7ed135f44c9d0d167cd314179, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 5
-  gemcount: 5
 --- !u!4 &2076742895 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6502427458160932697, guid: 56771d8e5c637c44c9180d0433bb5d7a, type: 3}
@@ -63987,13 +63783,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8749526704852870207, guid: 183eccc3ff6c58e4bbae412eeecf14b6, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1912866811}
-    - targetCorrespondingSourceObject: {fileID: 8749526704852870207, guid: 183eccc3ff6c58e4bbae412eeecf14b6, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1912866810}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 183eccc3ff6c58e4bbae412eeecf14b6, type: 3}
 --- !u!1001 &6455875418949175470
 PrefabInstance:

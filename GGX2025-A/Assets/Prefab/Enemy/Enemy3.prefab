@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 352944637579353880}
   - component: {fileID: 9204460422643686103}
   - component: {fileID: 1969746888485522742}
+  - component: {fileID: 3404164325533623485}
+  - component: {fileID: 1923776902346769019}
   m_Layer: 9
   m_Name: Enemy3
   m_TagString: Enemy
@@ -106,12 +108,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bulletCoolDown: 60
+  _coolDownCounter: 0
   _fierDistans: 5
+  _fierDistansCount: 0
   _fierMax: 3
   _bulletSpeed: 0.1
   _bulletDamage: 5
   _viewSize: 10
   _bulletPrefab: {fileID: 774588647584788626, guid: a74436641d419804e8331a9f7c5c257a, type: 3}
+  _fierCount: 0
 --- !u!50 &804473993966114852
 Rigidbody2D:
   serializedVersion: 5
@@ -203,6 +208,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   rb: {fileID: 804473993966114852}
+  fallSpeed: 5
+  logkakunin: 0
 --- !u!114 &1969746888485522742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,8 +223,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHp: 30
-  currentHp: 0
   HPUI: {fileID: 8702852057918183227}
+  speedLimit: 20
+  times: 2
+  enemy1: 0
+--- !u!114 &3404164325533623485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1085600786718553643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 520505cc63908df4a865e94801238020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gemPrefabs:
+  - {fileID: 138843175551115639, guid: 29194773f90ebaa41aa4c608f5d55fa1, type: 3}
+  - {fileID: 138843175551115639, guid: ef44368522b378845bccd18322bdc79d, type: 3}
+  - {fileID: 138843175551115639, guid: 291bc8b7521dc244d95a216c955b3d9c, type: 3}
+  - {fileID: 138843175551115639, guid: 3a330c6b26bde6341b386dd4d071d608, type: 3}
+--- !u!114 &1923776902346769019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1085600786718553643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 322e03d7ed135f44c9d0d167cd314179, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  force: 3
+  gemcount: 1
 --- !u!1 &2914497909115065800
 GameObject:
   m_ObjectHideFlags: 0
