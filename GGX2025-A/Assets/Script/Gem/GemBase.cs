@@ -67,6 +67,8 @@ public abstract class GemBase : MonoBehaviour
             //プレイヤーのEXPがレベルアップに必要なEXP以上ならレベルを上げる
             StatusManager.Instance.AddExp(1);
 
+            StatusManager.Instance.Score += 100;
+
             //宝石ごとの個別なヒット処理
             HitPlayer();
 

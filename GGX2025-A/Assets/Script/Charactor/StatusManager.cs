@@ -34,6 +34,7 @@ public class StatusManager : SingletonMonoBehavior<StatusManager>
     public float currentLevel;
     public float currentExp;
     public float levelupExp;
+    public float Score;
 
     [Header("ƒLƒƒƒ‰‚ÌHP")]
     public float maxHP;
