@@ -63681,6 +63681,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6942588119448485254, guid: 3c1de518306daa94e84e8d5e697aafa2, type: 3}
+      propertyPath: enemy1
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6942588119448485254, guid: 3c1de518306daa94e84e8d5e697aafa2, type: 3}
       propertyPath: speedLimit
       value: 20
       objectReference: {fileID: 0}
@@ -63867,6 +63871,10 @@ PrefabInstance:
     - target: {fileID: 6502427458160932697, guid: 56771d8e5c637c44c9180d0433bb5d7a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -180
+      objectReference: {fileID: 0}
+    - target: {fileID: 9204460422643686103, guid: 56771d8e5c637c44c9180d0433bb5d7a, type: 3}
+      propertyPath: logkakunin
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
