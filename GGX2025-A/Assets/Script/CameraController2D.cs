@@ -2,8 +2,10 @@ using UnityEngine;
 
 public class CameraController2D : MonoBehaviour
 {
-    public float zoomSpeed = 5f;
-    public float moveSpeed = 0.1f;
+    [SerializeField] float zoomSpeed = 5f;
+    [SerializeField] float moveSpeed = 0.1f;
+    [SerializeField] float maxsize=10f;
+    [SerializeField] float minsize=4f;
 
     private Vector3 dragOrigin;
     private bool isDragging = false;
@@ -15,7 +17,7 @@ public class CameraController2D : MonoBehaviour
         if (scroll != 0.0f)
         {
             Camera.main.orthographicSize -= scroll * zoomSpeed;
-            Camera.main.orthographicSize = Mathf.Clamp(Camera.main.orthographicSize, 2f, 20f);
+            Camera.main.orthographicSize = Mathf.Clamp(Camera.main.orthographicSize, minsize, maxsize);
         }
 
         // 右クリック or 中ボタンドラッグでカメラ移動

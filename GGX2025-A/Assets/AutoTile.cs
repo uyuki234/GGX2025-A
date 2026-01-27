@@ -16,15 +16,15 @@ public class AutoTileCollider : MonoBehaviour
         new Vector2(1, 0),   // 右 → ビット 2
         new Vector2(0, -1),  // 下 → ビット 4
         new Vector2(-1, 0),  // 左 → ビット 8
+        new Vector2(1, 1),
+        new Vector2(1, -1),
+        new Vector2(-1, -1),
+        new Vector2(-1, 1),
     };
-
-    private void Awake()
-    {
-        sr = GetComponent<SpriteRenderer>();
-    }
 
     private void Start()
     {
+        sr = GetComponent<SpriteRenderer>();
         UpdateSprite();
     }
 
@@ -42,6 +42,30 @@ public class AutoTileCollider : MonoBehaviour
             {
                 mask |= (1 << i);  // 4方向なので 1,2,4,8 のビットが立つ
             }
+
+
+        }
+        // 4方向すべてに隣接している場合、斜め方向もチェック
+        if (mask == 15)
+        {
+            int mask2 = 0;
+
+            for (int i = 0; i < 4; i++)
+            {
+                Vector2 checkPos = (Vector2)transform.position + directions[i + 4] * checkDistance;
+                Collider2D hit = Physics2D.OverlapBox(checkPos, checkSize, 0f, terrainMask);
+
+                if (hit != null)
+                {
+                    mask2 |= (1 << i);
+                }
+            }
+
+            // 斜め方向のビットに応じてスプライトを選択
+            if (mask2 == 14) { sr.sprite = sprites[16]; return; } // 右上
+            if (mask2 == 13) { sr.sprite = sprites[17]; return; } // 右下
+            if (mask2 == 11) { sr.sprite = sprites[18]; return; } // 左下
+            if (mask2 == 7) { sr.sprite = sprites[19]; return; } // 左上
         }
 
         if (mask >= 0 && mask < sprites.Length && sprites[mask] != null)

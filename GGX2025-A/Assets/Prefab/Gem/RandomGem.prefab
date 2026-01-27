@@ -10,12 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5180560793190774804}
   - component: {fileID: 2043560653339134195}
-  - component: {fileID: 3229280731583290145}
-  - component: {fileID: 4311260860230849136}
-  - component: {fileID: 2724294361403651266}
-  - component: {fileID: -6901547332756325030}
+  - component: {fileID: -6367625584649786385}
   m_Layer: 0
-  m_Name: TestGem
+  m_Name: RandomGem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -91,7 +88,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3229280731583290145
+--- !u!114 &-6367625584649786385
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -100,88 +97,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 138843175551115639}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0de4c152f9024349a30866677ef9f79, type: 3}
+  m_Script: {fileID: 11500000, guid: 19c7db8bc467ab845a06272ab8b50ea8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayDistance: 0.3
-  rayOffset: {x: 0, y: -0.4}
-  wallLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  rb: {fileID: 4311260860230849136}
---- !u!50 &4311260860230849136
-Rigidbody2D:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 138843175551115639}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 0
---- !u!58 &2724294361403651266
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 138843175551115639}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
---- !u!114 &-6901547332756325030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 138843175551115639}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b5da84281cadd74bafe7a0dc563a0e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 0
+  gemList:
+  - {fileID: 138843175551115639, guid: 29194773f90ebaa41aa4c608f5d55fa1, type: 3}
+  - {fileID: 138843175551115639, guid: ef44368522b378845bccd18322bdc79d, type: 3}
+  - {fileID: 138843175551115639, guid: 3a330c6b26bde6341b386dd4d071d608, type: 3}
+  - {fileID: 138843175551115639, guid: 291bc8b7521dc244d95a216c955b3d9c, type: 3}
