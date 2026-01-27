@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 /// <summary>
 /// ゲーム用タイマー
@@ -9,6 +10,10 @@ public class GameTimer : MonoBehaviour
     [Header("タイマー設定")]
     /// <summary>開始時間（秒）</summary>
     public float totalTime = 180f; // 初期値 3分 = 180秒
+
+    [Header("UI設定")]
+    /// <summary>タイマー表示用のTextMeshPro</summary>
+    public TextMeshProUGUI timerText;
 
     /// <summary>現在の残り時間（秒）</summary>
     public float currentTime;
@@ -41,6 +46,20 @@ public class GameTimer : MonoBehaviour
                 currentTime = 0f;
                 OnTimerFinished();
             }
+        }
+
+        // UIを更新
+        UpdateTimerUI();
+    }
+
+    /// <summary>
+    /// タイマーUIを更新
+    /// </summary>
+    private void UpdateTimerUI()
+    {
+        if (timerText != null)
+        {
+            timerText.text = GetTimeString();
         }
     }
 
