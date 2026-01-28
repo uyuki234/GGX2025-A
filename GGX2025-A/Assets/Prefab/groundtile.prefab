@@ -620,6 +620,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6217242185235630457, guid: 1c26fb1755ff25548924961e3afc4e67, type: 3}
+      propertyPath: m_BackSortingOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6217242185235630457, guid: 1c26fb1755ff25548924961e3afc4e67, type: 3}
+      propertyPath: m_IsCustomRangeActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6425437072879252754, guid: 1c26fb1755ff25548924961e3afc4e67, type: 3}
       propertyPath: m_Name
       value: tilemask_Square
