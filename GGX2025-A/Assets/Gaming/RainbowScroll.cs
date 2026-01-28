@@ -5,9 +5,6 @@ public class RainbowScroll : MonoBehaviour
     [Header("スクロール速度")]
     public float scrollSpeed = 0.5f;
 
-    [Header("Fever中だけ表示する")]
-    public bool isFever = false;
-
     private Material mat;
     private SpriteRenderer sr;
 
@@ -22,10 +19,6 @@ public class RainbowScroll : MonoBehaviour
 
     void Update()
     {
-        // Fever中だけ表示
-        sr.enabled = isFever;
-        if (!isFever) return;
-
         // UVスクロール
         float offset = Time.time * scrollSpeed;
         mat.SetTextureOffset("_MainTex", new Vector2(offset, 0));
