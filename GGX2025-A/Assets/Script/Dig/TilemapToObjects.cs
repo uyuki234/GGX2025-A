@@ -65,14 +65,16 @@ public class TilemapToObjects : MonoBehaviour
         // 「カメラ位置 + バッファ」が「現在の右端」を超えそうなら、右に追加
         if (camX + generateBuffer > rightpos.x)
         {
-            GenerateOneSide(true); // 右へ強制生成
+            for(int i=0;i<10;i++)
+                GenerateOneSide(true); // 右へ強制生成
         }
 
         // --- 左側のチェック ---
         // 「カメラ位置 - バッファ」が「現在の左端」を超えそうなら、左に追加
         if (camX - generateBuffer < leftpos.x)
         {
-            GenerateOneSide(false); // 左へ強制生成
+            for (int i = 0; i < 10; i++)
+                GenerateOneSide(false); // 左へ強制生成
         }
     }
 
