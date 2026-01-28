@@ -1,9 +1,11 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class DigsquareController : MonoBehaviour
 {
-    public bool attackable;
+    private bool attackable;
+    private List<GameObject> hitenemy = new List<GameObject>();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -21,10 +23,11 @@ public class DigsquareController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other){
         if(attackable && other.CompareTag("Enemy")){
             EnemyStatus hp = other.GetComponent<EnemyStatus>();
-            if (hp != null)
+            if (hp != null && !hitenemy.Contains(other.gameObject))
             {
-                hp.SetHP(hp.GetHP()-StatusManager.Instance.attack_effective); // ダメージ処理
-                attackable=false;
+                hp.SetHP(hp.DamageCalculation(StatusManager.Instance.attack_effective)); // ダメージ処理
+                //hp.SetHP(hp.GetHP()-0);
+                hitenemy.Add(other.gameObject);
             }
         }
     }

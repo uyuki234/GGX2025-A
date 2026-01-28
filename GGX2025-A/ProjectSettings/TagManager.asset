@@ -8,7 +8,6 @@ TagManager:
   - Wall
   - Bullet
   - Enemy
-  - Cursor
   layers:
   - Default
   - TransparentFX
@@ -45,6 +44,12 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Robot
+    uniqueID: 3088312393
+    locked: 0
+  - name: Stage
+    uniqueID: 2698810933
     locked: 0
   m_RenderingLayers:
   - Default
