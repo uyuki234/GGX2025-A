@@ -9,101 +9,171 @@ public class TilemapToObjects : MonoBehaviour
     [SerializeField] private GameObject zerotile;
     [SerializeField] private List<Tilemap> tilemapList;
     [SerializeField] private List<GameObject> objectList;
-    [SerializeField] private List<Tilemap> existmapList;
-    [SerializeField] private List<GameObject> existobjectList;
+
     [SerializeField] private Tilemap tilemap;
     [SerializeField] private GameObject tilePrefab;
-    [SerializeField] private Transform TileParent;
+
+    // インスペクターで設定不要（スクリプト内で動的に変えます）
+    private Transform currentLayerParent;
 
     [Header("Position Management")]
     [SerializeField] private Vector2 rightpos = new Vector2(0, 0);
-    [SerializeField] private Vector2 leftpos = new Vector2(0, 0); // 左側の位置管理用
+    [SerializeField] private Vector2 leftpos = new Vector2(0, 0);
     [SerializeField] private int quantity;
 
     [Header("Camera & Infinite Scroll")]
-    [SerializeField] private Transform cameraTransform; // メインカメラをアサイン
-    [SerializeField] private float generateBuffer = 10f; // カメラが端からこの距離以内に入ったら生成
+    [SerializeField] private Transform cameraTransform;
+    [SerializeField] private float generateBuffer = 10f;
+    [SerializeField] private int chunkGenerationCount = 10;
 
-    // 左右切り替え用タグ（true:右, false:左）
+    [Header("Layer System")]
+    [SerializeField] private Transform player;
+    [SerializeField] private float layerChangeYThreshold = -10f;
+    [SerializeField] private float layerDepth = 20f;
+    [SerializeField] private float verticalOffset = 5f;
+
+    // 層の管理用リスト（古い層を消すため）
+    private List<GameObject> layerContainers = new List<GameObject>();
+    private int layerCount = 0; // 何層目か
+
     private bool LRtag = true;
 
     private void Start()
     {
-        // カメラが未設定なら自動取得
-        if (cameraTransform == null && Camera.main != null)
+        if (cameraTransform == null && Camera.main != null) cameraTransform = Camera.main.transform;
+        if (player == null)
         {
-            cameraTransform = Camera.main.transform;
+            GameObject p = GameObject.FindGameObjectWithTag("Player");
+            if (p != null) player = p.transform;
         }
 
-        // 初期タイルの生成
-        zero_GenerateAndConvert();
-
-        // Start時は左右交互に生成（LRtagを使用）
-        LRtag = true;
-
-        if (useList)
-        {
-            for (int i = 0; i < quantity; i++)
-            {
-                // 現在のLRtagの方向へ生成し、タグを反転させる
-                GenerateOneSide(LRtag);
-                LRtag = !LRtag;
-            }
-        }
-        else if (tilemap != null) ConvertTilemap();
-        else Debug.Log("タイルが登録されていない");
+        // 最初の層を生成
+        GenerateInitialLayer();
     }
 
     private void Update()
     {
-        if (cameraTransform == null) return;
+        CheckNextLayer();
+        CheckHorizontalGeneration();
+    }
 
-        // カメラのX座標を取得
+    private void CheckNextLayer()
+    {
+        if (player == null) return;
+
+        if (player.position.y < layerChangeYThreshold)
+        {
+            StartNextLayer();
+        }
+    }
+
+    private void StartNextLayer()
+    {
+        layerChangeYThreshold -= layerDepth;
+
+        float newBaseX = player.position.x;
+        float newBaseY = player.position.y - verticalOffset;
+
+        rightpos = new Vector2(newBaseX, newBaseY);
+        leftpos = new Vector2(newBaseX, newBaseY);
+
+        GenerateInitialLayer();
+    }
+
+    private void GenerateInitialLayer()
+    {
+        // 1. 新しい層のための親オブジェクトを作成
+        CreateNewLayerContainer();
+
+        // 2. 古すぎる層を削除
+        CleanupOldLayers();
+
+        // 初期タイル生成
+        zero_GenerateAndConvert();
+
+        LRtag = true;
+        if (useList)
+        {
+            for (int i = 0; i < quantity; i++)
+            {
+                GenerateOneSide(LRtag);
+                LRtag = !LRtag;
+            }
+        }
+        else if (tilemap != null)
+        {
+            ConvertTilemap();
+        }
+    }
+
+    // --- 新機能: 層のコンテナ管理 ---
+
+    private void CreateNewLayerContainer()
+    {
+        layerCount++;
+        // "Layer_1", "Layer_2" のような空のGameObjectを作る
+        GameObject newContainer = new GameObject($"Layer_{layerCount}");
+        newContainer.transform.parent = this.transform; // 整理のためこのスクリプトの子にする
+
+        // これから生成するタイルの親をこれに設定
+        currentLayerParent = newContainer.transform;
+
+        // リストに追加
+        layerContainers.Add(newContainer);
+    }
+
+    private void CleanupOldLayers()
+    {
+        // 保持するのは「現在の層」と「1つ前の層」の合計2つまで
+        // つまり3つ以上になったら、一番古いやつ(index 0)を消す
+        if (layerContainers.Count > 2)
+        {
+            GameObject oldLayer = layerContainers[0];
+            layerContainers.RemoveAt(0);
+            Destroy(oldLayer);
+        }
+    }
+
+    // --------------------------------
+
+    private void CheckHorizontalGeneration()
+    {
+        if (cameraTransform == null) return;
         float camX = cameraTransform.position.x;
 
-        // --- 右側のチェック ---
-        // 「カメラ位置 + バッファ」が「現在の右端」を超えそうなら、右に追加
         if (camX + generateBuffer > rightpos.x)
         {
-            for(int i=0;i<10;i++)
-                GenerateOneSide(true); // 右へ強制生成
+            for (int i = 0; i < chunkGenerationCount; i++) GenerateOneSide(true);
         }
 
-        // --- 左側のチェック ---
-        // 「カメラ位置 - バッファ」が「現在の左端」を超えそうなら、左に追加
         if (camX - generateBuffer < leftpos.x)
         {
-            for (int i = 0; i < 10; i++)
-                GenerateOneSide(false); // 左へ強制生成
+            for (int i = 0; i < chunkGenerationCount; i++) GenerateOneSide(false);
         }
     }
 
     private void zero_GenerateAndConvert()
     {
         Vector3 spawnPos = new Vector3(rightpos.x, rightpos.y, 0);
-        GameObject mapInstanceObj = Instantiate(zerotile.gameObject, spawnPos, Quaternion.identity, transform);
+
+        // 生成時に parent (currentLayerParent) を指定！
+        GameObject mapInstanceObj = Instantiate(zerotile.gameObject, spawnPos, Quaternion.identity, currentLayerParent);
 
         TilePatternWidth tilePatternWidth = mapInstanceObj.GetComponent<TilePatternWidth>();
         Tilemap mapInstance = mapInstanceObj.GetComponent<Tilemap>();
 
         if (mapInstance != null)
         {
-            existmapList.Add(mapInstance);
-
-            // 初期タイルの分、右側の生成位置をずらす
             rightpos.x += tilePatternWidth.patternwidth;
-
             tilemap = mapInstance;
             ConvertTilemap();
         }
     }
 
-    /// <summary>
-    /// 指定した方向（isRight）に1つ生成するメソッド
-    /// </summary>
     private void GenerateOneSide(bool isRight)
     {
-        // 1. リストからランダムに選ぶ
+        if (tilemapList.Count == 0) return;
+
         int randomIndex = Random.Range(0, tilemapList.Count);
         Tilemap selectedPrefab = tilemapList[randomIndex];
         GameObject selectedObject = objectList[randomIndex];
@@ -113,28 +183,25 @@ public class TilemapToObjects : MonoBehaviour
 
         Vector3 spawnPos;
 
-        // 2. 指定方向(isRight)に応じて位置を決定・更新
-        if (isRight) // 右側に生成
+        if (isRight)
         {
             spawnPos = new Vector3(rightpos.x, rightpos.y, 0);
-            rightpos.x += currentWidth; // 右位置を更新
+            rightpos.x += currentWidth;
         }
-        else // 左側に生成
+        else
         {
             spawnPos = new Vector3(leftpos.x - currentWidth, leftpos.y, 0);
-            leftpos.x -= currentWidth; // 左位置を更新
+            leftpos.x -= currentWidth;
         }
 
-        // 3. 決定した位置に生成
-        GameObject mapInstanceObj = Instantiate(selectedPrefab.gameObject, spawnPos, Quaternion.identity, transform);
-        GameObject InstanceObj = Instantiate(selectedObject, spawnPos, Quaternion.identity, transform);
+        // parent に currentLayerParent を指定
+        GameObject mapInstanceObj = Instantiate(selectedPrefab.gameObject, spawnPos, Quaternion.identity, currentLayerParent);
+        if (selectedObject != null) Instantiate(selectedObject, spawnPos, Quaternion.identity, currentLayerParent);
 
         Tilemap mapInstance = mapInstanceObj.GetComponent<Tilemap>();
 
         if (mapInstance != null)
         {
-            existmapList.Add(mapInstance);
-            existobjectList.Add(InstanceObj);
             tilemap = mapInstance;
             ConvertTilemap();
         }
@@ -150,12 +217,11 @@ public class TilemapToObjects : MonoBehaviour
 
             TileBase tile = tilemap.GetTile(pos);
             Sprite sprite = (tile as Tile).sprite;
-
             Vector3 worldPos = tilemap.CellToWorld(pos) + tilemap.tileAnchor;
 
-            GameObject obj = Instantiate(tilePrefab, worldPos, Quaternion.identity, TileParent);
+            // parent に currentLayerParent を指定
+            GameObject obj = Instantiate(tilePrefab, worldPos, Quaternion.identity, currentLayerParent);
             obj.name = "Tile_" + pos;
-
             obj.GetComponent<SpriteRenderer>().sprite = sprite;
         }
     }
