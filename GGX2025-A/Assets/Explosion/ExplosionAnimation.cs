@@ -2,32 +2,28 @@ using UnityEngine;
 
 public class ExplosionAnimation : MonoBehaviour
 {
-    [Header("Explosive")]
-    [SerializeField] private Animator animator;
-    [SerializeField] private string deathTriggerName = "Death";
+    private Animator anim;
+    private ExplosionDig dig;
 
-    private bool isDead = false;
-
-    // 爆発アニメーションを開始する
-    public void Die()
+    private void Awake()
     {
-        if (isDead) return;
-        isDead = true;
-
-        if (animator != null)
-        {
-            // トリガーの暴発防止
-            animator.ResetTrigger(deathTriggerName);
-            animator.SetTrigger(deathTriggerName);
-        }
-        else
-        {
-            // Animator が無い場合は即削除
-            Destroy(gameObject);
-        }
+        anim = GetComponent<Animator>();
+        dig = GetComponent<ExplosionDig>();   // ← ここで ExplosionDig を取得
     }
 
-    // Animation Event から呼ばれる（アニメ終了時）
+    // 敵が死んだ時に呼ばれる
+    public void Die()
+    {
+        anim.SetTrigger("Die");
+    }
+
+    // Animation Event から呼ぶ（爆発判定）
+    public void TriggerDig()
+    {
+        dig?.TriggerRectangle();
+    }
+
+    // Animation Event から呼ぶ（爆発Prefab削除）
     public void DestroySelf()
     {
         Destroy(gameObject);
