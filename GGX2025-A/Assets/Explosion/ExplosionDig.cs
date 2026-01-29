@@ -10,12 +10,8 @@ public class ExplosionDig : MonoBehaviour
     [SerializeField] private float width = 5f;
     [SerializeField] private float height = 3f;
 
-    void OnDestroy()
-    {
-        GenerateRectangle();
-    }
-
-    void GenerateRectangle()
+    // Animation Event ‚©‚çŒÄ‚Î‚ê‚é
+    public void TriggerRectangle()
     {
         if (squarePrefab == null) return;
 

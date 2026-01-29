@@ -7,6 +7,7 @@ public class ExplosionAnimation : MonoBehaviour
     [SerializeField] private string deathTriggerName = "Death";
 
     private bool isDead = false;
+
     public void Die()
     {
         if (isDead) return;
@@ -16,5 +17,15 @@ public class ExplosionAnimation : MonoBehaviour
         {
             animator.SetTrigger(deathTriggerName);
         }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    // Animation Event ‚©‚çŒÄ‚Î‚ê‚é
+    public void DestroySelf()
+    {
+        Destroy(gameObject);
     }
 }
