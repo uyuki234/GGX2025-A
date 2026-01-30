@@ -25,7 +25,7 @@ public class DigsquareController : MonoBehaviour
             EnemyStatus hp = other.GetComponent<EnemyStatus>();
             if (hp != null && !hitenemy.Contains(other.gameObject))
             {
-                hp.SetHP(hp.GetHP()-StatusManager.Instance.attack_effective); // ダメージ処理
+                hp.SetHP(hp.DamageCalculation(StatusManager.Instance.attack_effective)); // ダメージ処理
                 //hp.SetHP(hp.GetHP()-0);
                 hitenemy.Add(other.gameObject);
             }

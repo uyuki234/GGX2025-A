@@ -2,19 +2,23 @@ using UnityEngine;
 
 public class SurfaceCrawlerEnemy : MonoBehaviour
 {
-    [Header("�ړ��ݒ�")]
+    [Header("移動設定")]
     [SerializeField] private float moveSpeed = 2f;
     [SerializeField] private float fallSpeed = 5f;
     [SerializeField] private LayerMask wallLayer;
     [SerializeField] private Collider2D BoxcolForFall;
 
-    [Header("Ray �ݒ�")]
+    [Header("Ray設定")]
     [SerializeField] private float rayDistance = 0.1f;
 
-    // �l���̃��[�J�����W
+    // Rayのローカル位置
     [SerializeField] private Vector2 rayOffset_top;
     [SerializeField] private Vector2 rayOffset_bottom;
     [SerializeField] private Vector2 rayOffset_center;
+
+    [Header("カメラ検知設定")]
+    [SerializeField] private float activationDistance = 15f; // カメラがこの距離内に入ると動く
+    private Transform cameraTransform;
 
     private Rigidbody2D rb;
     private Collider2D Collider2D;
@@ -29,11 +33,30 @@ public class SurfaceCrawlerEnemy : MonoBehaviour
         SnapToGrid();
 
         enemyStatus = GetComponent<EnemyStatus>();
+
+        // メインカメラのTransformを取得
+        if (Camera.main != null)
+        {
+            cameraTransform = Camera.main.transform;
+        }
     }
 
     void Update()
     {
-        // === �l���̃O���[�o�����W���v�Z ===
+        // === カメラとの距離チェック（追加部分） ===
+        if (cameraTransform != null)
+        {
+            float distance = Vector2.Distance(transform.position, cameraTransform.position);
+
+            // カメラが範囲外なら動きを止めて処理を終了
+            if (distance > activationDistance)
+            {
+                rb.linearVelocity = Vector2.zero; // 物理挙動も止める
+                return; // ここでUpdateを抜ける
+            }
+        }
+
+        // === Rayのグローバル位置計算 ===
         Vector2 top = transform.TransformPoint(rayOffset_top);
         Vector2 bottom = transform.TransformPoint(rayOffset_bottom);
         Vector2 center = transform.TransformPoint(rayOffset_center);
@@ -43,24 +66,23 @@ public class SurfaceCrawlerEnemy : MonoBehaviour
         bool hitB = Physics2D.Raycast(bottom, transform.up, rayDistance, wallLayer);
         bool hitC = Physics2D.Raycast(center, -transform.up, rayDistance, wallLayer);
 
-        // Debug ����
+        // Debug 表示
         Debug.DrawRay(top, transform.up * rayDistance, hitT ? Color.yellow : Color.green);
         Debug.DrawRay(bottom, transform.up * rayDistance, hitB ? Color.yellow : Color.green);
         Debug.DrawRay(center, -transform.up * rayDistance, hitC ? Color.red : Color.green);
 
-        
-
-        // === ��]���� ===
-        // �オ�ǂ����m����]���ĕǂ�o��
-        if (hitT && !rotating) 
+        // === 回転処理 ===
+        // 角にぶつかったら回転
+        if (hitT && !rotating)
         {
             rotating = true;
             transform.Rotate(0, 0, 90f);
             SnapToGrid();
             return;
         }
-
-        else if (!hitB && !rotating){
+        // 足場がなくなったら回転
+        else if (!hitB && !rotating)
+        {
             rb.linearVelocity = Vector2.zero;
             rotating = true;
             transform.Rotate(0, 0, -90f);
@@ -68,9 +90,8 @@ public class SurfaceCrawlerEnemy : MonoBehaviour
             return;
         }
 
-
-        // === �O�i���� ===
-        if (hitC) 
+        // === 前進処理 ===
+        if (hitC)
         {
             rb.gravityScale = 0f;
             rb.linearVelocity = transform.right * moveSpeed;
@@ -86,7 +107,7 @@ public class SurfaceCrawlerEnemy : MonoBehaviour
         }
     }
 
-    private void SnapToGrid()//0.5���̒l�Ɋۂ߂�
+    private void SnapToGrid()//0.5刻みの値に丸める
     {
         Vector3 pos = transform.position;
 
@@ -101,16 +122,13 @@ public class SurfaceCrawlerEnemy : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
             //落下ダメージの速度計り
-            //Debug.Log("着地時の速度: " + enemyStatus.GetSpeed());
             float fixedSpeed = enemyStatus.GetSpeed();
             enemyStatus.SetSpeed(0);
             enemyStatus.fallDamage(fixedSpeed);
-            //StartCoroutine(enemyStatus.FallDamageDelay(fixedSpeed));
 
             rb.gravityScale = 0;
             Collider2D.isTrigger = true;
             transform.rotation = Quaternion.identity;
         }
-
     }
 }
