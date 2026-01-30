@@ -100,9 +100,10 @@ public class StatusManager : SingletonMonoBehavior<StatusManager>
         feverTime = maxFeverTime;
     }
 
-    private void EndFever()
+    public void EndFever()
     {
         isFEVER = false;
+        currentExp = feverTime;
         feverTime = 0;
     }
 
