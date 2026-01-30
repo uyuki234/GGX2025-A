@@ -59672,7 +59672,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'aaaaaa
 
-    aaaaaaa'
+    aaaaaaa
+
+    aaaaaaaaa'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b43ca2a53c981e14397d4fe50ff6af7c, type: 2}
   m_sharedMaterial: {fileID: -7638298847148512807, guid: b43ca2a53c981e14397d4fe50ff6af7c, type: 2}
