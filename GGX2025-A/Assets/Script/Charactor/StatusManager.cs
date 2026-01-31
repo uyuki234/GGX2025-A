@@ -103,7 +103,6 @@ public class StatusManager : SingletonMonoBehavior<StatusManager>
     public void EndFever()
     {
         isFEVER = false;
-        currentExp = feverTime;
         feverTime = 0;
     }
 

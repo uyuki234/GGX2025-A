@@ -84,6 +84,8 @@ public abstract class GemBase : MonoBehaviour
             //プレイヤーのEXPを増やす
             StatusManager.Instance.AddExp(1);
 
+            StatusManager.Instance.Score += 100;
+
             // 宝石ごとの個別なヒット処理
             HitPlayer();
 

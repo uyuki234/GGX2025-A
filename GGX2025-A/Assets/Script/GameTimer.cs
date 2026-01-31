@@ -55,7 +55,7 @@ public class GameTimer : MonoBehaviour
             currentTime -= Time.unscaledDeltaTime;
 
             // 0以下になったら終了処理
-            if (currentTime <= 0f)
+            if (currentTime <= 0f || StatusManager.Instance.currentHP <= 0)
             {
                 currentTime = 0f;
                 OnTimerFinished();
@@ -85,15 +85,9 @@ public class GameTimer : MonoBehaviour
     {
         if (scoreText != null)
         {
-            // StatusManagerが存在するか確認してスコアを取得
             if (StatusManager.Instance != null)
             {
-                // 例: "Score: 12345"
                 scoreText.text = StatusManager.Instance.Score.ToString()+"pt";
-            }
-            else
-            {
-                Debug.LogWarning("StatusManagerが見つかりません"); // デバッグ用
             }
         }
     }
@@ -130,7 +124,7 @@ public class GameTimer : MonoBehaviour
         // 最終スコアをリザルト画面に反映
         if (resultScoreText != null && StatusManager.Instance != null)
         {
-            resultScoreText.text = "Final Score\n" + StatusManager.Instance.Score.ToString();
+            resultScoreText.text = "スコア：" + StatusManager.Instance.Score.ToString();
         }
     }
 

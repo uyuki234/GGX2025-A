@@ -41,7 +41,7 @@ public class EnemyBullet : MonoBehaviour
         if (spwanCount > 5)
         {
 
-            if (other.gameObject.CompareTag("Player"))
+            if (other.gameObject.CompareTag("Player")|| other.gameObject.CompareTag("Cursor"))
             {
                 StatusManager.Instance.currentHP -= _bulletDamage;
                 Destroy(gameObject);

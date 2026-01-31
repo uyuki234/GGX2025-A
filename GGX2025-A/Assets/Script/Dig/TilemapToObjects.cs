@@ -7,6 +7,7 @@ public class TilemapToObjects : MonoBehaviour
     [Header("Basic Settings")]
     [SerializeField] private bool useList;
     [SerializeField] private GameObject zerotile;
+    [SerializeField] private GameObject zeroobj;
     [SerializeField] private List<Tilemap> tilemapList;
     [SerializeField] private List<GameObject> objectList;
 
@@ -158,6 +159,7 @@ public class TilemapToObjects : MonoBehaviour
 
         // ê∂ê¨éûÇ… parent (currentLayerParent) ÇéwíËÅI
         GameObject mapInstanceObj = Instantiate(zerotile.gameObject, spawnPos, Quaternion.identity, currentLayerParent);
+        Instantiate(zeroobj.gameObject, spawnPos, Quaternion.identity, currentLayerParent);
 
         TilePatternWidth tilePatternWidth = mapInstanceObj.GetComponent<TilePatternWidth>();
         Tilemap mapInstance = mapInstanceObj.GetComponent<Tilemap>();
