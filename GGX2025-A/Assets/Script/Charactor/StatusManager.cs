@@ -3,6 +3,8 @@ using static UnityEngine.Rendering.DebugUI;
 
 public class StatusManager : SingletonMonoBehavior<StatusManager>
 {
+    public bool isGame=true;
+
     [Header("キャラの移動速度")]
     public float moveSpeed_base = 10;
     public float moveSpeed_correction = 1;
@@ -42,8 +44,8 @@ public class StatusManager : SingletonMonoBehavior<StatusManager>
 
     [Header("フィーバー")]
     public bool isFEVER = false;
-    public int maxFeverTime = 100;
-    public int feverTime = 0;
+    public float maxFeverTime = 100;
+    public float feverTime = 0;
 
     public void Cal()
     {
@@ -66,8 +68,7 @@ public class StatusManager : SingletonMonoBehavior<StatusManager>
     {
         if (isFEVER)
         {
-            FeverCount();
-            FeverPlay();
+            FeverCount();;
         }
         else
         {
@@ -77,7 +78,7 @@ public class StatusManager : SingletonMonoBehavior<StatusManager>
 
     public void FeverCount()
     {
-        feverTime--;
+        feverTime = feverTime - Time.deltaTime;
 
         if (feverTime <= 0)
         {
@@ -98,18 +99,29 @@ public class StatusManager : SingletonMonoBehavior<StatusManager>
     {
         isFEVER = true;
         feverTime = maxFeverTime;
+
+        moveSpeed_correction = 1.5f;
+        attack_correction = 1.5f;
+        chargeEnergy_correction = 2;
+        viewRange_correction = 2;
+        maxEnergy *= 2;
+        currentEnergy = maxEnergy;
+
+        Cal();
     }
 
-    private void EndFever()
+    public void EndFever()
     {
         isFEVER = false;
         feverTime = 0;
-    }
 
-    private void FeverPlay()
-    {
-        currentEnergy = maxEnergy;
+        moveSpeed_correction = 1;
+        attack_correction = 1;
+        chargeEnergy_correction = 1;
+        viewRange_correction = 1;
+        maxEnergy /= 2;
 
+        Cal();
     }
 
 

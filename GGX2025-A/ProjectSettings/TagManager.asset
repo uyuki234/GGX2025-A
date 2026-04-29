@@ -8,6 +8,7 @@ TagManager:
   - Wall
   - Bullet
   - Enemy
+  - Cursor
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - Player
   - Bullet
   - Item
-  - 
+  - Cursor
   - 
   - 
   - 
@@ -50,6 +51,9 @@ TagManager:
     locked: 0
   - name: Stage
     uniqueID: 2698810933
+    locked: 0
+  - name: Cursor
+    uniqueID: 3003428587
     locked: 0
   m_RenderingLayers:
   - Default

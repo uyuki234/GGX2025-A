@@ -2,8 +2,8 @@ using UnityEngine;
 using TMPro;
 
 /// <summary>
-/// ゲーム用タイマー
-/// Time.unscaledDeltaTime を使用してゲーム時間遅延の影響を受けない
+/// ゲーム用タイマー兼ゲーム進行管理
+/// スコア表示とリザルト処理を追加
 /// </summary>
 public class GameTimer : MonoBehaviour
 {
@@ -11,9 +11,17 @@ public class GameTimer : MonoBehaviour
     /// <summary>開始時間（秒）</summary>
     public float totalTime = 180f; // 初期値 3分 = 180秒
 
-    [Header("UI設定")]
+    [Header("UI設定（プレイ画面）")]
     /// <summary>タイマー表示用のTextMeshPro</summary>
     public TextMeshProUGUI timerText;
+    /// <summary>スコア表示用のTextMeshPro（追加）</summary>
+    public TextMeshProUGUI scoreText;
+
+    [Header("UI設定（リザルト画面）")]
+    /// <summary>ゲーム終了時に表示するパネル（追加）</summary>
+    public GameObject resultPanel;
+    /// <summary>リザルト画面でのスコア表示用（追加）</summary>
+    public TextMeshProUGUI resultScoreText;
 
     /// <summary>現在の残り時間（秒）</summary>
     public float currentTime;
@@ -30,6 +38,12 @@ public class GameTimer : MonoBehaviour
         currentTime = totalTime;
         isRunning = true;
         isFinished = false;
+
+        // リザルトパネルは隠しておく
+        if (resultPanel != null)
+        {
+            resultPanel.SetActive(false);
+        }
     }
 
     void Update()
@@ -41,15 +55,16 @@ public class GameTimer : MonoBehaviour
             currentTime -= Time.unscaledDeltaTime;
 
             // 0以下になったら終了処理
-            if (currentTime <= 0f)
+            if (currentTime <= 0f || StatusManager.Instance.currentHP <= 0)
             {
                 currentTime = 0f;
                 OnTimerFinished();
             }
         }
 
-        // UIを更新
+        // UIを更新（タイマーとスコア）
         UpdateTimerUI();
+        UpdateScoreUI();
     }
 
     /// <summary>
@@ -60,6 +75,20 @@ public class GameTimer : MonoBehaviour
         if (timerText != null)
         {
             timerText.text = GetTimeString();
+        }
+    }
+
+    /// <summary>
+    /// スコアUIを更新（追加機能）
+    /// </summary>
+    private void UpdateScoreUI()
+    {
+        if (scoreText != null)
+        {
+            if (StatusManager.Instance != null)
+            {
+                scoreText.text = StatusManager.Instance.Score.ToString()+"pt";
+            }
         }
     }
 
@@ -77,18 +106,27 @@ public class GameTimer : MonoBehaviour
         // ログ表示
         Debug.Log("タイムアップ！");
 
-        // リザルト表示関数を呼び出す（フック）
-        OnGameOver();
+        // リザルト表示処理を実行
+        ShowResult();
     }
 
     /// <summary>
-    /// ゲームオーバー時に呼ばれるフック
-    /// 別スクリプト（UI管理など）から実装を差し込む
+    /// リザルト画面を表示する処理（追加機能）
     /// </summary>
-    private void OnGameOver()
+    private void ShowResult()
     {
-        // TODO: ここにリザルト表示処理を実装
-        // 例: ResultManager.Instance.ShowResult();
+        // リザルトパネルを表示
+        if (resultPanel != null)
+        {
+            resultPanel.SetActive(true);
+        }
+
+        // 最終スコアをリザルト画面に反映
+        if (resultScoreText != null && StatusManager.Instance != null)
+        {
+            resultScoreText.text = "スコア：" + StatusManager.Instance.Score.ToString();
+        }
+        StatusManager.Instance.isGame = false;
     }
 
     /// <summary>
@@ -119,6 +157,12 @@ public class GameTimer : MonoBehaviour
         isRunning = true;
         isFinished = false;
         Time.timeScale = 1f; // ゲーム再開
+
+        // リザルトパネルを隠す
+        if (resultPanel != null)
+        {
+            resultPanel.SetActive(false);
+        }
     }
 
     /// <summary>
@@ -141,7 +185,6 @@ public class GameTimer : MonoBehaviour
 
     /// <summary>
     /// 残り時間の割合を取得（0.0～1.0）
-    /// UI プログレスバーの更新などに使用
     /// </summary>
     public float GetProgress()
     {

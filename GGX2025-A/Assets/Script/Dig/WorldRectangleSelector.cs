@@ -62,120 +62,122 @@ public class WorldRectangleSelector : MonoBehaviour
 
     void Update()
     {
+        if (StatusManager.Instance.isGame) {
+            if (!isSelecting)
+            {
+                if (IsPointerOverUI()) return;
+            }
 
-        if (!isSelecting)
-        {
-            if (IsPointerOverUI()) return;
-        }
+            if (!isSelecting && currentEnergy < maxEnergy)
+            {
+                currentEnergy = Mathf.Clamp(
+                    currentEnergy + StatusManager.Instance.chargeEnergy_effective * Time.deltaTime, 0f, maxEnergy);
 
-        if (!isSelecting && currentEnergy < maxEnergy)
-        {
-            currentEnergy = Mathf.Clamp(
-                currentEnergy + StatusManager.Instance.chargeEnergy_effective * Time.deltaTime, 0f, maxEnergy);
-
-            Slider_back = currentEnergy / maxEnergy;
-            Slider_front = currentEnergy / maxEnergy;
-        }
+                Slider_back = currentEnergy / maxEnergy;
+                Slider_front = currentEnergy / maxEnergy;
+            }
 
             // 左クリック開始
             if (Input.GetMouseButtonDown(0))
-        {
-            startWorldPos = GetCursorPosition();
-
-            isSelecting = true;
-            cursorCol.enabled = false;
-
-            currentSelectionSquare = Instantiate(selectionSquarePrefab);
-
-            // 掘削前のエネルギーを保持
-            beforeDrillEnergy = currentEnergy;
-
-
-        }
-
-        // ドラッグ中
-        if (Input.GetMouseButton(0) && isSelecting)
-        {
-            Time.timeScale = slowTimeScale;
-            Time.fixedDeltaTime = 0.02f * Time.timeScale;
-
-            Vector3 currentWorldPos = GetCursorPosition();
-            UpdateSquare(currentSelectionSquare, startWorldPos, currentWorldPos);
-
-            // サイズに比例した追加消費を計算
-            Vector3 size = currentWorldPos - startWorldPos;
-            areaSize = Mathf.Abs(size.x * size.y);
-
-            requiredEnergy = baseCost;
-
-            if (areaSize> minAreaToGenerate)
             {
-                if (areaSize > sizeThreshold)
-                {
-                    requiredEnergy += (areaSize - sizeThreshold) * sizeCostRate;
-                }
+                startWorldPos = GetCursorPosition();
 
-                // エネルギー不足なら赤色に
-                SpriteRenderer sr = currentSelectionSquare.GetComponent<SpriteRenderer>();
-                if (sr != null)
-                {
-                    sr.color = (requiredEnergy > beforeDrillEnergy) ? notable : able;
-                }
-                Slider_front = (currentEnergy - requiredEnergy) / maxEnergy;
+                isSelecting = true;
+                cursorCol.enabled = false;
+
+                currentSelectionSquare = Instantiate(selectionSquarePrefab);
+
+                // 掘削前のエネルギーを保持
+                beforeDrillEnergy = currentEnergy;
+
+
             }
-        }
 
-        // 左クリック離す
-        if (Input.GetMouseButtonUp(0) && isSelecting)
-        {
-
-            if (areaSize > minAreaToGenerate)
+            // ドラッグ中
+            if (Input.GetMouseButton(0) && isSelecting)
             {
-                Vector3 endWorldPos = GetCursorPosition();
+                Time.timeScale = slowTimeScale;
+                Time.fixedDeltaTime = 0.02f * Time.timeScale;
 
-                if (requiredEnergy <= beforeDrillEnergy)
+                Vector3 currentWorldPos = GetCursorPosition();
+                UpdateSquare(currentSelectionSquare, startWorldPos, currentWorldPos);
+
+                // サイズに比例した追加消費を計算
+                Vector3 size = currentWorldPos - startWorldPos;
+                areaSize = Mathf.Abs(size.x * size.y);
+
+                requiredEnergy = baseCost;
+
+                if (areaSize > minAreaToGenerate)
                 {
-                    // 掘削確定 → エネルギー消費
-                    currentEnergy = Mathf.Clamp(beforeDrillEnergy - requiredEnergy, 0, maxEnergy);
-                    Slider_back = currentEnergy / maxEnergy;
+                    if (areaSize > sizeThreshold)
+                    {
+                        requiredEnergy += (areaSize - sizeThreshold) * sizeCostRate;
+                    }
 
-                    GameObject finalSquare = Instantiate(finalSquarePrefab, parentObject);
-                    UpdateSquare(finalSquare, startWorldPos, endWorldPos);
-
-                    BoxCollider2D col = finalSquare.AddComponent<BoxCollider2D>();
-                    col.isTrigger = true;
-                    col.size = Vector2.one;
+                    // エネルギー不足なら赤色に
+                    SpriteRenderer sr = currentSelectionSquare.GetComponent<SpriteRenderer>();
+                    if (sr != null)
+                    {
+                        sr.color = (requiredEnergy > beforeDrillEnergy) ? notable : able;
+                    }
+                    Slider_front = (currentEnergy - requiredEnergy) / maxEnergy;
                 }
-                else
+            }
+
+            // 左クリック離す
+            if (Input.GetMouseButtonUp(0) && isSelecting)
+            {
+
+                if (areaSize > minAreaToGenerate)
                 {
-                    Slider_front = currentEnergy / maxEnergy;
+                    Vector3 endWorldPos = GetCursorPosition();
+
+                    if (requiredEnergy <= beforeDrillEnergy)
+                    {
+                        // 掘削確定 → エネルギー消費
+                        currentEnergy = Mathf.Clamp(beforeDrillEnergy - requiredEnergy, 0, maxEnergy);
+                        Slider_back = currentEnergy / maxEnergy;
+
+                        GameObject finalSquare = Instantiate(finalSquarePrefab, parentObject);
+                        UpdateSquare(finalSquare, startWorldPos, endWorldPos);
+
+                        BoxCollider2D col = finalSquare.AddComponent<BoxCollider2D>();
+                        col.isTrigger = true;
+                        col.size = Vector2.one;
+                    }
+                    else
+                    {
+                        Slider_front = currentEnergy / maxEnergy;
+                    }
+
+
+                    Destroy(currentSelectionSquare);
+                    currentSelectionSquare = null;
+
                 }
 
+                Time.timeScale = normalTimeScale;
+                Time.fixedDeltaTime = 0.02f * Time.timeScale;
+                isSelecting = false;
+                cursorCol.enabled = true;
 
+            }
+
+            // 右クリックキャンセル
+            if (Input.GetMouseButtonDown(1) && isSelecting)
+            {
+                Time.timeScale = normalTimeScale;
+                Time.fixedDeltaTime = 0.02f * Time.timeScale;
+
+                Slider_front = currentEnergy / maxEnergy;
                 Destroy(currentSelectionSquare);
                 currentSelectionSquare = null;
-
+                isSelecting = false;
+                cursorCol.enabled = true;
             }
-
-            Time.timeScale = normalTimeScale;
-            Time.fixedDeltaTime = 0.02f * Time.timeScale;
-            isSelecting = false;
-            cursorCol.enabled = true;
-
         }
 
-        // 右クリックキャンセル
-        if (Input.GetMouseButtonDown(1) && isSelecting)
-        {
-            Time.timeScale = normalTimeScale;
-            Time.fixedDeltaTime = 0.02f * Time.timeScale;
-
-            Slider_front = currentEnergy / maxEnergy;
-            Destroy(currentSelectionSquare);
-            currentSelectionSquare = null;
-            isSelecting = false;
-            cursorCol.enabled = true;
-        }
     }
 
     bool IsPointerOverUI()
