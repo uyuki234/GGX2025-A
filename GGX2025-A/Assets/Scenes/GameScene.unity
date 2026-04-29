@@ -56645,10 +56645,10 @@ MonoBehaviour:
   tilePrefab: {fileID: 3412737196240041504, guid: 26027affe7fd22b49b2c38264f334d3b, type: 3}
   rightpos: {x: 0, y: 0}
   leftpos: {x: 0, y: 0}
-  quantity: 4
+  quantity: 3
   cameraTransform: {fileID: 675789929}
   generateBuffer: 20
-  chunkGenerationCount: 4
+  chunkGenerationCount: 1
   player: {fileID: 1469596430}
   layerChangeYThreshold: -20
   layerDepth: 38
