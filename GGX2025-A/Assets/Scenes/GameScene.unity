@@ -55198,9 +55198,9 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 315816877}
   - {fileID: 1363636793}
   - {fileID: 1834116281}
+  - {fileID: 315816877}
   m_Father: {fileID: 909491091}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -55447,7 +55447,6 @@ GameObject:
   - component: {fileID: 315816877}
   - component: {fileID: 315816880}
   - component: {fileID: 315816879}
-  - component: {fileID: 315816878}
   m_Layer: 5
   m_Name: endtext
   m_TagString: Untagged
@@ -55474,19 +55473,6 @@ RectTransform:
   m_AnchoredPosition: {x: 17, y: 175}
   m_SizeDelta: {x: 1262.01, y: 256.08}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &315816878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 315816876}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5f3473fb8d19da4fa0cde58c5b9c44f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tmp: {fileID: 315816879}
 --- !u!114 &315816879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58367,7 +58353,6 @@ GameObject:
   - component: {fileID: 1363636793}
   - component: {fileID: 1363636796}
   - component: {fileID: 1363636795}
-  - component: {fileID: 1363636794}
   m_Layer: 5
   m_Name: endtext (1)
   m_TagString: Untagged
@@ -58394,19 +58379,6 @@ RectTransform:
   m_AnchoredPosition: {x: -50, y: -95}
   m_SizeDelta: {x: 1262.01, y: 256.08}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1363636794
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1363636792}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5f3473fb8d19da4fa0cde58c5b9c44f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tmp: {fileID: 1363636795}
 --- !u!114 &1363636795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58787,6 +58759,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eeb3af80ec50e84e82d1bc9570e93ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isGame: 1
   moveSpeed_base: 8
   moveSpeed_correction: 1
   moveSpeed_effective: 8
@@ -58804,12 +58777,12 @@ MonoBehaviour:
   jumpPow: 0
   currentLevel: 0
   currentExp: 0
-  levelupExp: 3
+  levelupExp: 10
   Score: 0
   maxHP: 100
   currentHP: 100
   isFEVER: 0
-  maxFeverTime: 800
+  maxFeverTime: 15
   feverTime: 0
 --- !u!4 &1447367233
 Transform:
@@ -60726,7 +60699,6 @@ GameObject:
   - component: {fileID: 1834116281}
   - component: {fileID: 1834116284}
   - component: {fileID: 1834116283}
-  - component: {fileID: 1834116282}
   m_Layer: 5
   m_Name: endtext (2)
   m_TagString: Untagged
@@ -60753,19 +60725,6 @@ RectTransform:
   m_AnchoredPosition: {x: -44, y: -370}
   m_SizeDelta: {x: 1262.01, y: 256.08}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1834116282
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1834116280}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5f3473fb8d19da4fa0cde58c5b9c44f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tmp: {fileID: 1834116283}
 --- !u!114 &1834116283
 MonoBehaviour:
   m_ObjectHideFlags: 0

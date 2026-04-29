@@ -126,6 +126,7 @@ public class GameTimer : MonoBehaviour
         {
             resultScoreText.text = "スコア：" + StatusManager.Instance.Score.ToString();
         }
+        StatusManager.Instance.isGame = false;
     }
 
     /// <summary>
