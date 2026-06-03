@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class TileReGenerate : MonoBehaviour
@@ -17,6 +18,10 @@ public class TileReGenerate : MonoBehaviour
     [SerializeField] int pattern;
 
     public AudioClip digSE;
+
+    public static Queue<float> recentSoundTimes = new Queue<float>();
+    private const int maxSimultaneousSounds = 7;  // “¯‚É–Â‚Á‚Ä‚¢‚¢Å‘å”
+    private const float soundTimeWindow = 0.1f;   // ‰½•bˆÈ“à‚ÌÄ¶‚ğu“¯v‚Æ‚İ‚È‚·‚©
 
 
     public void regenerate()
@@ -45,7 +50,18 @@ public class TileReGenerate : MonoBehaviour
 
         if (pattern == 0)
         {
-            AudioSource.PlayClipAtPoint(digSE, transform.position);
+            while (recentSoundTimes.Count > 0 && Time.time - recentSoundTimes.Peek() > soundTimeWindow)
+            {
+                recentSoundTimes.Dequeue();
+            }
+
+            // 2. Œ»İ‚»‚ÌŠÔ“à‚É–Â‚Á‚½‰¹‚ªãŒÀ(maxSimultaneousSounds)–¢–‚È‚ç–Â‚ç‚·
+            if (recentSoundTimes.Count < maxSimultaneousSounds)
+            {
+                AudioSource.PlayClipAtPoint(digSE, transform.position);
+                recentSoundTimes.Enqueue(Time.time); // –Â‚ç‚µ‚½ŠÔ‚ğ‹L˜^
+            }
+
             ParticleController.Instance.PlayDestroyEffect(transform.position);
             Destroy(gameObject);
         }

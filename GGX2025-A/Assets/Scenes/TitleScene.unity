@@ -1679,6 +1679,7 @@ GameObject:
   - component: {fileID: 675789928}
   - component: {fileID: 675789930}
   - component: {fileID: 675789932}
+  - component: {fileID: 675789933}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1813,6 +1814,14 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_MaxRayIntersections: 0
+--- !u!81 &675789933
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 675789926}
+  m_Enabled: 1
 --- !u!1 &678030184
 GameObject:
   m_ObjectHideFlags: 0
@@ -4167,7 +4176,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 6
-      m_TileSpriteIndex: 7
+      m_TileSpriteIndex: 10
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -4477,7 +4486,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 5
-      m_TileSpriteIndex: 6
+      m_TileSpriteIndex: 9
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -4910,16 +4919,16 @@ Tilemap:
     m_Data: {fileID: 8661440490905483707, guid: 80331d8100e192b478e8726c2c9e181f, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 31
+    m_Data: {fileID: 9077801900407370287, guid: 5ef258286fb6d984b8e9f13168c2fb43, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -889455893885144882, guid: 7bb38dea75bb1ec43b30922af296d8cf, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -2769147503241440237, guid: a51854ebf380b69429b02af2dad95104, type: 3}
-  - m_RefCount: 31
-    m_Data: {fileID: 9077801900407370287, guid: 5ef258286fb6d984b8e9f13168c2fb43, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
   m_TileMatrixArray:
   - m_RefCount: 114
     m_Data:
