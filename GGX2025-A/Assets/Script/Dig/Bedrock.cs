@@ -13,12 +13,12 @@ public class Bedrock : MonoBehaviour
         {
             if (StatusManager.Instance.isFEVER)
             {
-                AudioSource.PlayClipAtPoint(digSE, transform.position);
+                SEManager.Instance.Play(digSE);
                 Destroy(this.gameObject);
             }
             else
             {
-                AudioSource.PlayClipAtPoint(digmissSE, transform.position);
+                SEManager.Instance.Play(digmissSE);
             }
 
         }

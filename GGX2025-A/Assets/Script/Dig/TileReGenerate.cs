@@ -10,18 +10,18 @@ public class TileReGenerate : MonoBehaviour
     [SerializeField] GameObject tilemask_check;
     [SerializeField] GameObject currentmask;
 
-    public bool tilecol_UL = true;//¶ã
-    public bool tilecol_UR = true;//‰Eã
-    public bool tilecol_LL = true;//¶‰º
-    public bool tilecol_LR = true;//‰E‰º
+    public bool tilecol_UL = true;//ï¿½ï¿½ï¿½ï¿½
+    public bool tilecol_UR = true;//ï¿½Eï¿½ï¿½
+    public bool tilecol_LL = true;//ï¿½ï¿½ï¿½ï¿½
+    public bool tilecol_LR = true;//ï¿½Eï¿½ï¿½
 
     [SerializeField] int pattern;
 
     public AudioClip digSE;
 
     public static Queue<float> recentSoundTimes = new Queue<float>();
-    private const int maxSimultaneousSounds = 7;  // “¯‚É–Â‚Á‚Ä‚¢‚¢Å‘å”
-    private const float soundTimeWindow = 0.1f;   // ‰½•bˆÈ“à‚ÌÄ¶‚ğu“¯v‚Æ‚İ‚È‚·‚©
+    private const int maxSimultaneousSounds = 7;  // ï¿½ï¿½ï¿½ï¿½ï¿½É–Â‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½Å‘å”
+    private const float soundTimeWindow = 0.1f;   // ï¿½ï¿½ï¿½bï¿½È“ï¿½ï¿½ÌÄï¿½ï¿½ï¿½ï¿½uï¿½ï¿½ï¿½ï¿½ï¿½vï¿½Æ‚İ‚È‚ï¿½ï¿½ï¿½
 
 
     public void regenerate()
@@ -29,10 +29,10 @@ public class TileReGenerate : MonoBehaviour
         if (currentmask != null)
             Destroy(currentmask);
 
-        // ƒvƒŒƒnƒu‚Æ‰ñ“]Šp“x‚ğæ“¾
+        // ï¿½vï¿½ï¿½ï¿½nï¿½uï¿½Æ‰ï¿½]ï¿½pï¿½xï¿½ï¿½ï¿½æ“¾
         (GameObject prefab, float rotZ) = SelectPrefabAndRotation();
 
-        // w’è‚µ‚½‰ñ“]Šp‚Å¶¬
+        // ï¿½wï¿½è‚µï¿½ï¿½ï¿½ï¿½]ï¿½pï¿½Åï¿½ï¿½ï¿½
         currentmask = Instantiate(
             prefab,
             transform.position,
@@ -55,11 +55,11 @@ public class TileReGenerate : MonoBehaviour
                 recentSoundTimes.Dequeue();
             }
 
-            // 2. Œ»İ‚»‚ÌŠÔ“à‚É–Â‚Á‚½‰¹‚ªãŒÀ(maxSimultaneousSounds)–¢–‚È‚ç–Â‚ç‚·
+            // 2. ï¿½ï¿½ï¿½İ‚ï¿½ï¿½Ìï¿½ï¿½Ô“ï¿½ï¿½É–Â‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(maxSimultaneousSounds)ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½Â‚ç‚·
             if (recentSoundTimes.Count < maxSimultaneousSounds)
             {
-                AudioSource.PlayClipAtPoint(digSE, transform.position);
-                recentSoundTimes.Enqueue(Time.time); // –Â‚ç‚µ‚½ŠÔ‚ğ‹L˜^
+                SEManager.Instance.Play(digSE);
+                recentSoundTimes.Enqueue(Time.time); // ï¿½Â‚ç‚µï¿½ï¿½ï¿½ï¿½ï¿½Ô‚ï¿½ï¿½Lï¿½^
             }
 
             ParticleController.Instance.PlayDestroyEffect(transform.position);
@@ -69,63 +69,63 @@ public class TileReGenerate : MonoBehaviour
 
         switch (pattern)
         {
-            // ¶ã
+            // ï¿½ï¿½ï¿½ï¿½
             case 1:
                 return (tilemask_point, -90f);
 
-            // ‰Eã
+            // ï¿½Eï¿½ï¿½
             case 2:
                 return (tilemask_point, -180f);
 
-            //ã“ñ‚Â
+            //ï¿½ï¿½ï¿½ï¿½
             case 3: 
                 return (tilemask_rect, -180f);
 
-            //¶‰º
+            //ï¿½ï¿½ï¿½ï¿½
             case 4:
                 return (tilemask_point, 0f);
 
-            //¶“ñ‚Â
+            //ï¿½ï¿½ï¿½ï¿½ï¿½
             case 5:
                 return (tilemask_rect, -90f);
 
-            //¶‰º‚Æ‰Eã
+            //ï¿½ï¿½ï¿½ï¿½ï¿½Æ‰Eï¿½ï¿½
             case 6:
                 return (tilemask_check, 0f);
 
-            //‰E‰ºˆÈŠO
+            //ï¿½Eï¿½ï¿½ï¿½ÈŠO
             case 7:
                 return (tilemask_L, -90f);
 
-            //‰E‰º
+            //ï¿½Eï¿½ï¿½
             case 8:
                 return (tilemask_point, 90f);
 
-            //¶ã‚Æ‰E‰º
+            //ï¿½ï¿½ï¿½ï¿½Æ‰Eï¿½ï¿½
             case 9:
                 return (tilemask_check, 90f);
 
-            //‰E“ñ‚Â
+            //ï¿½Eï¿½ï¿½ï¿½
             case 10:
                 return (tilemask_rect, 90f);
 
-            //¶‰ºˆÈŠO
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ÈŠO
             case 11:
                 return (tilemask_L, 180f);
 
-            //‰º“ñ‚Â
+            //ï¿½ï¿½ï¿½ï¿½ï¿½
             case 12:
                 return (tilemask_rect, 0f);
 
-            //‰EãˆÈŠO
+            //ï¿½Eï¿½ï¿½ÈŠO
             case 13:
                 return (tilemask_L, 0f);
 
-            //¶ãˆÈŠO
+            //ï¿½ï¿½ï¿½ï¿½ÈŠO
             case 14:
                 return (tilemask_L, 90f);
 
-            //‘S•”‚ ‚è
+            //ï¿½Sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             default:
                 return (tilemask_square, 0f);
         }
