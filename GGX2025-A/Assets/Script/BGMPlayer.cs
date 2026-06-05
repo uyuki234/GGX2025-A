@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Audio;
 
 public class BGMPlayer : MonoBehaviour
 {
@@ -8,6 +7,7 @@ public class BGMPlayer : MonoBehaviour
     void Start()
     {
         bgmAudioSource.loop = true;
-        bgmAudioSource.Play();
+        if (!bgmAudioSource.isPlaying)
+            bgmAudioSource.Play();
     }
 }
