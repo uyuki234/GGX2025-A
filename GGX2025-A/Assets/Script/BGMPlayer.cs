@@ -6,6 +6,7 @@ public class BGMPlayer : MonoBehaviour
 
     void Start()
     {
+        bgmAudioSource.volume = AudioManager.Instance.bgmVolume;
         bgmAudioSource.loop = true;
         if (!bgmAudioSource.isPlaying)
             bgmAudioSource.Play();

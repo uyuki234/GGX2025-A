@@ -30,16 +30,13 @@ public class SEManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         _audioSource = gameObject.AddComponent<AudioSource>();
-        _audioSource.spatialBlend = 0f; // 2D: 距離に関係なく一定音量
+        _audioSource.spatialBlend = 0f;
         _audioSource.playOnAwake = false;
     }
-
-    [Range(0f, 1f)]
-    public float seVolume = 1f;
 
     public void Play(AudioClip clip)
     {
         if (clip == null) return;
-        _audioSource.PlayOneShot(clip, seVolume);
+        _audioSource.PlayOneShot(clip, AudioManager.Instance.seVolume);
     }
 }
