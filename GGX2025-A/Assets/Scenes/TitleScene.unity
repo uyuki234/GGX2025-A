@@ -5869,9 +5869,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf4338d68b4b65848b88a664867a7a1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  masterVolume: 1
-  bgmVolume: 0.3
-  seVolume: 1
+  masterVolume: 0.5
+  bgmVolume: 1
+  seVolume: 0.5
 --- !u!4 &1707578182
 Transform:
   m_ObjectHideFlags: 0
