@@ -431,8 +431,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 30
   HPUI: {fileID: 3079789668710352157}
-  speedLimit: 0
-  times: 0
+  speedLimit: 10
+  times: 1
   enemy1: 1
 --- !u!114 &4264069938470422430
 MonoBehaviour:
