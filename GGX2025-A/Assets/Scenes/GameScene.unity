@@ -62159,6 +62159,7 @@ MonoBehaviour:
   centerObj: {fileID: 1096904054}
   circle: {fileID: 5185113672979405862}
   radius: 10
+  teleportMargin: 1
 --- !u!1 &5185113672979405862
 GameObject:
   m_ObjectHideFlags: 0
