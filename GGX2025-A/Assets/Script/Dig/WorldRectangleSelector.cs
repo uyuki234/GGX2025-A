@@ -28,9 +28,9 @@ public class WorldRectangleSelector : MonoBehaviour
         set { StatusManager.Instance.currentEnergy = value; }
     }
 
-    public float baseCost = 5f;        // ƒhƒ‰ƒbƒOŠJn‚ÌŒÅ’èÁ”ï
-    public float sizeThreshold = 10f;  // ƒTƒCƒYè‡’l
-    public float sizeCostRate = 0.5f;  // è‡’l’´‰ß‚Ì”ä—áÁ”ï—¦
+    public float baseCost = 5f;        // ï¿½hï¿½ï¿½ï¿½bï¿½Oï¿½Jï¿½nï¿½ï¿½ï¿½ÌŒÅ’ï¿½ï¿½ï¿½ï¿½
+    public float sizeThreshold = 10f;  // ï¿½Tï¿½Cï¿½Yè‡’l
+    public float sizeCostRate = 0.5f;  // è‡’lï¿½ï¿½ï¿½ßï¿½ï¿½Ì”ï¿½ï¿½ï¿½ï¿½ï—¦
 
     private Vector3 startWorldPos;
     private GameObject currentSelectionSquare;
@@ -38,10 +38,10 @@ public class WorldRectangleSelector : MonoBehaviour
 
     private float beforeDrillEnergy;
     public float requiredEnergy;
-    public float minAreaToGenerate;//ƒNƒŠƒbƒN‚Å‚Ì¶¬–h~—pA‚±‚ê–¢–‚Í¶¬‚µ‚È‚¢
+    public float minAreaToGenerate;//ï¿½Nï¿½ï¿½ï¿½bï¿½Nï¿½Å‚Ìï¿½ï¿½ï¿½ï¿½hï¿½~ï¿½pï¿½Aï¿½ï¿½ï¿½ê–¢ï¿½ï¿½ï¿½Íï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½
     public float areaSize;
 
-    [Header("Œ@í”ÍˆÍ‚ÌF")]
+    [Header("ï¿½@ï¿½ï¿½ÍˆÍ‚ÌF")]
     [SerializeField] Color able;
     [SerializeField] Color notable;
 
@@ -77,23 +77,22 @@ public class WorldRectangleSelector : MonoBehaviour
                 Slider_front = currentEnergy / maxEnergy;
             }
 
-            // ¶ƒNƒŠƒbƒNŠJn
+            // ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½bï¿½Nï¿½Jï¿½n
             if (Input.GetMouseButtonDown(0))
             {
                 startWorldPos = GetCursorPosition();
-
                 isSelecting = true;
                 cursorCol.enabled = false;
 
                 currentSelectionSquare = Instantiate(selectionSquarePrefab);
 
-                // Œ@í‘O‚ÌƒGƒlƒ‹ƒM[‚ğ•Û
+                // ï¿½@ï¿½ï¿½Oï¿½ÌƒGï¿½lï¿½ï¿½ï¿½Mï¿½[ï¿½ï¿½Ûï¿½
                 beforeDrillEnergy = currentEnergy;
 
 
             }
 
-            // ƒhƒ‰ƒbƒO’†
+            // ï¿½hï¿½ï¿½ï¿½bï¿½Oï¿½ï¿½
             if (Input.GetMouseButton(0) && isSelecting)
             {
                 Time.timeScale = slowTimeScale;
@@ -102,7 +101,7 @@ public class WorldRectangleSelector : MonoBehaviour
                 Vector3 currentWorldPos = GetCursorPosition();
                 UpdateSquare(currentSelectionSquare, startWorldPos, currentWorldPos);
 
-                // ƒTƒCƒY‚É”ä—á‚µ‚½’Ç‰ÁÁ”ï‚ğŒvZ
+                // ï¿½Tï¿½Cï¿½Yï¿½É”ï¿½á‚µï¿½ï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½vï¿½Z
                 Vector3 size = currentWorldPos - startWorldPos;
                 areaSize = Mathf.Abs(size.x * size.y);
 
@@ -115,7 +114,7 @@ public class WorldRectangleSelector : MonoBehaviour
                         requiredEnergy += (areaSize - sizeThreshold) * sizeCostRate;
                     }
 
-                    // ƒGƒlƒ‹ƒM[•s‘«‚È‚çÔF‚É
+                    // ï¿½Gï¿½lï¿½ï¿½ï¿½Mï¿½[ï¿½sï¿½ï¿½ï¿½È‚ï¿½ÔFï¿½ï¿½
                     SpriteRenderer sr = currentSelectionSquare.GetComponent<SpriteRenderer>();
                     if (sr != null)
                     {
@@ -125,7 +124,7 @@ public class WorldRectangleSelector : MonoBehaviour
                 }
             }
 
-            // ¶ƒNƒŠƒbƒN—£‚·
+            // ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½
             if (Input.GetMouseButtonUp(0) && isSelecting)
             {
 
@@ -135,7 +134,7 @@ public class WorldRectangleSelector : MonoBehaviour
 
                     if (requiredEnergy <= beforeDrillEnergy)
                     {
-                        // Œ@íŠm’è ¨ ƒGƒlƒ‹ƒM[Á”ï
+                        // ï¿½@ï¿½ï¿½mï¿½ï¿½ ï¿½ï¿½ ï¿½Gï¿½lï¿½ï¿½ï¿½Mï¿½[ï¿½ï¿½ï¿½ï¿½
                         currentEnergy = Mathf.Clamp(beforeDrillEnergy - requiredEnergy, 0, maxEnergy);
                         Slider_back = currentEnergy / maxEnergy;
 
@@ -164,7 +163,7 @@ public class WorldRectangleSelector : MonoBehaviour
 
             }
 
-            // ‰EƒNƒŠƒbƒNƒLƒƒƒ“ƒZƒ‹
+            // ï¿½Eï¿½Nï¿½ï¿½ï¿½bï¿½Nï¿½Lï¿½ï¿½ï¿½ï¿½ï¿½Zï¿½ï¿½
             if (Input.GetMouseButtonDown(1) && isSelecting)
             {
                 Time.timeScale = normalTimeScale;

@@ -43,7 +43,7 @@ public class EnemyBullet : MonoBehaviour
 
             if (other.gameObject.CompareTag("Player")|| other.gameObject.CompareTag("Cursor"))
             {
-                StatusManager.Instance.currentHP -= _bulletDamage;
+                StatusManager.Instance.TakeDamage(_bulletDamage);
                 Destroy(gameObject);
             }
 
@@ -55,6 +55,5 @@ public class EnemyBullet : MonoBehaviour
         }
 
     }
-
 
 }

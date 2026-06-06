@@ -6,6 +6,7 @@ public class MouseRange : MonoBehaviour
     public Transform centerObj;
     [SerializeField] GameObject circle;
     public float radius = 3f;
+    [SerializeField] float teleportMargin = 0.5f;
 
     private Rigidbody2D rb;
     private Vector3 targetPos;
@@ -35,12 +36,17 @@ public class MouseRange : MonoBehaviour
         float dy = worldMouse.y - centerObj.position.y;
         float len = Mathf.Sqrt(dx * dx + dy * dy);
 
-        // 円の中に制限
+        // マウス位置を射程円内にクランプ
         if (len > radius)
         {
             float rate = radius / len;
             worldMouse = centerObj.position + new Vector3(dx * rate, dy * rate, 0);
         }
+
+        // ゲーム内カーソル(rb)が射程+マージンを超えていたらロボット位置へワープ
+        float cursorDist = ((Vector2)rb.position - (Vector2)centerObj.position).magnitude;
+        if (cursorDist > radius + teleportMargin)
+            rb.position = (Vector2)centerObj.position;
 
         targetPos = worldMouse;
         
