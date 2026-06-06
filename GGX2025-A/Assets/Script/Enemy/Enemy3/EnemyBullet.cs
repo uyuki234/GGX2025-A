@@ -43,7 +43,7 @@ public class EnemyBullet : MonoBehaviour
 
             if (other.gameObject.CompareTag("Player")|| other.gameObject.CompareTag("Cursor"))
             {
-                StatusManager.Instance.TakeDamage(_bulletDamage);
+                StatusManager.Instance.TakeDamage(_bulletDamage, other.gameObject);
                 Destroy(gameObject);
             }
 

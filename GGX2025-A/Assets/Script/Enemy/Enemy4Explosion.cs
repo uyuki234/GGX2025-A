@@ -22,7 +22,7 @@ public class Enemy4Explosion : MonoBehaviour
         {
             float dist = Vector2.Distance(pos, player.transform.position);
             if (dist <= explosionRadius)
-                StatusManager.Instance.TakeDamage(explosionDamage);
+                StatusManager.Instance.TakeDamage(explosionDamage, player);
         }
 
         // 周囲の地形を掘削
