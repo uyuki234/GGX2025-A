@@ -7,7 +7,7 @@ public class SurfaceAttack : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
-            StatusManager.Instance.TakeDamage(attackDamage);
+            StatusManager.Instance.TakeDamage(attackDamage, other.gameObject);
     }
 }
 

@@ -48,21 +48,17 @@ public class StatusManager : SingletonMonoBehavior<StatusManager>
     public float maxFeverTime = 100;
     public float feverTime = 0;
 
-    public void TakeDamage(float amount)
+    public void TakeDamage(float amount, GameObject hitObject = null)
     {
         currentHP -= amount;
 
-        var playerGO = GameObject.FindGameObjectWithTag("Player");
-        if (playerGO != null)
-        {
-            var sr = playerGO.GetComponentInChildren<SpriteRenderer>();
-            if (sr != null) StartCoroutine(FlashRed(sr));
-        }
+        var target = hitObject;
+        if (target == null)
+            target = GameObject.FindGameObjectWithTag("Player");
 
-        var cursorGO = GameObject.FindGameObjectWithTag("Cursor");
-        if (cursorGO != null)
+        if (target != null)
         {
-            var sr = cursorGO.GetComponentInChildren<SpriteRenderer>();
+            var sr = target.GetComponentInChildren<SpriteRenderer>();
             if (sr != null) StartCoroutine(FlashRed(sr));
         }
     }
