@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using static UnityEngine.Rendering.DebugUI;
 
@@ -5,47 +6,73 @@ public class StatusManager : SingletonMonoBehavior<StatusManager>
 {
     public bool isGame=true;
 
-    [Header("ƒLƒƒƒ‰‚ÌˆÚ“®‘¬“x")]
+    [Header("ç§»å‹•é€Ÿåº¦")]
     public float moveSpeed_base = 10;
     public float moveSpeed_correction = 1;
     public float moveSpeed_effective = 10f;
 
-    [Header("ƒhƒ‰ƒbƒO‚ÌUŒ‚—Í")]
+    [Header("æ”»æ’ƒåŠ›")]
     public float attack_base = 10;
     public float attack_correction = 1;
     public float attack_effective = 10;
 
-    [Header("Œ@íƒGƒlƒ‹ƒM[‰ñ•œ‘¬“x")]
+    [Header("ã‚¨ãƒãƒ«ã‚®ãƒ¼å›å¾©é€Ÿåº¦")]
     public float chargeEnergy_base = 10;
     public float chargeEnergy_correction = 1;
     public float chargeEnergy_effective = 10;
 
-    [Header("‹ŠE‚ÌL‚³")]
+    [Header("å°„ç¨‹")]
     public float viewRange_base = 10;
     public float viewRange_correction = 1;
     public float viewRange_effective = 10;
 
-    [Header("Œ@íƒGƒlƒ‹ƒM[")]
+    [Header("ã‚¨ãƒãƒ«ã‚®ãƒ¼ä¸Šé™")]
     public float maxEnergy;
     public float currentEnergy;
 
-    [Header("ƒWƒƒƒ“ƒv—Í")]
+    [Header("ã‚¸ãƒ£ãƒ³ãƒ—åŠ›")]
     public float jumpPow;
 
-    [Header("ƒŒƒxƒ‹")]
+    [Header("ãƒ¬ãƒ™ãƒ«")]
     public float currentLevel;
     public float currentExp;
     public float levelupExp;
     public float Score;
 
-    [Header("ƒLƒƒƒ‰‚ÌHP")]
+    [Header("HP")]
     public float maxHP;
     public float currentHP;
 
-    [Header("ƒtƒB[ƒo[")]
+    [Header("Fever")]
     public bool isFEVER = false;
     public float maxFeverTime = 100;
     public float feverTime = 0;
+
+    public void TakeDamage(float amount)
+    {
+        currentHP -= amount;
+
+        var playerGO = GameObject.FindGameObjectWithTag("Player");
+        if (playerGO != null)
+        {
+            var sr = playerGO.GetComponentInChildren<SpriteRenderer>();
+            if (sr != null) StartCoroutine(FlashRed(sr));
+        }
+
+        var cursorGO = GameObject.FindGameObjectWithTag("Cursor");
+        if (cursorGO != null)
+        {
+            var sr = cursorGO.GetComponentInChildren<SpriteRenderer>();
+            if (sr != null) StartCoroutine(FlashRed(sr));
+        }
+    }
+
+    private IEnumerator FlashRed(SpriteRenderer sr)
+    {
+        sr.color = new Color(1f, 60f / 255f, 60f / 255f, 1f);
+        yield return new WaitForSecondsRealtime(0.15f);
+        sr.color = Color.white;
+    }
 
     public void Cal()
     {
