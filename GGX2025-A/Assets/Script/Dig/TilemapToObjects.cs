@@ -34,9 +34,7 @@ public class TilemapToObjects : MonoBehaviour
     [SerializeField] private float verticalOffset = 5f;
 
     [Header("Optimization Settings")]
-    [Tooltip("1ƒtƒŒ[ƒ€‚Éíœ‚·‚éÅ‘åƒIƒuƒWƒFƒNƒg”")]
     [SerializeField] private int maxDeletionsPerFrame = 20;
-    [Tooltip("ƒ^ƒCƒ‹¶¬Œã‚ÉƒIƒuƒWƒFƒNƒg‚ğ¶¬‚·‚é‚Ü‚Å‘Ò‚ÂƒtƒŒ[ƒ€”")]
     [SerializeField] private int waitFramesBeforeObjectSpawn = 3;
 
     private List<GameObject> layerContainers = new List<GameObject>();
@@ -73,8 +71,10 @@ public class TilemapToObjects : MonoBehaviour
     private void StartNextLayer()
     {
         layerChangeYThreshold -= layerDepth;
-        float newBaseX = player.position.x;
-        float newBaseY = player.position.y - verticalOffset;
+        float rawX = player.position.x;
+        float rawY = player.position.y - verticalOffset;
+        float newBaseX = Mathf.Round(rawX / 0.5f) * 0.5f;
+        float newBaseY = Mathf.Round(rawY / 0.5f) * 0.5f;
         rightpos = new Vector2(newBaseX, newBaseY);
         leftpos = new Vector2(newBaseX, newBaseY);
         GenerateInitialLayer();
@@ -111,7 +111,7 @@ public class TilemapToObjects : MonoBehaviour
         layerContainers.Add(newContainer);
     }
 
-    // ŒÃ‚¢‘w‚ğ”ƒtƒŒ[ƒ€‚©‚¯‚Äíœ‚·‚é
+    // ä¸Šå±¤ã®å‰Šé™¤
     private IEnumerator CleanupOldLayersRoutine()
     {
         if (layerContainers.Count > 2)
@@ -130,7 +130,7 @@ public class TilemapToObjects : MonoBehaviour
                     if (child == null) continue;
                     Destroy(child);
                     count++;
-                    // íœ•‰‰×‚ğ•ªU
+                    // ï¿½íœï¿½ï¿½ï¿½×‚ğ•ªU
                     if (count >= maxDeletionsPerFrame) { yield return null; count = 0; }
                 }
                 Destroy(oldLayer);

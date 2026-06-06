@@ -30,11 +30,19 @@ public class SurfaceCrawlerEnemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         Collider2D = GetComponent<Collider2D>();
         BoxcolForFall.enabled = false;
+
+        // 地形表面を探して Y 位置を補正（スポーン座標ずれへの対処）
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 3f, wallLayer);
+        if (hit.collider != null)
+        {
+            float surfaceY = Mathf.Round((hit.point.y + 0.5f) / 0.5f) * 0.5f;
+            transform.position = new Vector3(transform.position.x, surfaceY, transform.position.z);
+        }
+
         SnapToGrid();
 
         enemyStatus = GetComponent<EnemyStatus>();
 
-        // メインカメラのTransformを取得
         if (Camera.main != null)
         {
             cameraTransform = Camera.main.transform;
