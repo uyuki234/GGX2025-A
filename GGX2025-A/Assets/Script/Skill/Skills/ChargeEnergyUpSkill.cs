@@ -4,7 +4,7 @@ public class ChargeEnergyUpSkill : ISkillEffect
 {
     public SkillId Id => SkillId.ChargeEnergyUp;
 
-    private const float BonusPerStack = 0.2f;
+    private const float BonusPerStack = 0.1f;
 
     public void OnAcquired(int stack)
     {

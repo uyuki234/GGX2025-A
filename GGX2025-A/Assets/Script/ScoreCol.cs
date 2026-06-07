@@ -5,7 +5,7 @@ public class ScoreCol : MonoBehaviour
     [SerializeField] int addscore;
     [SerializeField] string targetTag = "Player";
 
-    // ƒvƒŒƒCƒ„[‚ÌÀ•W‚ğˆê“I‚É•Û‚·‚é‚½‚ß‚Ì•Ï”
+    // ï¿½vï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½Ìï¿½ï¿½Wï¿½ï¿½ï¿½êï¿½Iï¿½É•Ûï¿½ï¿½ï¿½ï¿½é‚½ï¿½ß‚Ì•Ïï¿½
     private Vector2 savedPlayerPos;
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -16,6 +16,9 @@ public class ScoreCol : MonoBehaviour
             {
                 StatusManager.Instance.Score += addscore;
                 StatusManager.Instance.EndFever();
+
+                if (SkillManager.Instance != null)
+                    SkillManager.Instance.OpenSkillSelection();
             }
         }
     }

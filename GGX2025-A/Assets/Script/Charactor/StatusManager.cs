@@ -47,6 +47,7 @@ public class StatusManager : SingletonMonoBehavior<StatusManager>
     public bool isFEVER = false;
     public float maxFeverTime = 100;
     public float feverTime = 0;
+    [SerializeField] private GameObject feverText;
 
     public void TakeDamage(float amount, GameObject hitObject = null)
     {
@@ -116,10 +117,7 @@ public class StatusManager : SingletonMonoBehavior<StatusManager>
         currentLevel++;
         currentExp = 0;
 
-        if (SkillManager.Instance != null)
-            SkillManager.Instance.OpenSkillSelection();
-        else
-            StartFever();
+        StartFever();
     }
 
     // フィーバー前の補正値を保持（スキルボーナスをフィーバー終了後も維持するため）
@@ -148,6 +146,7 @@ public class StatusManager : SingletonMonoBehavior<StatusManager>
 
         Cal();
 
+        if (feverText != null) feverText.SetActive(true);
         if (FeverEffect.Instance != null) FeverEffect.Instance.Play();
         if (FeverEdgeGlow.Instance != null) FeverEdgeGlow.Instance.Enable();
     }
@@ -166,6 +165,7 @@ public class StatusManager : SingletonMonoBehavior<StatusManager>
 
         Cal();
 
+        if (feverText != null) feverText.SetActive(false);
         if (FeverEdgeGlow.Instance != null) FeverEdgeGlow.Instance.Disable();
     }
 

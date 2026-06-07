@@ -4,7 +4,7 @@ public class AttackUpSkill : ISkillEffect
 {
     public SkillId Id => SkillId.AttackUp;
 
-    private const float BonusPerStack = 0.2f;
+    private const float BonusPerStack = 0.1f;
 
     public void OnAcquired(int stack)
     {

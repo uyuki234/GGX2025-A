@@ -42,9 +42,14 @@ public class WorldRectangleSelector : MonoBehaviour
     public float minAreaToGenerate;//�N���b�N�ł̐����h�~�p�A���ꖢ���͐������Ȃ�
     public float areaSize;
 
-    [Header("�@��͈͂̐F")]
+    [Header("掘削範囲の色")]
     [SerializeField] Color able;
     [SerializeField] Color notable;
+
+    [Header("近距離掘削スキル")]
+    [SerializeField] private float discountRange = 5f;
+    [SerializeField] private SpriteRenderer cursorSpriteRenderer;
+    private static readonly Color _cursorGlowColor = new Color(0.27f, 0.87f, 1.00f);
 
 
     [Header("EnergyUI")]
@@ -63,6 +68,19 @@ public class WorldRectangleSelector : MonoBehaviour
 
     void Update()
     {
+        // 近距離掘削スキル: 範囲内でカーソルを水色にグロー
+        if (cursorSpriteRenderer != null && playerTransform != null
+            && SkillManager.Instance != null && SkillManager.Instance.HasSkill(SkillId.ProximityDigDiscount))
+        {
+            float d = Vector3.Distance(GetCursorPosition(), playerTransform.position);
+            float t = 1f - Mathf.Clamp01(d / discountRange);
+            cursorSpriteRenderer.color = Color.Lerp(Color.white, _cursorGlowColor, t);
+        }
+        else if (cursorSpriteRenderer != null)
+        {
+            cursorSpriteRenderer.color = Color.white;
+        }
+
         if (PauseManager.Instance != null && PauseManager.Instance.IsPaused)
         {
             if (isSelecting)
@@ -133,9 +151,9 @@ public class WorldRectangleSelector : MonoBehaviour
                         && SkillManager.Instance.HasSkill(SkillId.ProximityDigDiscount))
                     {
                         float dist = Vector3.Distance(startWorldPos, playerTransform.position);
-                        float proximity = 1f - Mathf.Clamp01(dist / StatusManager.Instance.viewRange_effective);
+                        float proximity = 1f - Mathf.Clamp01(dist / discountRange);
                         int stack = SkillManager.Instance.GetStack(SkillId.ProximityDigDiscount);
-                        requiredEnergy *= 1f - proximity * 0.3f * stack;
+                        requiredEnergy *= 1f - proximity * 0.5f * stack;
                     }
 
                     // �G�l���M�[�s���Ȃ�ԐF��

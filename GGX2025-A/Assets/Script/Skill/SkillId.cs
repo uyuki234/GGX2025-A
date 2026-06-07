@@ -9,8 +9,8 @@ public enum SkillId
     AttackUp,
     ChargeEnergyUp,
     ViewRangeUp,
-    ProximityDigDiscount,
     // 特殊
+    ProximityDigDiscount,
     AutoCannon,
 }
 

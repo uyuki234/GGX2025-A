@@ -61,7 +61,6 @@ public class SkillManager : SingletonMonoBehavior<SkillManager>
     {
         AcquireSkill(id);
         Time.timeScale = 1f;
-        StatusManager.Instance.StartFever();
     }
 
     public void AcquireSkill(SkillId id)
@@ -92,7 +91,7 @@ public class SkillManager : SingletonMonoBehavior<SkillManager>
         SkillId.AttackUp             => SkillCategory.Growth,
         SkillId.ChargeEnergyUp       => SkillCategory.Growth,
         SkillId.ViewRangeUp          => SkillCategory.Growth,
-        SkillId.ProximityDigDiscount => SkillCategory.Growth,
+        SkillId.ProximityDigDiscount => SkillCategory.Special,
         SkillId.AutoCannon           => SkillCategory.Special,
         _                            => SkillCategory.Growth
     };
@@ -135,11 +134,11 @@ public class SkillManager : SingletonMonoBehavior<SkillManager>
     {
         SkillId.HpRecover            => "最大HPの50%を回復する",
         SkillId.TimeExtend           => "残り時間を60秒延長する",
-        SkillId.MoveSpeedUp          => "移動速度の補正倍率が上昇する",
-        SkillId.AttackUp             => "攻撃力の補正倍率が上昇する",
-        SkillId.ChargeEnergyUp       => "エネルギー回復速度の補正倍率が上昇する",
-        SkillId.ViewRangeUp          => "射程の補正倍率が上昇する",
-        SkillId.ProximityDigDiscount => "キャラクターに近い場所ほど掘削エネルギーが少なくなる",
+        SkillId.MoveSpeedUp          => "移動速度が+10%",
+        SkillId.AttackUp             => "攻撃力が+10%",
+        SkillId.ChargeEnergyUp       => "エネルギー回復速度が+10%",
+        SkillId.ViewRangeUp          => "射程が+10%",
+        SkillId.ProximityDigDiscount => "キャラクターに近い場所で掘削を行うとエネルギー消費50%カット",
         SkillId.AutoCannon           => "定期的にカーソル方向へ弾を発射し、着弾点を爆発で掘削する",
         _                            => ""
     };
