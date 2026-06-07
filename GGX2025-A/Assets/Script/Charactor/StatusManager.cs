@@ -47,6 +47,7 @@ public class StatusManager : SingletonMonoBehavior<StatusManager>
     public bool isFEVER = false;
     public float maxFeverTime = 100;
     public float feverTime = 0;
+    [SerializeField] private GameObject feverText;
 
     public void TakeDamage(float amount, GameObject hitObject = null)
     {
@@ -115,23 +116,37 @@ public class StatusManager : SingletonMonoBehavior<StatusManager>
 
         currentLevel++;
         currentExp = 0;
+
         StartFever();
     }
 
-    private void StartFever()
+    // フィーバー前の補正値を保持（スキルボーナスをフィーバー終了後も維持するため）
+    private float _preFeverMoveSpeed;
+    private float _preFeverAttack;
+    private float _preFeverChargeEnergy;
+    private float _preFeverViewRange;
+
+    public void StartFever()
     {
         isFEVER = true;
         feverTime = maxFeverTime;
 
-        moveSpeed_correction = 1.5f;
-        attack_correction = 1.5f;
-        chargeEnergy_correction = 2;
-        viewRange_correction = 2;
+        // 現在の補正値（スキルボーナス込み）を保存し、フィーバー倍率を乗算
+        _preFeverMoveSpeed    = moveSpeed_correction;
+        _preFeverAttack       = attack_correction;
+        _preFeverChargeEnergy = chargeEnergy_correction;
+        _preFeverViewRange    = viewRange_correction;
+
+        moveSpeed_correction    *= 1.5f;
+        attack_correction       *= 1.5f;
+        chargeEnergy_correction *= 2f;
+        viewRange_correction    *= 2f;
         maxEnergy *= 2;
         currentEnergy = maxEnergy;
 
         Cal();
 
+        if (feverText != null) feverText.SetActive(true);
         if (FeverEffect.Instance != null) FeverEffect.Instance.Play();
         if (FeverEdgeGlow.Instance != null) FeverEdgeGlow.Instance.Enable();
     }
@@ -141,14 +156,16 @@ public class StatusManager : SingletonMonoBehavior<StatusManager>
         isFEVER = false;
         feverTime = 0;
 
-        moveSpeed_correction = 1;
-        attack_correction = 1;
-        chargeEnergy_correction = 1;
-        viewRange_correction = 1;
+        // フィーバー前の補正値に戻す（スキルボーナスを保持）
+        moveSpeed_correction    = _preFeverMoveSpeed;
+        attack_correction       = _preFeverAttack;
+        chargeEnergy_correction = _preFeverChargeEnergy;
+        viewRange_correction    = _preFeverViewRange;
         maxEnergy /= 2;
 
         Cal();
 
+        if (feverText != null) feverText.SetActive(false);
         if (FeverEdgeGlow.Instance != null) FeverEdgeGlow.Instance.Disable();
     }
 

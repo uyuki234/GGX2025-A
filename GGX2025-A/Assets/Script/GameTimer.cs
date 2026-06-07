@@ -183,6 +183,11 @@ public class GameTimer : MonoBehaviour
         return isFinished;
     }
 
+    public void AddTime(float seconds)
+    {
+        currentTime += seconds;
+    }
+
     /// <summary>
     /// 残り時間の割合を取得（0.0～1.0）
     /// </summary>
