@@ -51,8 +51,8 @@ public class GameTimer : MonoBehaviour
         // タイマーが実行中の場合
         if (isRunning && !isFinished)
         {
-            // unscaledDeltaTime でカウント（Time.timeScale の影響を受けない）
-            currentTime -= Time.unscaledDeltaTime;
+            float dt = Time.timeScale > 0f ? Time.deltaTime / Time.timeScale : 0f;
+            currentTime -= dt;
 
             // 0以下になったら終了処理
             if (currentTime <= 0f || StatusManager.Instance.currentHP <= 0)
