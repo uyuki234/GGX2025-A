@@ -5,6 +5,7 @@ public class PauseManager : MonoBehaviour
 {
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private GameObject soundSettingsPanel;
+    [SerializeField] private GameObject skillListPanel;
     [SerializeField] private GameTimer gameTimer;
 
     private bool isPaused = false;
@@ -38,6 +39,7 @@ public class PauseManager : MonoBehaviour
         Time.timeScale = 0f;
         if (pausePanel != null) pausePanel.SetActive(true);
         if (soundSettingsPanel != null) soundSettingsPanel.SetActive(false);
+        if (skillListPanel != null) skillListPanel.SetActive(false);
         if (gameTimer != null) gameTimer.PauseTimer();
 
         var player = GameObject.FindGameObjectWithTag("Player");
@@ -73,5 +75,13 @@ public class PauseManager : MonoBehaviour
     {
         if (soundSettingsPanel != null)
             soundSettingsPanel.SetActive(!soundSettingsPanel.activeSelf);
+        if (skillListPanel != null) skillListPanel.SetActive(false);
+    }
+
+    public void ToggleSkillList()
+    {
+        if (skillListPanel != null)
+            skillListPanel.SetActive(!skillListPanel.activeSelf);
+        if (soundSettingsPanel != null) soundSettingsPanel.SetActive(false);
     }
 }

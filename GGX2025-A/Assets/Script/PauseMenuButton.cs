@@ -3,7 +3,7 @@ using UnityEngine.EventSystems;
 
 public class PauseMenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
-    public enum ActionType { Resume, GoToTitle, ToggleSoundSettings }
+    public enum ActionType { Resume, GoToTitle, ToggleSoundSettings, ToggleSkillList }
 
     [SerializeField] private float hoverScale = 1.15f;
     public ActionType buttonAction;
@@ -33,6 +33,7 @@ public class PauseMenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExit
             case ActionType.Resume: PauseManager.Instance.Resume(); break;
             case ActionType.GoToTitle: PauseManager.Instance.GoToTitle(); break;
             case ActionType.ToggleSoundSettings: PauseManager.Instance.ToggleSoundSettings(); break;
+            case ActionType.ToggleSkillList:     PauseManager.Instance.ToggleSkillList();     break;
         }
     }
 }

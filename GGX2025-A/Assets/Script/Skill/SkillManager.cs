@@ -16,6 +16,18 @@ public class SkillManager : SingletonMonoBehavior<SkillManager>
     private readonly Dictionary<SkillId, ISkillEffect> _effects = new();
     private GameObject _player;
 
+    [Header("取得済みスキル（確認用・Playモード中のみ）")]
+    [SerializeField] private List<string> _debugSkillList = new();
+
+    private void Update()
+    {
+#if UNITY_EDITOR
+        _debugSkillList.Clear();
+        foreach (var kv in _acquiredSkills)
+            _debugSkillList.Add($"{kv.Key} x{kv.Value}");
+#endif
+    }
+
     private void Start()
     {
         _player = GameObject.FindGameObjectWithTag("Player");
@@ -67,6 +79,7 @@ public class SkillManager : SingletonMonoBehavior<SkillManager>
 
     public bool HasSkill(SkillId id) => _acquiredSkills.TryGetValue(id, out int v) && v > 0;
     public int GetStack(SkillId id) => _acquiredSkills.TryGetValue(id, out int v) ? v : 0;
+    public Dictionary<SkillId, int> GetAcquiredSkills() => new Dictionary<SkillId, int>(_acquiredSkills);
 
     // ────────────────────────────────────────────
     // カテゴリ情報
