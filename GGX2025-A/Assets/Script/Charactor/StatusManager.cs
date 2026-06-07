@@ -131,6 +131,9 @@ public class StatusManager : SingletonMonoBehavior<StatusManager>
         currentEnergy = maxEnergy;
 
         Cal();
+
+        if (FeverEffect.Instance != null) FeverEffect.Instance.Play();
+        if (FeverEdgeGlow.Instance != null) FeverEdgeGlow.Instance.Enable();
     }
 
     public void EndFever()
@@ -145,6 +148,8 @@ public class StatusManager : SingletonMonoBehavior<StatusManager>
         maxEnergy /= 2;
 
         Cal();
+
+        if (FeverEdgeGlow.Instance != null) FeverEdgeGlow.Instance.Disable();
     }
 
 

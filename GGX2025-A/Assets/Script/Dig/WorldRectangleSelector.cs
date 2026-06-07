@@ -62,6 +62,19 @@ public class WorldRectangleSelector : MonoBehaviour
 
     void Update()
     {
+        if (PauseManager.Instance != null && PauseManager.Instance.IsPaused)
+        {
+            if (isSelecting)
+            {
+                Slider_front = currentEnergy / maxEnergy;
+                if (currentSelectionSquare != null) Destroy(currentSelectionSquare);
+                currentSelectionSquare = null;
+                isSelecting = false;
+                cursorCol.enabled = true;
+            }
+            return;
+        }
+
         if (StatusManager.Instance.isGame) {
             if (!isSelecting)
             {
