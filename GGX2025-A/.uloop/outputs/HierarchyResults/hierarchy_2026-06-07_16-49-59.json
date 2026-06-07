@@ -1,0 +1,2469 @@
+{
+  "ExportTimestamp": "2026-06-07 16:49:59",
+  "Context": {
+    "sceneType": "editor",
+    "sceneName": "GameScene",
+    "nodeCount": 173,
+    "maxDepth": 6
+  },
+  "Hierarchy": [
+    {
+      "sceneName": "GameScene",
+      "stats": {
+        "rootCount": 20,
+        "nodeCount": 173,
+        "maxDepth": 6
+      },
+      "componentsLut": [
+        "Transform",
+        "Camera",
+        "AudioListener",
+        "UniversalAdditionalCameraData",
+        "RectTransform",
+        "Canvas",
+        "CanvasScaler",
+        "GraphicRaycaster",
+        "CanvasRenderer",
+        "Image",
+        "Mask",
+        "RawImage",
+        "RainbowScroll_raw",
+        "Slider",
+        "TextMeshProUGUI",
+        "feverText",
+        "LayoutElement",
+        "TMP_SubMeshUI",
+        "VerticalLayoutGroup",
+        "PauseMenuButton",
+        "SoundSettingsUI",
+        "SpriteRenderer",
+        "MouseRange",
+        "Animator",
+        "Rigidbody2D",
+        "CircleCollider2D",
+        "SpriteMask",
+        "RainbowScroll",
+        "ShovelController",
+        "BoxCollider2D",
+        "PlayerMove",
+        "MouseInput",
+        "CameraController2D",
+        "Physics2DRaycaster",
+        "Button",
+        "ArrowButtonUI",
+        "Grid",
+        "TilemapToObjects",
+        "Tilemap",
+        "TilemapRenderer",
+        "TilemapCollider2D",
+        "StatusManager",
+        "WorldRectangleSelector",
+        "ParticleController",
+        "SceneReset",
+        "GameTimer",
+        "FeverRainbow",
+        "InfiniteBackground",
+        "EventSystem",
+        "InputSystemUIInputModule",
+        "GemManager",
+        "SliderExample",
+        "MainStatus",
+        "EnemyBulletManager",
+        "Enemy3Manager",
+        "ChargeEnergyGem",
+        "GemControllerEnemy",
+        "AttackGem",
+        "MoveSpeedGem",
+        "ViewRangeGem",
+        "EnemyStatus",
+        "SurfaceCrawlerEnemy",
+        "GemCreatEnemy",
+        "GemCreatRandom",
+        "SurfaceAttack",
+        "Enemy3",
+        "EnemyGravityController",
+        "Danmaku1",
+        "MeshRenderer",
+        "TextMeshPro",
+        "BGMPlayer",
+        "AudioSource",
+        "AudioManager",
+        "Enemy4Explosion",
+        "PauseManager",
+        "FeverEffect",
+        "FeverEdgeGlow"
+      ],
+      "roots": [
+        {
+          "name": "UI Camera",
+          "isActive": true,
+          "componentsIdx": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "siblingIndex": 0,
+          "tag": "Untagged",
+          "layer": 0,
+          "children": []
+        },
+        {
+          "name": "Canvas",
+          "isActive": true,
+          "componentsIdx": [
+            4,
+            5,
+            6,
+            7
+          ],
+          "siblingIndex": 1,
+          "tag": "Untagged",
+          "layer": 5,
+          "children": [
+            {
+              "name": "TimerUI",
+              "isActive": true,
+              "componentsIdx": [
+                4,
+                8,
+                9
+              ],
+              "siblingIndex": 0,
+              "tag": "Untagged",
+              "layer": 5,
+              "children": []
+            },
+            {
+              "name": "StatuBars",
+              "isActive": true,
+              "componentsIdx": [
+                4
+              ],
+              "siblingIndex": 1,
+              "tag": "Untagged",
+              "layer": 5,
+              "children": [
+                {
+                  "name": "HP_ExpBarUI",
+                  "isActive": true,
+                  "componentsIdx": [
+                    4
+                  ],
+                  "siblingIndex": 0,
+                  "tag": "Untagged",
+                  "layer": 5,
+                  "children": [
+                    {
+                      "name": "back",
+                      "isActive": true,
+                      "componentsIdx": [
+                        4,
+                        8,
+                        9
+                      ],
+                      "siblingIndex": 0,
+                      "tag": "Untagged",
+                      "layer": 5,
+                      "children": []
+                    },
+                    {
+                      "name": "HPfill",
+                      "isActive": true,
+                      "componentsIdx": [
+                        4,
+                        8,
+                        9
+                      ],
+                      "siblingIndex": 1,
+                      "tag": "Untagged",
+                      "layer": 5,
+                      "children": []
+                    },
+                    {
+                      "name": "Expfill",
+                      "isActive": true,
+                      "componentsIdx": [
+                        4,
+                        8,
+                        9,
+                        10
+                      ],
+                      "siblingIndex": 2,
+                      "tag": "Untagged",
+                      "layer": 5,
+                      "children": [
+                        {
+                          "name": "expfill_rainbow",
+                          "isActive": true,
+                          "componentsIdx": [
+                            4,
+                            8,
+                            11,
+                            12
+                          ],
+                          "siblingIndex": 0,
+                          "tag": "Untagged",
+                          "layer": 0,
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "name": "front",
+                      "isActive": true,
+                      "componentsIdx": [
+                        4,
+                        8,
+                        9
+                      ],
+                      "siblingIndex": 3,
+                      "tag": "Untagged",
+                      "layer": 5,
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "MoveSpeedBar",
+                  "isActive": true,
+                  "componentsIdx": [
+                    4,
+                    13
+                  ],
+                  "siblingIndex": 1,
+                  "tag": "Untagged",
+                  "layer": 5,
+                  "children": [
+                    {
+                      "name": "Fill Area",
+                      "isActive": true,
+                      "componentsIdx": [
+                        4
+                      ],
+                      "siblingIndex": 0,
+                      "tag": "Untagged",
+                      "layer": 5,
+                      "children": [
+                        {
+                          "name": "Fill",
+                          "isActive": true,
+                          "componentsIdx": [
+                            4,
+                            8,
+                            9
+                          ],
+                          "siblingIndex": 0,
+                          "tag": "Untagged",
+                          "layer": 5,
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "AttackBar",
+                  "isActive": true,
+                  "componentsIdx": [
+                    4,
+                    13
+                  ],
+                  "siblingIndex": 2,
+                  "tag": "Untagged",
+                  "layer": 5,
+                  "children": [
+                    {
+                      "name": "Fill Area",
+                      "isActive": true,
+                      "componentsIdx": [
+                        4
+                      ],
+                      "siblingIndex": 0,
+                      "tag": "Untagged",
+                      "layer": 5,
+                      "children": [
+                        {
+                          "name": "Fill",
+                          "isActive": true,
+                          "componentsIdx": [
+                            4,
+                            8,
+                            9
+                          ],
+                          "siblingIndex": 0,
+                          "tag": "Untagged",
+                          "layer": 5,
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "ChargeEnergyBar",
+                  "isActive": true,
+                  "componentsIdx": [
+                    4,
+                    13
+                  ],
+                  "siblingIndex": 3,
+                  "tag": "Untagged",
+                  "layer": 5,
+                  "children": [
+                    {
+                      "name": "Fill Area",
+                      "isActive": true,
+                      "componentsIdx": [
+                        4
+                      ],
+                      "siblingIndex": 0,
+                      "tag": "Untagged",
+                      "layer": 5,
+                      "children": [
+                        {
+                          "name": "Fill",
+                          "isActive": true,
+                          "componentsIdx": [
+                            4,
+                            8,
+                            9
+                          ],
+                          "siblingIndex": 0,
+                          "tag": "Untagged",
+                          "layer": 5,
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "ViewRangeBar",
+                  "isActive": true,
+                  "componentsIdx": [
+                    4,
+                    13
+                  ],
+                  "siblingIndex": 4,
+                  "tag": "Untagged",
+                  "layer": 5,
+                  "children": [
+                    {
+                      "name": "Fill Area",
+                      "isActive": true,
+                      "componentsIdx": [
+                        4
+                      ],
+                      "siblingIndex": 0,
+                      "tag": "Untagged",
+                      "layer": 5,
+                      "children": [
+                        {
+                          "name": "Fill",
+                          "isActive": true,
+                          "componentsIdx": [
+                            4,
+                            8,
+                            9
+                          ],
+                          "siblingIndex": 0,
+                          "tag": "Untagged",
+                          "layer": 5,
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "EnergyBar",
+                  "isActive": true,
+                  "componentsIdx": [
+                    4
+                  ],
+                  "siblingIndex": 5,
+                  "tag": "Untagged",
+                  "layer": 5,
+                  "children": [
+                    {
+                      "name": "back",
+                      "isActive": true,
+                      "componentsIdx": [
+                        4,
+                        8,
+                        9
+                      ],
+                      "siblingIndex": 0,
+                      "tag": "Untagged",
+                      "layer": 5,
+                      "children": []
+                    },
+                    {
+                      "name": "fill_back",
+                      "isActive": true,
+                      "componentsIdx": [
+                        4,
+                        8,
+                        9
+                      ],
+                      "siblingIndex": 1,
+                      "tag": "Untagged",
+                      "layer": 5,
+                      "children": []
+                    },
+                    {
+                      "name": "fill_front",
+                      "isActive": true,
+                      "componentsIdx": [
+                        4,
+                        8,
+                        9,
+                        10
+                      ],
+                      "siblingIndex": 2,
+                      "tag": "Untagged",
+                      "layer": 5,
+                      "children": [
+                        {
+                          "name": "energyfill_rainbow",
+                          "isActive": true,
+                          "componentsIdx": [
+                            4,
+                            8,
+                            11,
+                            12
+                          ],
+                          "siblingIndex": 0,
+                          "tag": "Untagged",
+                          "layer": 0,
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Text",
+              "isActive": true,
+              "componentsIdx": [
+                4
+              ],
+              "siblingIndex": 2,
+              "tag": "Untagged",
+              "layer": 5,
+              "children": [
+                {
+                  "name": "FeverText",
+                  "isActive": true,
+                  "componentsIdx": [
+                    4,
+                    8,
+                    14,
+                    15
+                  ],
+                  "siblingIndex": 0,
+                  "tag": "Untagged",
+                  "layer": 5,
+                  "children": []
+                },
+                {
+                  "name": "TimerText",
+                  "isActive": true,
+                  "componentsIdx": [
+                    4,
+                    8,
+                    14
+                  ],
+                  "siblingIndex": 1,
+                  "tag": "Untagged",
+                  "layer": 5,
+                  "children": []
+                },
+                {
+                  "name": "ScoreText",
+                  "isActive": true,
+                  "componentsIdx": [
+                    4,
+                    8,
+                    14
+                  ],
+                  "siblingIndex": 2,
+                  "tag": "Untagged",
+                  "layer": 5,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "resultPanel",
+              "isActive": true,
+              "componentsIdx": [
+                4,
+                8,
+                9
+              ],
+              "siblingIndex": 3,
+              "tag": "Untagged",
+              "layer": 5,
+              "children": [
+                {
+                  "name": "endtext (1)",
+                  "isActive": true,
+                  "componentsIdx": [
+                    4,
+                    8,
+                    14
+                  ],
+                  "siblingIndex": 0,
+                  "tag": "Untagged",
+                  "layer": 5,
+                  "children": []
+                },
+                {
+                  "name": "endtext (2)",
+                  "isActive": true,
+                  "componentsIdx": [
+                    4,
+                    8,
+                    14
+                  ],
+                  "siblingIndex": 1,
+                  "tag": "Untagged",
+                  "layer": 5,
+                  "children": [
+                    {
+                      "name": "TMP SubMeshUI [Buildingsandundertherailwaytracksfree_ver SDF Material + LiberationSans SDF Atlas]",
+                      "isActive": true,
+                      "componentsIdx": [
+                        4,
+                        16,
+                        8,
+                        17
+                      ],
+                      "siblingIndex": 0,
+                      "tag": "Untagged",
+                      "layer": 5,
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "endtext",
+                  "isActive": true,
+                  "componentsIdx": [
+                    4,
+                    8,
+                    14
+                  ],
+                  "siblingIndex": 2,
+                  "tag": "Untagged",
+                  "layer": 5,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "PausePanel",
+              "isActive": false,
+              "componentsIdx": [
+                4,
+                8,
+                9
+              ],
+              "siblingIndex": 4,
+              "tag": "Untagged",
+              "layer": 0,
+              "children": [
+                {
+                  "name": "ButtonGroup",
+                  "isActive": true,
+                  "componentsIdx": [
+                    4,
+                    18
+                  ],
+                  "siblingIndex": 0,
+                  "tag": "Untagged",
+                  "layer": 0,
+                  "children": [
+                    {
+                      "name": "BtnResume",
+                      "isActive": true,
+                      "componentsIdx": [
+                        4,
+                        8,
+                        14,
+                        19
+                      ],
+                      "siblingIndex": 0,
+                      "tag": "Untagged",
+                      "layer": 0,
+                      "children": []
+                    },
+                    {
+                      "name": "BtnTitle",
+                      "isActive": true,
+                      "componentsIdx": [
+                        4,
+                        8,
+                        14,
+                        19
+                      ],
+                      "siblingIndex": 1,
+                      "tag": "Untagged",
+                      "layer": 0,
+                      "children": []
+                    },
+                    {
+                      "name": "BtnSound",
+                      "isActive": true,
+                      "componentsIdx": [
+                        4,
+                        8,
+                        14,
+                        19
+                      ],
+                      "siblingIndex": 2,
+                      "tag": "Untagged",
+                      "layer": 0,
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "SoundSettingsPanel",
+                  "isActive": true,
+                  "componentsIdx": [
+                    4,
+                    8,
+                    9,
+                    20
+                  ],
+                  "siblingIndex": 1,
+                  "tag": "Untagged",
+                  "layer": 0,
+                  "children": [
+                    {
+                      "name": "SoundTitle",
+                      "isActive": true,
+                      "componentsIdx": [
+                        4,
+                        8,
+                        14
+                      ],
+                      "siblingIndex": 0,
+                      "tag": "Untagged",
+                      "layer": 0,
+                      "children": []
+                    },
+                    {
+                      "name": "Row_Master",
+                      "isActive": true,
+                      "componentsIdx": [
+                        4
+                      ],
+                      "siblingIndex": 1,
+                      "tag": "Untagged",
+                      "layer": 0,
+                      "children": [
+                        {
+                          "name": "Label",
+                          "isActive": true,
+                          "componentsIdx": [
+                            4,
+                            8,
+                            14
+                          ],
+                          "siblingIndex": 0,
+                          "tag": "Untagged",
+                          "layer": 0,
+                          "children": []
+                        },
+                        {
+                          "name": "Slider",
+                          "isActive": true,
+                          "componentsIdx": [
+                            4,
+                            13
+                          ],
+                          "siblingIndex": 1,
+                          "tag": "Untagged",
+                          "layer": 0,
+                          "children": [
+                            {
+                              "name": "Background",
+                              "isActive": true,
+                              "componentsIdx": [
+                                4,
+                                8,
+                                9
+                              ],
+                              "siblingIndex": 0,
+                              "tag": "Untagged",
+                              "layer": 0,
+                              "children": []
+                            },
+                            {
+                              "name": "Fill Area",
+                              "isActive": true,
+                              "componentsIdx": [
+                                4
+                              ],
+                              "siblingIndex": 1,
+                              "tag": "Untagged",
+                              "layer": 0,
+                              "children": [
+                                {
+                                  "name": "Fill",
+                                  "isActive": true,
+                                  "componentsIdx": [
+                                    4,
+                                    8,
+                                    9
+                                  ],
+                                  "siblingIndex": 0,
+                                  "tag": "Untagged",
+                                  "layer": 0,
+                                  "children": []
+                                }
+                              ]
+                            },
+                            {
+                              "name": "Handle Slide Area",
+                              "isActive": true,
+                              "componentsIdx": [
+                                4
+                              ],
+                              "siblingIndex": 2,
+                              "tag": "Untagged",
+                              "layer": 0,
+                              "children": [
+                                {
+                                  "name": "Handle",
+                                  "isActive": true,
+                                  "componentsIdx": [
+                                    4,
+                                    8,
+                                    9
+                                  ],
+                                  "siblingIndex": 0,
+                                  "tag": "Untagged",
+                                  "layer": 0,
+                                  "children": []
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Row_BGM",
+                      "isActive": true,
+                      "componentsIdx": [
+                        4
+                      ],
+                      "siblingIndex": 2,
+                      "tag": "Untagged",
+                      "layer": 0,
+                      "children": [
+                        {
+                          "name": "Label",
+                          "isActive": true,
+                          "componentsIdx": [
+                            4,
+                            8,
+                            14
+                          ],
+                          "siblingIndex": 0,
+                          "tag": "Untagged",
+                          "layer": 0,
+                          "children": []
+                        },
+                        {
+                          "name": "Slider",
+                          "isActive": true,
+                          "componentsIdx": [
+                            4,
+                            13
+                          ],
+                          "siblingIndex": 1,
+                          "tag": "Untagged",
+                          "layer": 0,
+                          "children": [
+                            {
+                              "name": "Background",
+                              "isActive": true,
+                              "componentsIdx": [
+                                4,
+                                8,
+                                9
+                              ],
+                              "siblingIndex": 0,
+                              "tag": "Untagged",
+                              "layer": 0,
+                              "children": []
+                            },
+                            {
+                              "name": "Fill Area",
+                              "isActive": true,
+                              "componentsIdx": [
+                                4
+                              ],
+                              "siblingIndex": 1,
+                              "tag": "Untagged",
+                              "layer": 0,
+                              "children": [
+                                {
+                                  "name": "Fill",
+                                  "isActive": true,
+                                  "componentsIdx": [
+                                    4,
+                                    8,
+                                    9
+                                  ],
+                                  "siblingIndex": 0,
+                                  "tag": "Untagged",
+                                  "layer": 0,
+                                  "children": []
+                                }
+                              ]
+                            },
+                            {
+                              "name": "Handle Slide Area",
+                              "isActive": true,
+                              "componentsIdx": [
+                                4
+                              ],
+                              "siblingIndex": 2,
+                              "tag": "Untagged",
+                              "layer": 0,
+                              "children": [
+                                {
+                                  "name": "Handle",
+                                  "isActive": true,
+                                  "componentsIdx": [
+                                    4,
+                                    8,
+                                    9
+                                  ],
+                                  "siblingIndex": 0,
+                                  "tag": "Untagged",
+                                  "layer": 0,
+                                  "children": []
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Row_SE",
+                      "isActive": true,
+                      "componentsIdx": [
+                        4
+                      ],
+                      "siblingIndex": 3,
+                      "tag": "Untagged",
+                      "layer": 0,
+                      "children": [
+                        {
+                          "name": "Label",
+                          "isActive": true,
+                          "componentsIdx": [
+                            4,
+                            8,
+                            14
+                          ],
+                          "siblingIndex": 0,
+                          "tag": "Untagged",
+                          "layer": 0,
+                          "children": []
+                        },
+                        {
+                          "name": "Slider",
+                          "isActive": true,
+                          "componentsIdx": [
+                            4,
+                            13
+                          ],
+                          "siblingIndex": 1,
+                          "tag": "Untagged",
+                          "layer": 0,
+                          "children": [
+                            {
+                              "name": "Background",
+                              "isActive": true,
+                              "componentsIdx": [
+                                4,
+                                8,
+                                9
+                              ],
+                              "siblingIndex": 0,
+                              "tag": "Untagged",
+                              "layer": 0,
+                              "children": []
+                            },
+                            {
+                              "name": "Fill Area",
+                              "isActive": true,
+                              "componentsIdx": [
+                                4
+                              ],
+                              "siblingIndex": 1,
+                              "tag": "Untagged",
+                              "layer": 0,
+                              "children": [
+                                {
+                                  "name": "Fill",
+                                  "isActive": true,
+                                  "componentsIdx": [
+                                    4,
+                                    8,
+                                    9
+                                  ],
+                                  "siblingIndex": 0,
+                                  "tag": "Untagged",
+                                  "layer": 0,
+                                  "children": []
+                                }
+                              ]
+                            },
+                            {
+                              "name": "Handle Slide Area",
+                              "isActive": true,
+                              "componentsIdx": [
+                                4
+                              ],
+                              "siblingIndex": 2,
+                              "tag": "Untagged",
+                              "layer": 0,
+                              "children": [
+                                {
+                                  "name": "Handle",
+                                  "isActive": true,
+                                  "componentsIdx": [
+                                    4,
+                                    8,
+                                    9
+                                  ],
+                                  "siblingIndex": 0,
+                                  "tag": "Untagged",
+                                  "layer": 0,
+                                  "children": []
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Cursor",
+          "isActive": true,
+          "componentsIdx": [
+            0,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26
+          ],
+          "siblingIndex": 2,
+          "tag": "Cursor",
+          "layer": 13,
+          "children": [
+            {
+              "name": "cursol_rainbow",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                21,
+                27
+              ],
+              "siblingIndex": 0,
+              "tag": "Untagged",
+              "layer": 0,
+              "children": []
+            },
+            {
+              "name": "Shovel",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                21,
+                28
+              ],
+              "siblingIndex": 1,
+              "tag": "Untagged",
+              "layer": 0,
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Robot",
+          "isActive": true,
+          "componentsIdx": [
+            0,
+            21,
+            24,
+            29,
+            30,
+            31,
+            26
+          ],
+          "siblingIndex": 3,
+          "tag": "Player",
+          "layer": 10,
+          "children": [
+            {
+              "name": "robot_rainbow",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                21,
+                27
+              ],
+              "siblingIndex": 0,
+              "tag": "Untagged",
+              "layer": 0,
+              "children": []
+            },
+            {
+              "name": "Main Camera",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                1,
+                3,
+                32,
+                33
+              ],
+              "siblingIndex": 1,
+              "tag": "MainCamera",
+              "layer": 0,
+              "children": []
+            },
+            {
+              "name": "CenterObject",
+              "isActive": true,
+              "componentsIdx": [
+                0
+              ],
+              "siblingIndex": 2,
+              "tag": "Untagged",
+              "layer": 0,
+              "children": []
+            },
+            {
+              "name": "forlinws_circle",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                21
+              ],
+              "siblingIndex": 3,
+              "tag": "Untagged",
+              "layer": 0,
+              "children": []
+            },
+            {
+              "name": "LeftButton",
+              "isActive": true,
+              "componentsIdx": [
+                4,
+                21,
+                29,
+                34,
+                35
+              ],
+              "siblingIndex": 4,
+              "tag": "Untagged",
+              "layer": 0,
+              "children": []
+            },
+            {
+              "name": "PauseButton",
+              "isActive": true,
+              "componentsIdx": [
+                4,
+                21,
+                29,
+                34,
+                35
+              ],
+              "siblingIndex": 5,
+              "tag": "Untagged",
+              "layer": 0,
+              "children": []
+            },
+            {
+              "name": "RightButton",
+              "isActive": true,
+              "componentsIdx": [
+                4,
+                21,
+                29,
+                34,
+                35
+              ],
+              "siblingIndex": 6,
+              "tag": "Untagged",
+              "layer": 0,
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "firstfloor",
+          "isActive": true,
+          "componentsIdx": [
+            0
+          ],
+          "siblingIndex": 4,
+          "tag": "Untagged",
+          "layer": 0,
+          "children": [
+            {
+              "name": "Grid",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                36,
+                37
+              ],
+              "siblingIndex": 0,
+              "tag": "Untagged",
+              "layer": 0,
+              "children": [
+                {
+                  "name": "Ground",
+                  "isActive": false,
+                  "componentsIdx": [
+                    0,
+                    38,
+                    39,
+                    40
+                  ],
+                  "siblingIndex": 0,
+                  "tag": "Ground",
+                  "layer": 7,
+                  "children": []
+                },
+                {
+                  "name": "DigsquareParent",
+                  "isActive": true,
+                  "componentsIdx": [
+                    0
+                  ],
+                  "siblingIndex": 1,
+                  "tag": "Untagged",
+                  "layer": 6,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "GameManager",
+          "isActive": true,
+          "componentsIdx": [
+            0,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47
+          ],
+          "siblingIndex": 5,
+          "tag": "Untagged",
+          "layer": 0,
+          "children": []
+        },
+        {
+          "name": "EventSystem",
+          "isActive": true,
+          "componentsIdx": [
+            0,
+            48,
+            49
+          ],
+          "siblingIndex": 6,
+          "tag": "Untagged",
+          "layer": 0,
+          "children": []
+        },
+        {
+          "name": "GemManager",
+          "isActive": false,
+          "componentsIdx": [
+            0,
+            50
+          ],
+          "siblingIndex": 7,
+          "tag": "Untagged",
+          "layer": 0,
+          "children": []
+        },
+        {
+          "name": "BarManager",
+          "isActive": true,
+          "componentsIdx": [
+            0,
+            51,
+            52
+          ],
+          "siblingIndex": 8,
+          "tag": "Untagged",
+          "layer": 0,
+          "children": []
+        },
+        {
+          "name": "EnemyBulletManager",
+          "isActive": false,
+          "componentsIdx": [
+            0,
+            53
+          ],
+          "siblingIndex": 9,
+          "tag": "Untagged",
+          "layer": 0,
+          "children": []
+        },
+        {
+          "name": "Enemy3Manager",
+          "isActive": false,
+          "componentsIdx": [
+            0,
+            54
+          ],
+          "siblingIndex": 10,
+          "tag": "Untagged",
+          "layer": 0,
+          "children": []
+        },
+        {
+          "name": "GemsParent",
+          "isActive": false,
+          "componentsIdx": [
+            0
+          ],
+          "siblingIndex": 11,
+          "tag": "Untagged",
+          "layer": 9,
+          "children": [
+            {
+              "name": "ChargeEnergyGem",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                21,
+                24,
+                55,
+                29,
+                56
+              ],
+              "siblingIndex": 0,
+              "tag": "Untagged",
+              "layer": 12,
+              "children": []
+            },
+            {
+              "name": "AttackGem",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                21,
+                24,
+                57,
+                29,
+                56
+              ],
+              "siblingIndex": 1,
+              "tag": "Untagged",
+              "layer": 12,
+              "children": []
+            },
+            {
+              "name": "AttackGem (1)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                21,
+                24,
+                57,
+                29,
+                56
+              ],
+              "siblingIndex": 2,
+              "tag": "Untagged",
+              "layer": 12,
+              "children": []
+            },
+            {
+              "name": "MoveSpeedGem",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                21,
+                24,
+                58,
+                29,
+                56
+              ],
+              "siblingIndex": 3,
+              "tag": "Untagged",
+              "layer": 12,
+              "children": []
+            },
+            {
+              "name": "MoveSpeedGem (1)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                21,
+                24,
+                58,
+                29,
+                56
+              ],
+              "siblingIndex": 4,
+              "tag": "Untagged",
+              "layer": 12,
+              "children": []
+            },
+            {
+              "name": "ViewRangeGem",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                21,
+                24,
+                59,
+                29,
+                56
+              ],
+              "siblingIndex": 5,
+              "tag": "Untagged",
+              "layer": 12,
+              "children": []
+            },
+            {
+              "name": "AttackGem",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                21,
+                24,
+                57,
+                29,
+                56
+              ],
+              "siblingIndex": 6,
+              "tag": "Untagged",
+              "layer": 12,
+              "children": []
+            },
+            {
+              "name": "ChargeEnergyGem",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                21,
+                24,
+                55,
+                29,
+                56
+              ],
+              "siblingIndex": 7,
+              "tag": "Untagged",
+              "layer": 12,
+              "children": []
+            },
+            {
+              "name": "MoveSpeedGem",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                21,
+                24,
+                58,
+                29,
+                56
+              ],
+              "siblingIndex": 8,
+              "tag": "Untagged",
+              "layer": 12,
+              "children": []
+            },
+            {
+              "name": "ViewRangeGem (1)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                21,
+                24,
+                59,
+                29,
+                56
+              ],
+              "siblingIndex": 9,
+              "tag": "Untagged",
+              "layer": 12,
+              "children": []
+            },
+            {
+              "name": "MoveSpeedGem (1)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                21,
+                24,
+                58,
+                29,
+                56
+              ],
+              "siblingIndex": 10,
+              "tag": "Untagged",
+              "layer": 12,
+              "children": []
+            },
+            {
+              "name": "AttackGem (1)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                21,
+                24,
+                57,
+                29,
+                56
+              ],
+              "siblingIndex": 11,
+              "tag": "Untagged",
+              "layer": 12,
+              "children": []
+            },
+            {
+              "name": "ViewRangeGem (2)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                21,
+                24,
+                59,
+                29,
+                56
+              ],
+              "siblingIndex": 12,
+              "tag": "Untagged",
+              "layer": 12,
+              "children": []
+            },
+            {
+              "name": "AttackGem (2)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                21,
+                24,
+                57,
+                29,
+                56
+              ],
+              "siblingIndex": 13,
+              "tag": "Untagged",
+              "layer": 12,
+              "children": []
+            },
+            {
+              "name": "MoveSpeedGem (2)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                21,
+                24,
+                58,
+                29,
+                56
+              ],
+              "siblingIndex": 14,
+              "tag": "Untagged",
+              "layer": 12,
+              "children": []
+            },
+            {
+              "name": "ViewRangeGem (3)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                21,
+                24,
+                59,
+                29,
+                56
+              ],
+              "siblingIndex": 15,
+              "tag": "Untagged",
+              "layer": 12,
+              "children": []
+            },
+            {
+              "name": "MoveSpeedGem (3)",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                21,
+                24,
+                58,
+                29,
+                56
+              ],
+              "siblingIndex": 16,
+              "tag": "Untagged",
+              "layer": 12,
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "enemyParent",
+          "isActive": false,
+          "componentsIdx": [
+            0
+          ],
+          "siblingIndex": 12,
+          "tag": "Untagged",
+          "layer": 0,
+          "children": [
+            {
+              "name": "Enemy1",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                24,
+                29,
+                60,
+                61,
+                62,
+                63
+              ],
+              "siblingIndex": 0,
+              "tag": "Enemy",
+              "layer": 9,
+              "children": [
+                {
+                  "name": "HPUI",
+                  "isActive": true,
+                  "componentsIdx": [
+                    4,
+                    5,
+                    6,
+                    7
+                  ],
+                  "siblingIndex": 0,
+                  "tag": "Untagged",
+                  "layer": 5,
+                  "children": [
+                    {
+                      "name": "HPBar",
+                      "isActive": true,
+                      "componentsIdx": [
+                        4,
+                        13
+                      ],
+                      "siblingIndex": 0,
+                      "tag": "Untagged",
+                      "layer": 5,
+                      "children": [
+                        {
+                          "name": "Background",
+                          "isActive": true,
+                          "componentsIdx": [
+                            4,
+                            8,
+                            9
+                          ],
+                          "siblingIndex": 0,
+                          "tag": "Untagged",
+                          "layer": 5,
+                          "children": []
+                        },
+                        {
+                          "name": "Fill Area",
+                          "isActive": true,
+                          "componentsIdx": [
+                            4
+                          ],
+                          "siblingIndex": 1,
+                          "tag": "Untagged",
+                          "layer": 5,
+                          "children": [
+                            {
+                              "name": "Fill",
+                              "isActive": true,
+                              "componentsIdx": [
+                                4,
+                                8,
+                                9
+                              ],
+                              "siblingIndex": 0,
+                              "tag": "Untagged",
+                              "layer": 5,
+                              "children": []
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "Sprite",
+                  "isActive": true,
+                  "componentsIdx": [
+                    0,
+                    21
+                  ],
+                  "siblingIndex": 1,
+                  "tag": "Untagged",
+                  "layer": 9,
+                  "children": []
+                },
+                {
+                  "name": "BoxcolForFall",
+                  "isActive": true,
+                  "componentsIdx": [
+                    0,
+                    29
+                  ],
+                  "siblingIndex": 2,
+                  "tag": "Untagged",
+                  "layer": 0,
+                  "children": []
+                },
+                {
+                  "name": "BoxcolForAttack",
+                  "isActive": true,
+                  "componentsIdx": [
+                    0,
+                    29,
+                    64
+                  ],
+                  "siblingIndex": 3,
+                  "tag": "Untagged",
+                  "layer": 11,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "name": "Enemy3 ",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                21,
+                65,
+                24,
+                29,
+                66,
+                60,
+                63,
+                62
+              ],
+              "siblingIndex": 1,
+              "tag": "Enemy",
+              "layer": 9,
+              "children": [
+                {
+                  "name": "HPUI",
+                  "isActive": true,
+                  "componentsIdx": [
+                    4,
+                    5,
+                    6,
+                    7
+                  ],
+                  "siblingIndex": 0,
+                  "tag": "Untagged",
+                  "layer": 5,
+                  "children": [
+                    {
+                      "name": "HPBar",
+                      "isActive": true,
+                      "componentsIdx": [
+                        4,
+                        13
+                      ],
+                      "siblingIndex": 0,
+                      "tag": "Untagged",
+                      "layer": 5,
+                      "children": [
+                        {
+                          "name": "Background",
+                          "isActive": true,
+                          "componentsIdx": [
+                            4,
+                            8,
+                            9
+                          ],
+                          "siblingIndex": 0,
+                          "tag": "Untagged",
+                          "layer": 5,
+                          "children": []
+                        },
+                        {
+                          "name": "Fill Area",
+                          "isActive": true,
+                          "componentsIdx": [
+                            4
+                          ],
+                          "siblingIndex": 1,
+                          "tag": "Untagged",
+                          "layer": 5,
+                          "children": [
+                            {
+                              "name": "Fill",
+                              "isActive": true,
+                              "componentsIdx": [
+                                4,
+                                8,
+                                9
+                              ],
+                              "siblingIndex": 0,
+                              "tag": "Untagged",
+                              "layer": 5,
+                              "children": []
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Enemy3 ",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                21,
+                65,
+                24,
+                29,
+                66,
+                60,
+                63,
+                62
+              ],
+              "siblingIndex": 2,
+              "tag": "Enemy",
+              "layer": 9,
+              "children": [
+                {
+                  "name": "HPUI",
+                  "isActive": true,
+                  "componentsIdx": [
+                    4,
+                    5,
+                    6,
+                    7
+                  ],
+                  "siblingIndex": 0,
+                  "tag": "Untagged",
+                  "layer": 5,
+                  "children": [
+                    {
+                      "name": "HPBar",
+                      "isActive": true,
+                      "componentsIdx": [
+                        4,
+                        13
+                      ],
+                      "siblingIndex": 0,
+                      "tag": "Untagged",
+                      "layer": 5,
+                      "children": [
+                        {
+                          "name": "Background",
+                          "isActive": true,
+                          "componentsIdx": [
+                            4,
+                            8,
+                            9
+                          ],
+                          "siblingIndex": 0,
+                          "tag": "Untagged",
+                          "layer": 5,
+                          "children": []
+                        },
+                        {
+                          "name": "Fill Area",
+                          "isActive": true,
+                          "componentsIdx": [
+                            4
+                          ],
+                          "siblingIndex": 1,
+                          "tag": "Untagged",
+                          "layer": 5,
+                          "children": [
+                            {
+                              "name": "Fill",
+                              "isActive": true,
+                              "componentsIdx": [
+                                4,
+                                8,
+                                9
+                              ],
+                              "siblingIndex": 0,
+                              "tag": "Untagged",
+                              "layer": 5,
+                              "children": []
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Enemy3 ",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                21,
+                65,
+                24,
+                29,
+                66,
+                60,
+                63,
+                62
+              ],
+              "siblingIndex": 3,
+              "tag": "Enemy",
+              "layer": 9,
+              "children": [
+                {
+                  "name": "HPUI",
+                  "isActive": true,
+                  "componentsIdx": [
+                    4,
+                    5,
+                    6,
+                    7
+                  ],
+                  "siblingIndex": 0,
+                  "tag": "Untagged",
+                  "layer": 5,
+                  "children": [
+                    {
+                      "name": "HPBar",
+                      "isActive": true,
+                      "componentsIdx": [
+                        4,
+                        13
+                      ],
+                      "siblingIndex": 0,
+                      "tag": "Untagged",
+                      "layer": 5,
+                      "children": [
+                        {
+                          "name": "Background",
+                          "isActive": true,
+                          "componentsIdx": [
+                            4,
+                            8,
+                            9
+                          ],
+                          "siblingIndex": 0,
+                          "tag": "Untagged",
+                          "layer": 5,
+                          "children": []
+                        },
+                        {
+                          "name": "Fill Area",
+                          "isActive": true,
+                          "componentsIdx": [
+                            4
+                          ],
+                          "siblingIndex": 1,
+                          "tag": "Untagged",
+                          "layer": 5,
+                          "children": [
+                            {
+                              "name": "Fill",
+                              "isActive": true,
+                              "componentsIdx": [
+                                4,
+                                8,
+                                9
+                              ],
+                              "siblingIndex": 0,
+                              "tag": "Untagged",
+                              "layer": 5,
+                              "children": []
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Enemy3 ",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                21,
+                65,
+                24,
+                29,
+                66,
+                60,
+                63,
+                62
+              ],
+              "siblingIndex": 4,
+              "tag": "Enemy",
+              "layer": 9,
+              "children": [
+                {
+                  "name": "HPUI",
+                  "isActive": true,
+                  "componentsIdx": [
+                    4,
+                    5,
+                    6,
+                    7
+                  ],
+                  "siblingIndex": 0,
+                  "tag": "Untagged",
+                  "layer": 5,
+                  "children": [
+                    {
+                      "name": "HPBar",
+                      "isActive": true,
+                      "componentsIdx": [
+                        4,
+                        13
+                      ],
+                      "siblingIndex": 0,
+                      "tag": "Untagged",
+                      "layer": 5,
+                      "children": [
+                        {
+                          "name": "Background",
+                          "isActive": true,
+                          "componentsIdx": [
+                            4,
+                            8,
+                            9
+                          ],
+                          "siblingIndex": 0,
+                          "tag": "Untagged",
+                          "layer": 5,
+                          "children": []
+                        },
+                        {
+                          "name": "Fill Area",
+                          "isActive": true,
+                          "componentsIdx": [
+                            4
+                          ],
+                          "siblingIndex": 1,
+                          "tag": "Untagged",
+                          "layer": 5,
+                          "children": [
+                            {
+                              "name": "Fill",
+                              "isActive": true,
+                              "componentsIdx": [
+                                4,
+                                8,
+                                9
+                              ],
+                              "siblingIndex": 0,
+                              "tag": "Untagged",
+                              "layer": 5,
+                              "children": []
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Enemy2",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                21,
+                24,
+                29,
+                67,
+                60,
+                62,
+                63
+              ],
+              "siblingIndex": 5,
+              "tag": "Enemy",
+              "layer": 9,
+              "children": [
+                {
+                  "name": "HPUI",
+                  "isActive": true,
+                  "componentsIdx": [
+                    4,
+                    5,
+                    6,
+                    7
+                  ],
+                  "siblingIndex": 0,
+                  "tag": "Untagged",
+                  "layer": 5,
+                  "children": [
+                    {
+                      "name": "HPBar",
+                      "isActive": true,
+                      "componentsIdx": [
+                        4,
+                        13
+                      ],
+                      "siblingIndex": 0,
+                      "tag": "Untagged",
+                      "layer": 5,
+                      "children": [
+                        {
+                          "name": "Background",
+                          "isActive": true,
+                          "componentsIdx": [
+                            4,
+                            8,
+                            9
+                          ],
+                          "siblingIndex": 0,
+                          "tag": "Untagged",
+                          "layer": 5,
+                          "children": []
+                        },
+                        {
+                          "name": "Fill Area",
+                          "isActive": true,
+                          "componentsIdx": [
+                            4
+                          ],
+                          "siblingIndex": 1,
+                          "tag": "Untagged",
+                          "layer": 5,
+                          "children": [
+                            {
+                              "name": "Fill",
+                              "isActive": true,
+                              "componentsIdx": [
+                                4,
+                                8,
+                                9
+                              ],
+                              "siblingIndex": 0,
+                              "tag": "Untagged",
+                              "layer": 5,
+                              "children": []
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Enemy2",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                21,
+                24,
+                29,
+                67,
+                60,
+                62,
+                63
+              ],
+              "siblingIndex": 6,
+              "tag": "Enemy",
+              "layer": 9,
+              "children": [
+                {
+                  "name": "HPUI",
+                  "isActive": true,
+                  "componentsIdx": [
+                    4,
+                    5,
+                    6,
+                    7
+                  ],
+                  "siblingIndex": 0,
+                  "tag": "Untagged",
+                  "layer": 5,
+                  "children": [
+                    {
+                      "name": "HPBar",
+                      "isActive": true,
+                      "componentsIdx": [
+                        4,
+                        13
+                      ],
+                      "siblingIndex": 0,
+                      "tag": "Untagged",
+                      "layer": 5,
+                      "children": [
+                        {
+                          "name": "Background",
+                          "isActive": true,
+                          "componentsIdx": [
+                            4,
+                            8,
+                            9
+                          ],
+                          "siblingIndex": 0,
+                          "tag": "Untagged",
+                          "layer": 5,
+                          "children": []
+                        },
+                        {
+                          "name": "Fill Area",
+                          "isActive": true,
+                          "componentsIdx": [
+                            4
+                          ],
+                          "siblingIndex": 1,
+                          "tag": "Untagged",
+                          "layer": 5,
+                          "children": [
+                            {
+                              "name": "Fill",
+                              "isActive": true,
+                              "componentsIdx": [
+                                4,
+                                8,
+                                9
+                              ],
+                              "siblingIndex": 0,
+                              "tag": "Untagged",
+                              "layer": 5,
+                              "children": []
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "A4 - 1 (13)_0",
+          "isActive": false,
+          "componentsIdx": [
+            0,
+            21
+          ],
+          "siblingIndex": 13,
+          "tag": "Untagged",
+          "layer": 0,
+          "children": [
+            {
+              "name": "GameObject",
+              "isActive": true,
+              "componentsIdx": [
+                0
+              ],
+              "siblingIndex": 0,
+              "tag": "Untagged",
+              "layer": 0,
+              "children": [
+                {
+                  "name": "Text (TMP)",
+                  "isActive": true,
+                  "componentsIdx": [
+                    4,
+                    68,
+                    69
+                  ],
+                  "siblingIndex": 0,
+                  "tag": "Untagged",
+                  "layer": 0,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "SoundManager",
+          "isActive": true,
+          "componentsIdx": [
+            0,
+            70
+          ],
+          "siblingIndex": 14,
+          "tag": "Untagged",
+          "layer": 0,
+          "children": [
+            {
+              "name": "BGM1",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                70,
+                71
+              ],
+              "siblingIndex": 0,
+              "tag": "Untagged",
+              "layer": 0,
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "SeparateTiles",
+          "isActive": true,
+          "componentsIdx": [
+            0
+          ],
+          "siblingIndex": 15,
+          "tag": "Untagged",
+          "layer": 0,
+          "children": []
+        },
+        {
+          "name": "AudioManager",
+          "isActive": true,
+          "componentsIdx": [
+            0,
+            72
+          ],
+          "siblingIndex": 16,
+          "tag": "Untagged",
+          "layer": 0,
+          "children": []
+        },
+        {
+          "name": "Enemy4",
+          "isActive": true,
+          "componentsIdx": [
+            0,
+            24,
+            29,
+            60,
+            61,
+            62,
+            63,
+            73
+          ],
+          "siblingIndex": 17,
+          "tag": "Enemy",
+          "layer": 9,
+          "children": [
+            {
+              "name": "HPUI",
+              "isActive": true,
+              "componentsIdx": [
+                4,
+                5,
+                6,
+                7
+              ],
+              "siblingIndex": 0,
+              "tag": "Untagged",
+              "layer": 5,
+              "children": [
+                {
+                  "name": "HPBar",
+                  "isActive": true,
+                  "componentsIdx": [
+                    4,
+                    13
+                  ],
+                  "siblingIndex": 0,
+                  "tag": "Untagged",
+                  "layer": 5,
+                  "children": [
+                    {
+                      "name": "Background",
+                      "isActive": true,
+                      "componentsIdx": [
+                        4,
+                        8,
+                        9
+                      ],
+                      "siblingIndex": 0,
+                      "tag": "Untagged",
+                      "layer": 5,
+                      "children": []
+                    },
+                    {
+                      "name": "Fill Area",
+                      "isActive": true,
+                      "componentsIdx": [
+                        4
+                      ],
+                      "siblingIndex": 1,
+                      "tag": "Untagged",
+                      "layer": 5,
+                      "children": [
+                        {
+                          "name": "Fill",
+                          "isActive": true,
+                          "componentsIdx": [
+                            4,
+                            8,
+                            9
+                          ],
+                          "siblingIndex": 0,
+                          "tag": "Untagged",
+                          "layer": 5,
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Sprite",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                21
+              ],
+              "siblingIndex": 1,
+              "tag": "Untagged",
+              "layer": 9,
+              "children": []
+            },
+            {
+              "name": "BoxcolForFall",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29
+              ],
+              "siblingIndex": 2,
+              "tag": "Untagged",
+              "layer": 0,
+              "children": []
+            },
+            {
+              "name": "BoxcolForAttack",
+              "isActive": true,
+              "componentsIdx": [
+                0,
+                29,
+                64
+              ],
+              "siblingIndex": 3,
+              "tag": "Untagged",
+              "layer": 11,
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "PauseManager",
+          "isActive": true,
+          "componentsIdx": [
+            0,
+            74
+          ],
+          "siblingIndex": 18,
+          "tag": "Untagged",
+          "layer": 0,
+          "children": []
+        },
+        {
+          "name": "FeverEffectCanvas",
+          "isActive": true,
+          "componentsIdx": [
+            4,
+            5,
+            6,
+            75,
+            76
+          ],
+          "siblingIndex": 19,
+          "tag": "Untagged",
+          "layer": 0,
+          "children": [
+            {
+              "name": "FeverSquare",
+              "isActive": true,
+              "componentsIdx": [
+                4,
+                8,
+                9
+              ],
+              "siblingIndex": 0,
+              "tag": "Untagged",
+              "layer": 0,
+              "children": []
+            },
+            {
+              "name": "FeverSquare",
+              "isActive": true,
+              "componentsIdx": [
+                4,
+                8,
+                9
+              ],
+              "siblingIndex": 1,
+              "tag": "Untagged",
+              "layer": 0,
+              "children": []
+            },
+            {
+              "name": "FeverSquare",
+              "isActive": true,
+              "componentsIdx": [
+                4,
+                8,
+                9
+              ],
+              "siblingIndex": 2,
+              "tag": "Untagged",
+              "layer": 0,
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

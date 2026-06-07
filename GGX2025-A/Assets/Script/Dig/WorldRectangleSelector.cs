@@ -12,6 +12,7 @@ public class WorldRectangleSelector : MonoBehaviour
     [SerializeField] private Transform parentObject;
     [SerializeField] private Transform gameCursorTransform;
     [SerializeField] private Collider2D cursorCol;
+    [SerializeField] private Transform playerTransform;
 
     [Header("UI Blockers")]
     [SerializeField] private List<RectTransform> uiBlockers;
@@ -125,6 +126,16 @@ public class WorldRectangleSelector : MonoBehaviour
                     if (areaSize > sizeThreshold)
                     {
                         requiredEnergy += (areaSize - sizeThreshold) * sizeCostRate;
+                    }
+
+                    // 近距離掘削スキル: キャラに近いほどコスト割引
+                    if (playerTransform != null && SkillManager.Instance != null
+                        && SkillManager.Instance.HasSkill(SkillId.ProximityDigDiscount))
+                    {
+                        float dist = Vector3.Distance(startWorldPos, playerTransform.position);
+                        float proximity = 1f - Mathf.Clamp01(dist / StatusManager.Instance.viewRange_effective);
+                        int stack = SkillManager.Instance.GetStack(SkillId.ProximityDigDiscount);
+                        requiredEnergy *= 1f - proximity * 0.3f * stack;
                     }
 
                     // �G�l���M�[�s���Ȃ�ԐF��
