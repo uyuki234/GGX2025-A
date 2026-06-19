@@ -708,6 +708,7 @@ MonoBehaviour:
   centerObj: {fileID: 1096904054}
   circle: {fileID: 5185113672979405862}
   radius: 10
+  teleportMargin: 0.5
 --- !u!212 &318327499
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3252,6 +3253,7 @@ MonoBehaviour:
   parentObject: {fileID: 0}
   gameCursorTransform: {fileID: 318327500}
   cursorCol: {fileID: 318327495}
+  playerTransform: {fileID: 0}
   uiBlockers:
   - {fileID: 0}
   - {fileID: 0}
@@ -3264,6 +3266,8 @@ MonoBehaviour:
   areaSize: 0
   able: {r: 0, g: 0.6, b: 1, a: 0.6}
   notable: {r: 1, g: 0, b: 0, a: 0.6}
+  discountRange: 5
+  cursorSpriteRenderer: {fileID: 0}
   Slider_front: 0
   Slider_back: 0
   slowTimeScale: 0.2
@@ -3305,6 +3309,7 @@ MonoBehaviour:
   isFEVER: 0
   maxFeverTime: 100
   feverTime: 0
+  feverText: {fileID: 0}
 --- !u!4 &1447367233
 Transform:
   m_ObjectHideFlags: 0
@@ -3397,7 +3402,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 2
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 0a31d3c2e309aef4bb7ac1444a384504, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
