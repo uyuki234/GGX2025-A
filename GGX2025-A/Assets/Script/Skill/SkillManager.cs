@@ -133,7 +133,7 @@ public class SkillManager : SingletonMonoBehavior<SkillManager>
     public static string GetSkillDescription(SkillId id) => id switch
     {
         SkillId.HpRecover            => "最大HPの50%を回復する",
-        SkillId.TimeExtend           => "残り時間を60秒延長する",
+        SkillId.TimeExtend           => "残り時間を20秒延長する",
         SkillId.MoveSpeedUp          => "移動速度が+10%",
         SkillId.AttackUp             => "攻撃力が+10%",
         SkillId.ChargeEnergyUp       => "エネルギー回復速度が+10%",

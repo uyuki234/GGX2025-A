@@ -34,9 +34,10 @@ public class SEManager : MonoBehaviour
         _audioSource.playOnAwake = false;
     }
 
-    public void Play(AudioClip clip)
+    public void Play(AudioClip clip, float volumeScale = 1f)
     {
         if (clip == null) return;
-        _audioSource.PlayOneShot(clip, AudioManager.Instance.seVolume);
+        float individual = AudioManager.Instance.GetSEVolume(clip);
+        _audioSource.PlayOneShot(clip, AudioManager.Instance.seVolume * individual * volumeScale);
     }
 }

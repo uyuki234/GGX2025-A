@@ -4,7 +4,7 @@ public class TimeExtendSkill : ISkillEffect
 {
     public SkillId Id => SkillId.TimeExtend;
 
-    private const float ExtendSeconds = 60f;
+    private const float ExtendSeconds = 20f;
 
     public void OnAcquired(int stack)
     {
